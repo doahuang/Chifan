@@ -1,9 +1,13 @@
 import React from 'react';
 import ReactDOM from'react-dom';
+import Root from './components/Root';
+import configStore from './store/store';
 
-import App from './components/App';
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+document.addEventListener('DOMContentLoaded', () => {
+  const store = configStore();
+  
+  ReactDOM.render(
+    <Root store={store}/>,
+    document.getElementById('root')
+  );
+});
