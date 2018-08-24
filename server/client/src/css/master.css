@@ -1,3 +1,11 @@
+body, ul, li, a {
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  list-style: none;
+  text-decoration: none;
+}
+
 #root {
   position: relative;
   margin: 0 auto;
@@ -10,6 +18,7 @@
   justify-content: space-between;
 }
 
-.header ul {
-  list-style: none;
+.header ul li a:hover {
+  color: blue;
+  text-decoration: underline;
 }
