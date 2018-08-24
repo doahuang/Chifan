@@ -6,6 +6,11 @@ body, ul, li, a {
   text-decoration: none;
 }
 
+a:hover {
+  color: blue;
+  /* text-decoration: underline; */
+}
+
 #root {
   position: relative;
   margin: 0 auto;
@@ -16,11 +21,6 @@ body, ul, li, a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.header ul li a:hover {
-  color: blue;
-  text-decoration: underline;
 }
 
 .landing {

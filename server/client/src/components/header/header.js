@@ -6,10 +6,16 @@ export default class Header extends React.Component {
     this.props.fetchUser();
   }
   
+  loadStatus() {
+    if (this.props.user) {
+      return <a href='/api/logout'>Log out</a>;
+    } else {
+      return <a href='/auth/google'>Log in with Google</a>;
+    }
+  }
+
   render() {
-    let loginStatus = this.props.user ? 
-    <a href='/api/logout'>Log out</a> : 
-    <a href='/auth/google'>Log in with Google</a>;
+    const loginStatus = this.loadStatus();
 
     return (
       <div className='header'>

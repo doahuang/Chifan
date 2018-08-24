@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
   return (
-    <div>
+    <div className='dashboard'>
       <h2>Dashboard</h2>
       <ul>
         <li><Link to='/survey'><h3>New Survey</h3></Link></li>
