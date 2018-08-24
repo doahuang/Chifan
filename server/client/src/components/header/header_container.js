@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import Header from './header';
+import Header from './Header';
 
 import { fetchUser } from '../../actions/userAction';
 
-const msp = ({ auth }) => ({
-  currentUser: auth
+const msp = ({ user }) => ({
+  user
 });
 
 const mdp = dispatch => ({

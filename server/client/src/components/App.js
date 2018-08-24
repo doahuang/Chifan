@@ -2,17 +2,16 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 
 import HeaderContainer from './header/header_container';
-const Dashboard = () => <h1>Dashboard</h1>;
-const Landing = () => <h1>Landing</h1>;
-const Survey = () => <h1>Survey</h1>;
+import Landing from './Landing';
+import Dashboard from './Dashboard';
 
 const App = () => {
   return (
     <div>
       <HeaderContainer />
       <Route exact path='/' render={Landing} />
-      <Route exact path='/surveys' render={Dashboard} />
-      <Route path='/surveys/new' render={Survey} />
+      <Route path='/dashboard' render={Dashboard} />
+      <Route path='/survey' render={() => <h2>Survey</h2>} />
     </div>
   );
 }

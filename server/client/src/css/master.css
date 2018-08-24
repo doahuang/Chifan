@@ -9,7 +9,7 @@ body, ul, li, a {
 #root {
   position: relative;
   margin: 0 auto;
-  width: 70%;
+  width: 50%;
 }
 
 .header {
@@ -21,4 +21,8 @@ body, ul, li, a {
 .header ul li a:hover {
   color: blue;
   text-decoration: underline;
+}
+
+.landing {
+  text-align: center;
 }

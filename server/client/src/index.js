@@ -7,7 +7,6 @@ import './css/master.css';
 
 document.addEventListener('DOMContentLoaded', () => {
   const store = configStore();
-  window.store = store;
 
   ReactDOM.render(
     <Root store={store}/>,
