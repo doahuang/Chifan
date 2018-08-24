@@ -1,0 +1,15 @@
+#root {
+  position: relative;
+  margin: 0 auto;
+  width: 70%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header ul {
+  list-style: none;
+}
