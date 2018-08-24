@@ -23,7 +23,7 @@ export default class Header extends React.Component {
           <h1>Home</h1>
         </Link>
         <ul>
-          <li>{ loginStatus }</li>
+          <li><b>{ loginStatus }</b></li>
         </ul>
       </div>
     );

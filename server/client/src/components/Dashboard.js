@@ -6,7 +6,7 @@ const Dashboard = () => {
     <div className='dashboard'>
       <h2>Dashboard</h2>
       <ul>
-        <li><Link to='/survey'><h3>New Survey</h3></Link></li>
+        <li><Link to='/survey'><b>+ New Survey</b></Link></li>
       </ul>
     </div>
   );
