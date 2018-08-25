@@ -1,24 +1,60 @@
 import React from 'react';
 
-const Survey = () => {
-  return (
-    <div>
-      <h2>New Survey</h2>
-      <form>
-        <label>
-          Title: <input type='text' required/>
-        </label>
-        <label>
-          Recipients: <input type='email' required/>
-        </label>
-        <label>
-          Subject: <input type='text' required/>
-        </label>
-        <textarea placeholder='write something' required></textarea>
-        <button>Submit</button>
-      </form>
-    </div>
-  );
-}
+export default class Survey extends React.Component {
+  constructor(props) {
+    super(props);
 
-export default Survey;
+    this.state = this.initState = {
+      title: '', recipients: '', subject: '', body: ''
+    };
+
+    this.clear = this.clear.bind(this);
+    this.submit = this.submit.bind(this);
+  }
+
+  update(field) {
+    return e => this.setState({ [field]: e.currentTarget.value });
+  }
+
+  submit(e) {
+    e.preventDefault();
+    //
+    this.clear(e);
+  }
+
+  clear(e) {
+    e.preventDefault();
+    this.setState(this.initState);
+  }
+
+  render() {
+    const { title, recipients, subject, body } = this.state;
+
+    return (
+      <div>
+        <h2>New Survey</h2>
+        <form onSubmit={this.submit}>
+          <label>
+            Title: <input onChange={this.update('title')} 
+              value={title} required/>
+          </label>
+          <label>
+            Recipients: <input onChange={this.update('recipients')}
+              value={recipients} type='email' required/>
+          </label>
+          <label>
+            Subject: <input onChange={this.update('subject')}
+              value={subject} required/>
+          </label>
+          <textarea onChange={this.update('body')} 
+            value={body} placeholder='write something' required>
+          </textarea>
+          <div>
+            <button>Submit</button>
+            <button onClick={this.clear}>Clear</button>
+          </div>
+        </form>
+      </div>
+    );
+  }
+}
