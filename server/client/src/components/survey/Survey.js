@@ -41,7 +41,7 @@ class Survey extends React.Component {
           </label>
           <label>
             Recipients: <input onChange={this.update('recipients')}
-              value={recipients} type='email' required/>
+              value={recipients} required/>
           </label>
           <label>
             Subject: <input onChange={this.update('subject')}
