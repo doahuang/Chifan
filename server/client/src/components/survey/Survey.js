@@ -1,6 +1,7 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-export default class Survey extends React.Component {
+class Survey extends React.Component {
   constructor(props) {
     super(props);
 
@@ -18,8 +19,8 @@ export default class Survey extends React.Component {
 
   submit(e) {
     e.preventDefault();
-    //
-    this.clear(e);
+    this.props.submitSurvey(this.state);
+    this.props.history.push('/dashboard');
   }
 
   clear(e) {
@@ -58,3 +59,5 @@ export default class Survey extends React.Component {
     );
   }
 }
+
+export default withRouter(Survey);

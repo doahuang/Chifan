@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import HeaderContainer from './header/header_container';
 import Landing from './Landing';
 import Dashboard from './Dashboard';
-import Survey from './Survey';
+import SurveyContainer from './survey/survey_container';
 
 const App = () => {
   return (
@@ -12,7 +12,7 @@ const App = () => {
       <HeaderContainer />
       <Route exact path='/' render={Landing} />
       <Route path='/dashboard' render={Dashboard} />
-      <Route path='/survey' component={Survey} />
+      <Route path='/survey' component={SurveyContainer} />
     </div>
   );
 }
