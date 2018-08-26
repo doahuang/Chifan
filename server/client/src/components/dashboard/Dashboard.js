@@ -16,7 +16,7 @@ export default class Dashboard extends React.Component {
       <div className='dashboard'>
         <h2>Dashboard</h2>
         <Link to='/survey'><b>+ New Survey</b></Link>
-        <ul className='surveyList'>{ surveyList }</ul>
+        <ul>{ surveyList }</ul>
       </div>
     );
   }

@@ -35,21 +35,22 @@ input, textarea {
   text-align: center;
 }
 
-.surveyList {
+.dashboard ul {
   margin: 20px 0;
   flex-flow: column;
 }
 
-.surveyItem {
+.dashboard ul li {
   border: 1px solid;
-  border-radius: 5px;
   margin: 10px;
   padding: 10px;
-  display: grid;
+  display: flex;
+  justify-content: space-between;
 }
 
-.surveyItem ul {
+.dashboard ul li .buttons {
   display: flex;
+  flex-direction: column;
 }
 
 form {
