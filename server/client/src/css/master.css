@@ -1,19 +1,28 @@
-body, ul, li, a {
+body, ul, li, a, p {
   margin: 0;
   padding: 0;
   color: inherit;
   list-style: none;
   text-decoration: none;
+  font-family: Arial;
 }
 
 a:hover {
   color: blue;
 }
 
+li:hover {
+  color: red;
+}
+
+input, textarea {
+  outline-color: limegreen;
+}
+
 #root {
   position: relative;
   margin: 0 auto;
-  width: 50%;
+  width: 70%;
 }
 
 .header {
@@ -26,6 +35,23 @@ a:hover {
   text-align: center;
 }
 
+.surveyList {
+  margin: 20px 0;
+  flex-flow: column;
+}
+
+.surveyItem {
+  border: 1px solid;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  display: grid;
+}
+
+.surveyItem ul {
+  display: flex;
+}
+
 form {
   display: grid;
 }
@@ -35,12 +61,12 @@ form button {
   margin: 0 10px;
 }
 
-input {
+form input {
   width: 80%;
   margin: 0 0 10px;
 }
 
-textarea {
+form textarea {
   resize: none;
   height: 100px;
   margin: 0 0 10px;

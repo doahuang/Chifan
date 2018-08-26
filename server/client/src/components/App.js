@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 
 import HeaderContainer from './header/header_container';
 import Landing from './Landing';
-import Dashboard from './Dashboard';
+import DashboardContainer from './dashboard/dashboard_container';
 import SurveyContainer from './survey/survey_container';
 
 const App = () => {
@@ -11,7 +11,7 @@ const App = () => {
     <div>
       <HeaderContainer />
       <Route exact path='/' render={Landing} />
-      <Route path='/dashboard' render={Dashboard} />
+      <Route path='/dashboard' component={DashboardContainer} />
       <Route path='/survey' component={SurveyContainer} />
     </div>
   );
