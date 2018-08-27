@@ -10,8 +10,8 @@ module.exports = app => {
   });
 
   app.delete('/api/surveys/:id', requireLogin, async (req, res) => {
-    const survey = await Survey.findByIdAndRemove({ _id: req.params.id });
-    res.send(survey);
+    const survey = await Survey.findOneAndDelete({ _id: req.params.id });
+    res.send(survey.id);
   });
 
   app.post('/api/surveys', requireLogin, async (req, res) => {

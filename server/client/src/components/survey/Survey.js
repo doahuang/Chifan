@@ -19,7 +19,7 @@ class Survey extends React.Component {
 
   submit(e) {
     e.preventDefault();
-    this.props.submitSurvey(this.state);
+    this.props.receiveSurvey(this.state);
     this.props.history.push('/dashboard');
   }
 
