@@ -5,6 +5,9 @@ import configStore from './store/store';
 
 import './css/master.css';
 
+import axios from 'axios';
+window.a = axios;
+
 document.addEventListener('DOMContentLoaded', () => {
   const store = configStore();
   window.s = store;

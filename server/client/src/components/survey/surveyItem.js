@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SurveyItem = ({ survey, removeSurvey }) => {
-  const { title, recipients, subject, body } = survey;
+  const { _id, title, recipients, subject, body } = survey;
   const emails = recipients.map(el => el.email).join(', ');
 
   return (
@@ -13,8 +13,12 @@ const SurveyItem = ({ survey, removeSurvey }) => {
         <p>Body: { body }</p>
       </div>
       <div className='buttons'>
-        <button onClick={() => {}}>Edit</button>
-        <button onClick={() => {}}>Delete</button>
+        <button onClick={() => {}}>
+          Edit
+        </button>
+        <button onClick={() => removeSurvey(_id)}>
+          Delete
+        </button>
       </div>
     </li>
   );

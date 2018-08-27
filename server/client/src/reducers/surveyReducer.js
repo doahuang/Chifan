@@ -1,6 +1,6 @@
 import { 
   FETCH_SURVEYS, 
-  FETCH_SURVEY
+  REMOVE_SURVEY
 } from '../actions/surveyAction';
 
 const surveyReducer = (state = [], action) => {
@@ -9,7 +9,7 @@ const surveyReducer = (state = [], action) => {
   switch (action.type) {
     case FETCH_SURVEYS:
       return action.surveys;
-    case FETCH_SURVEY:
+    case REMOVE_SURVEY:
       return;
     default:
       return state;

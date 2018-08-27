@@ -9,7 +9,8 @@ export default class Dashboard extends React.Component {
   
   render() {
     const surveyList = this.props.surveys.map((el, i) => 
-      <SurveyItem key={i} survey={el} />
+      <SurveyItem key={i} survey={el} 
+        removeSurvey={this.props.removeSurvey} />
     );
   
     return (
