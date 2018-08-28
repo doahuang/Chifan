@@ -6,7 +6,7 @@ import {
 const modalReducer = (state = null, action) => {
   Object.freeze(state);
 
-  switch (aciton.type) {
+  switch (action.type) {
     case OPEN_MODAL:
       return action.modal;
     case CLOSE_MODAL:
@@ -16,4 +16,4 @@ const modalReducer = (state = null, action) => {
   }
 };
 
-export default modelReducer;
+export default modalReducer;
