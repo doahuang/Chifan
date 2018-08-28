@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import SurveyItem from '../survey/surveyItem';
 
 export default class Dashboard extends React.Component {
@@ -16,8 +15,12 @@ export default class Dashboard extends React.Component {
     return (
       <div className='dashboard'>
         <h2>Dashboard</h2>
-        <Link to='/survey'><b>+ New Survey</b></Link>
         <ul>{ surveyList }</ul>
+        <div className='add'>
+          <span onClick={() => this.props.openModal('survey')}>
+            +
+          </span>
+        </div>
       </div>
     );
   }

@@ -12,10 +12,7 @@ const SurveyItem = ({ survey, removeSurvey }) => {
         <p>Subject: { subject }</p>
         <p>Body: { body }</p>
       </div>
-      <div className='buttons'>
-        <button onClick={() => {}}>
-          Edit
-        </button>
+      <div>
         <button onClick={() => removeSurvey(_id)}>
           Delete
         </button>

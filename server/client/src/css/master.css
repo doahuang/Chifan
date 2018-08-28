@@ -1,22 +1,19 @@
-body, ul, li, a, p {
+body, ul, li, a, p, input, textarea, button {
   margin: 0;
   padding: 0;
   color: inherit;
   list-style: none;
   text-decoration: none;
   font-family: Arial;
+  font-size: 20px;
 }
 
 a:hover {
-  color: blue;
+  color: lightskyblue;
 }
 
-li:hover {
-  color: red;
-}
-
-input, textarea {
-  outline-color: limegreen;
+input, textarea, button {
+  padding: 10px;
 }
 
 #root {
@@ -35,40 +32,76 @@ input, textarea {
   text-align: center;
 }
 
+.dashboard .add {
+  text-align: right;
+}
+
+.dashboard span:hover {
+  background: lightskyblue;
+}
+
+.dashboard span {
+  display: inline-block;
+  color: white;
+  background: red;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 50px;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+
 .dashboard ul {
   margin: 20px 0;
   flex-flow: column;
 }
 
-.dashboard ul li {
-  border: 1px solid;
-  margin: 10px;
-  padding: 10px;
+.dashboard li {
+  margin: 20px 0;
+  padding: 20px;
   display: flex;
   justify-content: space-between;
 }
 
-.dashboard ul li .buttons {
-  display: flex;
-  flex-direction: column;
+.dashboard li:hover {
+  background: lightskyblue;
 }
 
-form {
+.survey {
+  padding: 20px 50px 50px;
+  width: 500px;
+  background: white;
+}
+
+.survey form {
   display: grid;
 }
 
-form button {
-  width: 45%;
-  margin: 0 10px;
+.survey input {
+  width: 95%;
+  margin: 10px 0;
 }
 
-form input {
-  width: 80%;
-  margin: 0 0 10px;
-}
-
-form textarea {
+.survey textarea {
   resize: none;
   height: 100px;
-  margin: 0 0 10px;
+  margin: 10px 0 20px;
+}
+
+.modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

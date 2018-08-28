@@ -1,15 +1,13 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 
-class SurveyForm extends React.Component {
+export default class SurveyForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = this.initState = {
+    this.state = {
       title: '', recipients: '', subject: '', body: ''
     };
 
-    this.clear = this.clear.bind(this);
     this.submit = this.submit.bind(this);
   }
 
@@ -20,19 +18,14 @@ class SurveyForm extends React.Component {
   submit(e) {
     e.preventDefault();
     this.props.receiveSurvey(this.state);
-    this.props.history.push('/dashboard');
-  }
-
-  clear(e) {
-    e.preventDefault();
-    this.setState(this.initState);
+    this.props.closeModal();
   }
 
   render() {
     const { title, recipients, subject, body } = this.state;
 
     return (
-      <div>
+      <div className='survey'>
         <h2>New Survey</h2>
         <form onSubmit={this.submit}>
           <label>
@@ -50,14 +43,9 @@ class SurveyForm extends React.Component {
           <textarea onChange={this.update('body')} 
             value={body} placeholder='write something' required>
           </textarea>
-          <div>
-            <button>Submit</button>
-            <button onClick={this.clear}>Clear</button>
-          </div>
+          <button>Submit</button>
         </form>
       </div>
     );
   }
 }
-
-export default withRouter(SurveyForm);
