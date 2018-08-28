@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-class Survey extends React.Component {
+class SurveyForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -60,4 +60,4 @@ class Survey extends React.Component {
   }
 }
 
-export default withRouter(Survey);
+export default withRouter(SurveyForm);
