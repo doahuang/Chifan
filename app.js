@@ -1,8 +1,13 @@
 const express = require('express');
+const mongoose = require('mongoose');
+
+const db = require('./config/keys').mongoURI;
+mongoose.connect(db).then(() => console.log('Connected to db'));
+
 const app = express();
 
 app.get('/',(req, res) => {
-  res.send('hello world!');
+  res.send('Hello World!');
 });
 
 const port = process.env.PORT || 5000;
