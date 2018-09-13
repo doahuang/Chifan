@@ -1,0 +1,26 @@
+{
+  "name": "Eat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doahuang/mern-demo.git"
+  },
+  "keywords": [],
+  "author": "doahuang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/doahuang/mern-demo/issues"
+  },
+  "homepage": "https://github.com/doahuang/mern-demo#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.14"
+  }
+}
