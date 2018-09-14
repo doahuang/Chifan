@@ -1,3 +1,4 @@
+import bcrypt from 'bcryptjs';
 import User from '../models/user';
 
 export const getUsers = async (req, res) => {
@@ -17,5 +18,12 @@ export const addUser = async (req, res) => {
     email,
     password
   });
-  user.save();
+
+  bcrypt.hash(user.password, 10, (err, hash) => {
+    if (err) throw err;
+
+    user.password = hash;
+    user.save();
+    return res.json(user);
+  });
 };
