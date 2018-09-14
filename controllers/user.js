@@ -1,9 +1,12 @@
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+
+import keys from '../config/keys';
 import User from '../models/user';
 
 export const getUsers = async (req, res) => {
   const users = await User.find({});
-  return res.json(users);
+  res.json(users);
 };
 
 export const getUser = async (req, res) => {
@@ -16,9 +19,9 @@ export const getUser = async (req, res) => {
 
   bcrypt.compare(password, user.password, (err, success) => {
     if (success) {
-      return res.json({ msg: 'Welcome' });
+      signToken(user, keys, res);
     } else {
-      return res.status(400).json({ err: 'Authentication failed' });
+      res.status(400).json({ err: 'Authentication failed' });
     }
   });
 };
@@ -30,7 +33,7 @@ export const addUser = async (req, res) => {
   }
 
   const { name, email, password } = req.body;
-  user = new User({
+  user = await new User({
     name,
     email,
     password
@@ -40,6 +43,16 @@ export const addUser = async (req, res) => {
     if (err) throw err;
 
     user.password = hash;
-    user.save();
+    user.save()
+      .then(() => signToken(user, keys, res))
+      .catch(err => res.json(err));
+  });
+};
+
+const signToken = (user, keys, res) => {
+  const payload = { id: user.id };
+
+  jwt.sign(payload, keys.secret, { expiresIn: 3600 * 24 }, (err, token) => {
+    res.json({ token });
   });
 };
