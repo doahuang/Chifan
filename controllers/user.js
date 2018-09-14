@@ -6,6 +6,23 @@ export const getUsers = async (req, res) => {
   return res.json(users);
 };
 
+export const getUser = async (req, res) => {
+  const { email, password } = req.body;
+
+  let user = await User.findOne({ email });
+  if (!user) {
+    return res.status(400).json({ err: 'User not found' });
+  }
+
+  bcrypt.compare(password, user.password, (err, success) => {
+    if (success) {
+      return res.json({ msg: 'Welcome' });
+    } else {
+      return res.status(400).json({ err: 'Authentication failed' });
+    }
+  });
+};
+
 export const addUser = async (req, res) => {
   let user = await User.findOne({ email: req.body.email });
   if (user) {
@@ -24,6 +41,5 @@ export const addUser = async (req, res) => {
 
     user.password = hash;
     user.save();
-    return res.json(user);
   });
 };
