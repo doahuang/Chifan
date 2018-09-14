@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 
 import keys from './config/keys';
-mongoose.connect(keys.db);
+mongoose.connect(keys.db, { useNewUrlParser: true });
 
 const app = express();
 
@@ -12,6 +12,8 @@ app.use(bodyParser.json());
 
 import users from './routes/api/users';
 app.use('/api/users', users);
+
+import './config/passport';
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {

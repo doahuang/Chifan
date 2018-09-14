@@ -4,15 +4,24 @@ import jwt from 'jsonwebtoken';
 import keys from '../config/keys';
 import User from '../models/user';
 
-export const getUsers = async (req, res) => {
+export const allUsers = async (req, res) => {
   const users = await User.find({});
-  res.json(users);
+
+  res.json(users.map(el => {
+    const { id, name, email, date } = el;
+    return {
+      id,
+      name, 
+      email, 
+      date
+    };
+  }));
 };
 
-export const getUser = async (req, res) => {
+export const login = async (req, res) => {
   const { email, password } = req.body;
 
-  let user = await User.findOne({ email });
+  const user = await User.findOne({ email });
   if (!user) {
     return res.status(400).json({ err: 'User not found' });
   }
@@ -26,7 +35,7 @@ export const getUser = async (req, res) => {
   });
 };
 
-export const addUser = async (req, res) => {
+export const signup = async (req, res) => {
   let user = await User.findOne({ email: req.body.email });
   if (user) {
     return res.status(400).json({ err: 'User existed' });
@@ -52,7 +61,7 @@ export const addUser = async (req, res) => {
 const signToken = (user, keys, res) => {
   const payload = { id: user.id };
 
-  jwt.sign(payload, keys.secret, { expiresIn: 3600 * 24 }, (err, token) => {
+  jwt.sign(payload, keys.secret, { expiresIn: 3600 }, (err, token) => {
     res.json({ token });
   });
 };
