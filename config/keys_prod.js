@@ -1,4 +1,4 @@
-module.exports = {
-  mongoURI: process.env.MONGO_URI,
+export default {
+  db: process.env.MONGO_URI,
 
-}
+};

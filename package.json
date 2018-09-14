@@ -2,10 +2,14 @@
   "name": "Eat",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "10.9.0",
+    "npm": "6.2.0"
+  },
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "server": "nodemon app.js"
+    "start": "babel-node app.js",
+    "server": "nodemon --exec babel-node app.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +23,8 @@
   },
   "homepage": "https://github.com/doahuang/mern-demo#readme",
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "mongoose": "^5.2.14"

@@ -1,17 +1,16 @@
-// import express from 'express';
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
+import express from 'express';
+import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
 
-const db = require('./config/keys').mongoURI;
-mongoose.connect(db).then(() => console.log('Connected to db'));
+import keys from './config/keys';
+mongoose.connect(keys.db);
 
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-const users = require('./routes/api/users');
+import users from './routes/api/users';
 app.use('/api/users', users);
 
 const port = process.env.PORT || 5000;
