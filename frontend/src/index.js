@@ -5,11 +5,11 @@ import configStore from './components/store';
 
 import jwtDecode from 'jwt-decode';
 import * as sessionAPI from './util/session_api';
-window.a = sessionAPI;
+
+document.addEventListener('DOMContentLoaded', () => render());
 
 const render = () => {
   let store = configStore();
-  window.s = store;
 
   if (localStorage.jwtToken) {
     const decoded = jwtDecode(localStorage.jwtToken);
@@ -25,8 +25,6 @@ const render = () => {
 
   ReactDOM.render(<Root store={store} />, document.getElementById('root'));
 };
-
-render();
 
 if (module.hot) {
   module.hot.accept('./components/root', () => render());

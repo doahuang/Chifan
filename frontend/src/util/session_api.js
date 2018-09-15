@@ -3,7 +3,8 @@ import jwtDecode from 'jwt-decode';
 
 import {
   GET_ERRORS,
-  RECEIVE_CURRENT_USER
+  RECEIVE_CURRENT_USER,
+  LOGOUT_CURRENT_USER
 } from './action_types';
 
 // export const setAuthToken = token => {
@@ -57,8 +58,7 @@ export const loginUser = userData => dispatch => {
 export const logoutUser = () => dispatch => {
   localStorage.removeItem('jwtToken');
 
-  let action = setCurrentUser({});
-  dispatch(action);
+  dispatch({ type: LOGOUT_CURRENT_USER });
 };
 
 export const setCurrentUser = decoded => ({

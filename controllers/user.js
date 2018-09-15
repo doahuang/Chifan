@@ -23,14 +23,14 @@ export const login = async (req, res) => {
 
   const user = await User.findOne({ email });
   if (!user) {
-    return res.status(400).json({ err: 'User not found' });
+    return res.status(400).json({ msg: 'User not found' });
   }
 
   bcrypt.compare(password, user.password, (err, success) => {
     if (success) {
       signToken(user, keys, res);
     } else {
-      res.status(400).json({ err: 'Authentication failed' });
+      res.status(400).json({ msg: 'Authentication failed' });
     }
   });
 };
@@ -38,7 +38,7 @@ export const login = async (req, res) => {
 export const signup = async (req, res) => {
   let user = await User.findOne({ email: req.body.email });
   if (user) {
-    return res.status(400).json({ err: 'User existed' });
+    return res.status(400).json({ msg: 'User existed' });
   }
 
   const { name, email, password } = req.body;
@@ -59,7 +59,10 @@ export const signup = async (req, res) => {
 };
 
 const signToken = (user, keys, res) => {
-  const payload = { id: user.id };
+  const payload = { 
+    id: user.id,
+    name: user.name
+  };
 
   jwt.sign(payload, keys.secret, { expiresIn: 3600 }, (err, token) => {
     res.json({ token });
