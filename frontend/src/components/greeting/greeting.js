@@ -15,7 +15,7 @@ const User = (user, logout) => {
 };
 
 const Visitor = (login) => {
-  const demo = { email: 'demo', password: '123' };
+  const demo = { email: 'demo@demo', password: '123' };
 
   return (
     <div>

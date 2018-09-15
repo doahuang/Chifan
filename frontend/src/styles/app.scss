@@ -1,4 +1,4 @@
-div, h1, p, a, ul{
+body, div, h1, a, ul, input, button {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -8,6 +8,9 @@ div, h1, p, a, ul{
 }
 
 .app {
+  position: relative;
+  margin: 0 auto;
+  width: 80%;
   h1 {
     font-size: 60px;
     color: lightskyblue;
