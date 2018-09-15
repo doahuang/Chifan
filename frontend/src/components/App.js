@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Greeting from './greeting/greeting_container';
 
-import '../styles/master.css';
+import '../styles/app.css';
 
 export default () => {
   return (

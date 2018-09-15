@@ -6,6 +6,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "jwt-decode": "^2.2.0",
+    "node-sass": "^4.9.3",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-redux": "^5.0.7",
@@ -16,6 +17,7 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
+    "sass": "node-sass -w src/styles/app.scss src/styles/app.css",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
