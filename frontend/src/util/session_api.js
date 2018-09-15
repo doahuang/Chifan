@@ -1,6 +1,11 @@
 import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 
+import {
+  GET_ERRORS,
+  RECEIVE_CURRENT_USER
+} from './action_types';
+
 // export const setAuthToken = token => {
   // if (token) {
   //   axios.defaults.headers.common['Authorization'] = token;
@@ -9,35 +14,54 @@ import jwtDecode from 'jwt-decode';
   // }
 // };
 
-export const signupUser = async userData => {
-  const res = await axios.post('/api/users/signup', userData);
-
-  const { token } = res.data;
-  localStorage.setItem('jwtToken', token);
-
-  const decoded = jwtDecode(token);
-  setCurrentUser(decoded);
+export const signupUser = userData => dispatch => {
+  axios
+    .post('/api/users/signup', userData)
+    .then(res => {
+      const { token } = res.data;
+      localStorage.setItem('jwtToken', token);
+    
+      const decoded = jwtDecode(token);
+      let action = setCurrentUser(decoded);
+      dispatch(action);
+    })
+    .catch(err => {
+      let action = ({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
+      dispatch(action);
+    });
 };
 
-export const loginUser = async userData => {
-  const res = await axios.post('/api/users/login', userData);
+export const loginUser = userData => dispatch => {
+  axios
+    .post('/api/users/login', userData)
+    .then(res => {
+      const { token } = res.data;
+      localStorage.setItem('jwtToken', token);
 
-  const { token } = res.data;
-  localStorage.setItem('jwtToken', token);
-
-  const decoded = jwtDecode(token);
-  setCurrentUser(decoded);
+      const decoded = jwtDecode(token);
+      let action = setCurrentUser(decoded);
+      dispatch(action);
+    })
+    .catch(err => {
+      let action = ({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
+      dispatch(action);      
+    });
 };
 
-export const logoutUser = () => {
+export const logoutUser = () => dispatch => {
   localStorage.removeItem('jwtToken');
 
-  setCurrentUser({});
+  let action = setCurrentUser({});
+  dispatch(action);
 };
 
-export const setCurrentUser = decoded => {
-  return {
-    type: null,
-    payload: decoded
-  }
-};
+export const setCurrentUser = decoded => ({
+  type: RECEIVE_CURRENT_USER,
+  payload: decoded
+});
