@@ -3,8 +3,22 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-const root = document.getElementById('root');
-const render = () => ReactDOM.render(<App />, root);
+import jwtDecode from 'jwt-decode';
+import * as sessionAPI from './util/session_api';
+window.a = sessionAPI;
+
+const render = () => {
+  if (localStorage.jwtToken) {
+    const decoded = jwtDecode(localStorage.jwtToken);
+    const currentUser = sessionAPI.setCurrentUser(decoded);
+    console.log(currentUser);
+
+    const currentTime = Date.now() / 1000;
+    if (decoded.exp < currentTime) sessionAPI.logoutUser();
+  }
+
+  ReactDOM.render(<App />, document.getElementById('root'));
+};
 
 render();
 
