@@ -3,33 +3,22 @@ import { Link } from 'react-router-dom';
 
 const User = (user, logout) => {
   return (
-    <div>
-      <ul>
-        <li>Welcome, <b>{ user.name }</b></li>
-        <li>
-          <Link to='/' onClick={() => logout()}>Log Out</Link>
-        </li>
-      </ul>
-    </div>
+    <ul>
+      <li>Welcome, <b>{ user.name }</b></li>
+      <li>
+        <Link to='/' onClick={() => logout()}>Log Out</Link>
+      </li>
+    </ul>
   )
 };
 
 const Visitor = (login) => {
-  const demo = { email: 'demo@demo', password: '123' };
-
   return (
-    <div>
-      <ul>
-        <li>
-          <Link to='/login'>Log In</Link>
-          <span> or </span>
-          <Link to='/signup'>Sign Up</Link>
-        </li>
-        <li>
-          <Link to='/' onClick={() => login(demo)}>Demo</Link>
-        </li>
-      </ul>
-    </div>
+    <ul>
+      <li>
+        <Link to='/login'>Log In</Link> or <Link to='/signup'>Sign Up</Link>
+      </li>
+    </ul>
   )
 };
 

@@ -1,10 +1,12 @@
-body, div, h1, a, ul, input, button {
+body, div, h1, p, a, ul, form, input, button {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
   font-size: inherit;
   color: inherit;
   text-decoration: none;
+  outline: none;
+  // border: 1px solid !important;
 }
 
 .app {
@@ -18,16 +20,49 @@ body, div, h1, a, ul, input, button {
 }
 
 .greeting {
+  padding: 20px;
   ul {
     li {
       list-style: none;
-      margin: 20px;
-  
+      margin: 0 0 20px;
       a {
         &:hover {
           color: red;
         }
       }
     }
+  }
+}
+
+.session-form {
+  padding: 20px;
+  width: 400px;
+  height: 300px;
+  a {
+    &:hover {
+      color: red;
+    }
+  }
+  form {
+    display: flex;
+    flex-flow: column;
+    height: 180px;
+    margin: 20px 0;
+    input {
+      padding: 5px;
+      margin: 0 0 10px;
+    }
+  }
+  button {
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 10px;
+    &:active {
+      background: lightgray;
+    }
+  }
+  .errors {
+    color: red;
   }
 }

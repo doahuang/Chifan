@@ -23,16 +23,12 @@ export const signupUser = userData => dispatch => {
       localStorage.setItem('jwtToken', token);
     
       const decoded = jwtDecode(token);
-      let action = setCurrentUser(decoded);
-      dispatch(action);
+      dispatch(setCurrentUser(decoded));
     })
-    .catch(err => {
-      let action = ({
-        type: GET_ERRORS,
-        payload: err.response.data
-      });
-      dispatch(action);
-    });
+    .catch(err => dispatch({
+      type: GET_ERRORS,
+      payload: err.response.data
+    }));
 };
 
 export const loginUser = userData => dispatch => {
@@ -43,16 +39,12 @@ export const loginUser = userData => dispatch => {
       localStorage.setItem('jwtToken', token);
 
       const decoded = jwtDecode(token);
-      let action = setCurrentUser(decoded);
-      dispatch(action);
+      dispatch(setCurrentUser(decoded));
     })
-    .catch(err => {
-      let action = ({
-        type: GET_ERRORS,
-        payload: err.response.data
-      });
-      dispatch(action);      
-    });
+    .catch(err => dispatch({
+      type: GET_ERRORS,
+      payload: err.response.data
+    }));
 };
 
 export const logoutUser = () => dispatch => {
