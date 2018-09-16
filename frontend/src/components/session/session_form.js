@@ -43,10 +43,7 @@ export default class SessionForm extends Component {
       if (formType === 'Sign Up') return null;
       
       return (
-        <button onClick={() => {
-          demo();
-          this.props.history.push('/')
-        }}>Demo</button>
+        <button onClick={() => demo()}>Demo</button>
       )
     }
 

@@ -33,7 +33,7 @@ body, div, h1, p, a, ul, form, input, button {
     display: flex;
     flex-flow: column;
     height: 180px;
-    margin: 20px 0; }
+    margin: 20px 0 0; }
     .session-form form input {
       padding: 5px;
       margin: 0 0 10px; }
