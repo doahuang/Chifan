@@ -43,7 +43,10 @@ export default class SessionForm extends Component {
       if (formType === 'Sign Up') return null;
       
       return (
-        <button onClick={() => demo()}>Demo</button>
+        <button onClick={e => {
+          e.preventDefault();
+          demo();
+        }}>Demo</button>
       )
     }
 
