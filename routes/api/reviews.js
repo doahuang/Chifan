@@ -1,9 +1,18 @@
 import express from 'express';
+import {
+  allReviews,
+  getReview,
+  addReview,
+  updateReview,
+  deleteReview
+} from '../../controllers/review';
 
 const router = express.Router();
 
-router.get('/', (req, res) => res.json({ reviews: 'all' }));
-router.get('/:id', (req, res) => res.json({ review: req.params.id }));
-router.post('/', (req, res) => res.json({ post: true }));
+router.get('/', allReviews);
+router.post('/', addReview);
+router.get('/:id', getReview);
+router.patch('/:id', updateReview);
+router.delete('/:id', deleteReview);
 
 export default router;
