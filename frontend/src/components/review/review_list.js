@@ -1,14 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react'
 
-export default ({ reviews = [] }) => {
-  const reviewList = reviews.map(el => {
-    return <li id={el.id}>{ el.rating } { el.text }</li>
-  });
+export default class ReviewList extends Component {
+  componentDidMount() {
+    this.props.fetchReviews();
+  }
 
-  return (
-    <div>
-      <h1>Reviews</h1>
-      <ul>{ reviewList }</ul>
-    </div>
-  )
-};
+  render() {
+    const { reviews } = this.props;
+    const reviewList = Object.keys(reviews).map(id => {
+      let review = reviews[id];
+      return (
+        <li key={review._id}>
+          {review.rating} {review.text}
+        </li>
+      );
+    });
+
+    return (
+      <div className='review'>
+        <h1>Reviews</h1>
+        <ul>{reviewList}</ul>
+      </div>
+    )
+  }
+}

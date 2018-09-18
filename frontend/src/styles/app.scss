@@ -68,3 +68,13 @@ body, div, h1, p, a, ul, form, input, button {
     color: red;
   }
 }
+
+.review {
+  ul {
+    padding: 20px;
+    list-style: none;
+    li {
+      margin: 0 20px 20px;
+    }
+  }
+}
