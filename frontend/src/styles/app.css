@@ -17,11 +17,13 @@ body, div, h1, p, a, ul, form, input, button {
 
 .greeting {
   padding: 20px; }
-  .greeting ul li {
-    list-style: none;
-    margin: 0 0 20px; }
-    .greeting ul li a:hover {
-      color: red; }
+  .greeting ul {
+    display: flex; }
+    .greeting ul li {
+      list-style: none;
+      margin: 0 20px; }
+  .greeting a:hover {
+    color: red; }
 
 .session-form {
   padding: 20px;

@@ -6,6 +6,9 @@ const User = (user, logout) => {
     <ul>
       <li>Welcome, <b>{ user.name }</b></li>
       <li>
+        <Link to='/reviews'>Reviews</Link>
+      </li>
+      <li>
         <Link to='/' onClick={() => logout()}>Log Out</Link>
       </li>
     </ul>
@@ -16,7 +19,7 @@ const Visitor = (login) => {
   return (
     <ul>
       <li>
-        <Link to='/login'>Log In</Link> or <Link to='/signup'>Sign Up</Link>
+        <Link to='/login'>Log In</Link> / <Link to='/signup'>Sign Up</Link>
       </li>
     </ul>
   )
