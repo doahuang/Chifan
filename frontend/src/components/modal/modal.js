@@ -4,7 +4,7 @@ import Signup from '../session/signup_form_container';
 import CreateReview from '../review/create_review_form_container';
 import EditReview from '../review/edit_review_form_container';
 
-export default ({ modal, closeModal, match, history }) => {
+export default ({ modal, closeModal }) => {
   if (!modal) return null;
 
   let component;

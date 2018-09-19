@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { addReview } from '../../util/review_actions';
 import ReviewForm from './review_form';
+import { closeModal } from '../../actions/modal';
 
 const _nullReview = {
   rating: ''
@@ -16,7 +17,8 @@ const msp = ({ errors }) => {
 
 const mdp = dispatch => {
   return {
-    submit: (review, history) => dispatch(addReview(review, history))
+    submit: (review, next) => dispatch(addReview(review, next)),
+    closeModal: modal => dispatch(closeModal(modal))
   };
 }
 

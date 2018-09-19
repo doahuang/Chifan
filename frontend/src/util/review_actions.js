@@ -38,20 +38,20 @@ export const fetchReview = id => dispatch => {
     .catch(err => dispatch(receiveError(err)))
 }
 
-export const addReview = (review, history) => dispatch => {
+export const addReview = (review, next) => dispatch => {
   reviewAPI.addReview(review)
     .then(res => {
       dispatch(receiveReview(res.data))
-      history.push('/reviews')
+      if (next) next();
     })
     .catch(err => dispatch(receiveError(err)));
 }
 
-export const updateReview = (review, history) => dispatch => {
+export const updateReview = (review, next) => dispatch => {
   reviewAPI.updateReview(review)
     .then(res => {
       dispatch(receiveReview(res.data))
-      history.push('/reviews');
+      next();
     })
     .catch(err => dispatch(receiveError(err)));
 }

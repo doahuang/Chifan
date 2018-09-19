@@ -16,8 +16,8 @@ const msp = ({ reviews }) => {
 const mdp = dispatch => {
   return {
     fetchReviews: () => dispatch(fetchReviews()),
-    addReview: (review, history) => dispatch(addReview(review, history)),
     deleteReview: id => dispatch(deleteReview(id)),
+    addReview: review => dispatch(addReview(review)),
     openModal: modal => dispatch(openModal(modal))
   }
 }

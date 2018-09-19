@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-export default ({ review, deleteReview, openModal }) => {
+export default ({ review, openModal, deleteReview }) => {
   const { _id, rating, text } = review;
   
   return (
@@ -21,4 +21,4 @@ export default ({ review, deleteReview, openModal }) => {
       </div>
     </li>
   )
-}
+};

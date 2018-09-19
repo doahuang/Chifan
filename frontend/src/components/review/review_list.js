@@ -12,7 +12,7 @@ export default class ReviewList extends Component {
       rating: Math.floor(Math.random() * 5 + 1),
       text: 'this is generated randomly'
     };
-    this.props.addReview(review, this.props.history)
+    this.props.addReview(review)
   }
 
   render() {

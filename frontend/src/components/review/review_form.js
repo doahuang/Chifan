@@ -4,7 +4,7 @@ export default class ReviewForm extends Component {
   constructor(props) {
     super(props);
 
-    this.state = props.review;
+    this.state = this.initState = props.review;
 
     this.update = this.update.bind(this);
     this.submit = this.submit.bind(this);
@@ -31,7 +31,11 @@ export default class ReviewForm extends Component {
       rating: Number(this.state.rating),
       text: this.state.text
     };
-    this.props.submit(review, this.props.history);
+
+    if (review.rating === this.initState.rating && 
+      review.text === this.initState.text) return this.props.closeModal();
+
+    this.props.submit(review, this.props.closeModal);
   }
 
   render() {
