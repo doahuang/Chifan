@@ -1,73 +1,59 @@
 import React, { Component } from 'react'
+import Errors from '../error/error';
 
 export default class SessionForm extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      name: '',
-      email: '',
-      password: ''
-    };
-    this.update = this.update.bind(this);
-    this.submitForm = this.submitForm.bind(this);
-  }
-
   componentWillUnmount() {
-    //clear errors
+    this.props.clearErrors();
   }
 
-  update(field) {
-    return e => this.setState({ [field]: e.currentTarget.value })
-  }
-
-  submitForm(e, user = this.state) {
+  submitForm(e, demo) {
     e.preventDefault();
+
+    let name = this.nameNode ? this.nameNode.value : '';
+    let user = {
+      name,
+      email: this.emailNode.value,
+      password: this.passwordNode.value
+    };
+    if (demo) user = { email: 'demo@demo', password: '123123' };
+
     this.props.submit(user, this.props.closeModal);
   }
 
   render() {
-    const { errors, formType, shortcut } = this.props;
-
-    const Name = formType => {
-      if (formType === 'Log In') return null;
-
-      return (
-        <input placeholder='Name' 
-          onChange={this.update('name')} 
-          maxLength={20}
-          required></input>
-      )
-    }
-
-    const Demo = formType => {
-      if (formType === 'Sign Up') return null;
-      let user = { email: 'demo@demo', password: '123123' };
-      
-      return (
-        <button onClick={e => this.submitForm(e, user)}>
-          <b>Demo</b>
-        </button>
-      )
-    }
+    const { formType, shortcut } = this.props;
 
     return (
       <div className='session-form'>
         { shortcut }
-        <form onSubmit={this.submitForm}>
-          { Name(formType) }
+        <form onSubmit={e => this.submitForm(e)}>
+          {
+            formType === 'Log In' ? null :
+            <input placeholder='Name'
+              ref={node => this.nameNode = node}
+              maxLength={20}
+              required
+            />
+          }
           <input type='email' placeholder='Email'
-            onChange={this.update('email')} 
+            ref={node => this.emailNode = node}
             maxLength={20}
-            required></input>
+            required 
+          />
           <input type='password' placeholder='Password'
-            onChange={this.update('password')} 
+            ref={node => this.passwordNode = node}
             maxLength={10}
-            required></input>
+            required 
+          />
           <button>{ formType }</button>
-          { Demo(formType) }
+          {
+            formType === 'Sign Up' ? null :
+            <button onClick={e => this.submitForm(e, true)}>
+              <b>Demo</b>
+            </button>
+          }
         </form>
-        <p className='errors'>{ errors.msg }</p>
+        <Errors />
       </div>
     )
   }

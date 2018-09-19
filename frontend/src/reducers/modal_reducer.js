@@ -1,7 +1,7 @@
 import {
   OPEN_MODAL,
   CLOSE_MODAL
-} from '../util/action_types';
+} from '../actions/action_types';
 
 export default (state = null, action) => {
   Object.freeze(state);

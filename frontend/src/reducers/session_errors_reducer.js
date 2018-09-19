@@ -1,7 +1,8 @@
 import { 
   GET_ERRORS,
+  CLEAR_ERRORS,
   RECEIVE_CURRENT_USER
-} from '../util/action_types';
+} from '../actions/action_types';
 
 export default (state = [], action) => {
   Object.freeze(state);
@@ -9,6 +10,8 @@ export default (state = [], action) => {
   switch (action.type) {
     case GET_ERRORS:
       return action.payload;
+    case CLEAR_ERRORS:
+      return [];
     case RECEIVE_CURRENT_USER:
       return [];
     default:

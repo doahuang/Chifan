@@ -1,7 +1,7 @@
 import { 
   RECEIVE_CURRENT_USER,
   LOGOUT_CURRENT_USER
-} from '../util/action_types';
+} from '../actions/action_types';
 
 export default (state = null, action) => {
   Object.freeze(state);

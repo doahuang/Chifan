@@ -1,18 +1,18 @@
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { updateReview } from '../../util/review_actions';
+import { updateReview } from '../../../actions/review_actions';
 import ReviewForm from './review_form';
-import { closeModal } from '../../actions/modal';
+import { closeModal } from '../../../actions/modal';
+import { withRouter } from 'react-router-dom';
 
 const _nullReview = {
-  rating: ''
+  rating: '',
+  text: ''
 };
 
-const msp = ({ errors, reviews }, ownProps) => {
+const msp = ({ reviews }, ownProps) => {
   let id = ownProps.location.pathname.split('/')[2];
 
   return {
-    errors,
     review: reviews[id] || _nullReview,
     formType: 'Update'
   };

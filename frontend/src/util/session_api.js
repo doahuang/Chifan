@@ -5,7 +5,7 @@ import {
   GET_ERRORS,
   RECEIVE_CURRENT_USER,
   LOGOUT_CURRENT_USER
-} from './action_types';
+} from '../actions/action_types';
 
 export const setAuthToken = token => {
   if (token) {

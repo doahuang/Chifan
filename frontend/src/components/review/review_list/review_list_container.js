@@ -4,8 +4,8 @@ import {
   fetchReviews,
   addReview,
   deleteReview
-} from '../../util/review_actions';
-import { openModal } from '../../actions/modal';
+} from '../../../actions/review_actions';
+import { openModal } from '../../../actions/modal';
 
 const msp = ({ reviews }) => {
   return {

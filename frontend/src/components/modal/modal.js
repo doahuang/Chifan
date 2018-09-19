@@ -1,8 +1,8 @@
 import React from 'react'
 import Login from '../session/login_form_container';
 import Signup from '../session/signup_form_container';
-import CreateReview from '../review/create_review_form_container';
-import EditReview from '../review/edit_review_form_container';
+import CreateReview from '../review/review_form/create_review_form_container';
+import EditReview from '../review/review_form/edit_review_form_container';
 
 export default ({ modal, closeModal }) => {
   if (!modal) return null;

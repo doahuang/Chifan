@@ -1,7 +1,7 @@
 import {
   OPEN_MODAL,
   CLOSE_MODAL
-} from '../util/action_types';
+} from './action_types';
 
 export const openModal = modal => {
   return {

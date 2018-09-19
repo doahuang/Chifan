@@ -2,7 +2,7 @@ import {
   RECEIVE_REVIEWS,
   RECEIVE_REVIEW,
   REMOVE_REVIEW
-} from '../util/action_types';
+} from '../actions/action_types';
 
 export default (state = {}, action) => {
   Object.freeze(state);

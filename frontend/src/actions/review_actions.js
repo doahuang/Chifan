@@ -1,11 +1,14 @@
-import * as reviewAPI from './review_api';
+import * as reviewAPI from '../util/review_api';
 
 import {
   RECEIVE_REVIEWS,
   RECEIVE_REVIEW,
-  REMOVE_REVIEW,
-  GET_ERRORS
+  REMOVE_REVIEW
 } from './action_types';
+
+import {
+  receiveError
+} from './session_actions';
 
 const receiveReviews = reviews => ({
   type: RECEIVE_REVIEWS,
@@ -22,13 +25,8 @@ const removeReview = id => ({
   id
 })
 
-const receiveError = err => ({
-  type: GET_ERRORS,
-  payload: err.response.data
-})
-
 export const fetchReviews = () => dispatch => {
-  return reviewAPI.getReviews()
+  reviewAPI.getReviews()
     .then(res => dispatch(receiveReviews(res.data)));
 }
 
@@ -51,7 +49,7 @@ export const updateReview = (review, next) => dispatch => {
   reviewAPI.updateReview(review)
     .then(res => {
       dispatch(receiveReview(res.data))
-      next();
+      if (next) next();
     })
     .catch(err => dispatch(receiveError(err)));
 }
