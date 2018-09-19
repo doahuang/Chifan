@@ -33,7 +33,7 @@ body, div, h1, p, a, ul, form, input, textarea, button {
 .session-form {
   padding: 20px;
   width: 400px;
-  height: 300px; }
+  height: 250px; }
   .session-form a:hover {
     color: red; }
   .session-form form {
@@ -42,9 +42,13 @@ body, div, h1, p, a, ul, form, input, textarea, button {
     height: 180px;
     margin: 20px 0 0; }
     .session-form form input {
+      border: 1px solid;
       padding: 5px;
       margin: 0 0 10px; }
+      .session-form form input:focus {
+        border: 1px solid red; }
   .session-form button {
+    border: 1px solid;
     margin: 5px 0;
     padding: 5px; }
     .session-form button:active {
@@ -72,16 +76,17 @@ body, div, h1, p, a, ul, form, input, textarea, button {
 .review-form {
   padding: 20px;
   width: 400px;
-  height: 300px;
-  border: 1px solid; }
+  height: 300px; }
   .review-form form {
     display: flex;
     flex-flow: column;
     padding: 0 20px; }
     .review-form form input {
+      border: 1px solid;
       padding: 5px;
       margin: 10px 0; }
     .review-form form textarea {
+      border: 1px solid black;
       padding: 5px;
       height: 80px;
       resize: none; }
@@ -90,3 +95,22 @@ body, div, h1, p, a, ul, form, input, textarea, button {
       margin: 20px 0; }
       .review-form form button:active {
         background: lightgray; }
+
+.modal-bg {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 1; }
+
+.modal-child {
+  background: white;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }

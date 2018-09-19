@@ -5,6 +5,7 @@ import {
   addReview,
   deleteReview
 } from '../../util/review_actions';
+import { openModal } from '../../actions/modal';
 
 const msp = ({ reviews }) => {
   return {
@@ -16,7 +17,8 @@ const mdp = dispatch => {
   return {
     fetchReviews: () => dispatch(fetchReviews()),
     addReview: (review, history) => dispatch(addReview(review, history)),
-    deleteReview: id => dispatch(deleteReview(id))
+    deleteReview: id => dispatch(deleteReview(id)),
+    openModal: modal => dispatch(openModal(modal))
   }
 }
 

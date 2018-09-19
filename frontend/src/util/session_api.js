@@ -15,7 +15,7 @@ import {
   // }
 // };
 
-export const signupUser = userData => dispatch => {
+export const signupUser = (userData, next) => dispatch => {
   axios
     .post('/api/users/signup', userData)
     .then(res => {
@@ -24,6 +24,7 @@ export const signupUser = userData => dispatch => {
     
       const decoded = jwtDecode(token);
       dispatch(setCurrentUser(decoded));
+      next();
     })
     .catch(err => dispatch({
       type: GET_ERRORS,
@@ -31,7 +32,7 @@ export const signupUser = userData => dispatch => {
     }));
 };
 
-export const loginUser = userData => dispatch => {
+export const loginUser = (userData, next) => dispatch => {
   axios
     .post('/api/users/login', userData)
     .then(res => {
@@ -40,6 +41,7 @@ export const loginUser = userData => dispatch => {
 
       const decoded = jwtDecode(token);
       dispatch(setCurrentUser(decoded));
+      next();
     })
     .catch(err => dispatch({
       type: GET_ERRORS,

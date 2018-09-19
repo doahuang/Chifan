@@ -6,7 +6,7 @@ const _nullReview = {
   rating: ''
 };
 
-const msp = ({ errors, reviews }, ownProps) => {
+const msp = ({ errors }) => {
   return {
     errors,
     review: _nullReview,

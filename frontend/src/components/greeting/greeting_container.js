@@ -1,9 +1,7 @@
 import { connect } from 'react-redux';
 import Greeting from './greeting';
-import { 
-  logoutUser, 
-  loginUser
-} from '../../util/session_api';
+import { logoutUser } from '../../util/session_api';
+import { openModal } from '../../actions/modal';
 
 const msp = ({ session }) => {
   return {
@@ -14,7 +12,7 @@ const msp = ({ session }) => {
 const mdp = dispatch => {
   return {
     logout: () => dispatch(logoutUser()),
-    login: user => dispatch(loginUser(user))
+    openModal: modal => dispatch(openModal(modal))
   }
 };
 

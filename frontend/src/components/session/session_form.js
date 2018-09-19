@@ -23,11 +23,13 @@ export default class SessionForm extends Component {
 
   submitForm(e) {
     e.preventDefault();
-    this.props.submit(this.state);
+    
+    const { submit, closeModal } = this.props;
+    submit(this.state, closeModal);
   }
 
   render() {
-    const { errors, formType, shortcut, demo } = this.props;
+    const { errors, formType, shortcut, submit, closeModal } = this.props;
 
     const Name = formType => {
       if (formType === 'Log In') return null;
@@ -41,11 +43,12 @@ export default class SessionForm extends Component {
 
     const Demo = formType => {
       if (formType === 'Sign Up') return null;
+      let user = { email: 'demo@demo', password: '123123' };
       
       return (
         <button onClick={e => {
           e.preventDefault();
-          demo();
+          submit(user, closeModal);
         }}>Demo</button>
       )
     }

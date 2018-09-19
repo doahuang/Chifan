@@ -15,23 +15,25 @@ const User = (user, logout) => {
   )
 };
 
-const Visitor = (login) => {
+const Visitor = openModal => {
   return (
     <ul>
       <li>
-        <Link to='/login'>Log In</Link> / <Link to='/signup'>Sign Up</Link>
+        <Link to='/login' onClick={() => openModal('login')}>Log In</Link>
+        <span> or </span>
+        <Link to='/signup' onClick={() => openModal('signup')}>Sign Up</Link>
       </li>
     </ul>
   )
 };
 
-export default ({ currentUser, logout, login }) => {
+export default ({ currentUser, logout, openModal }) => {
   return (
     <div className='greeting'>
       { 
         currentUser ? 
-        User(currentUser, logout) : 
-        Visitor(login)
+        User(currentUser, logout) :
+        Visitor(openModal)
       }
     </div>
   )

@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-import { ProtectedRoute } from '../../util/routes';
 import ReviewListItem from './review_list_item';
-import CreateReview from './create_review_form_container';
-import EditReview from './edit_review_form_container';
 
 export default class ReviewList extends Component {
   componentDidMount() {
@@ -19,11 +16,12 @@ export default class ReviewList extends Component {
   }
 
   render() {
-    const { reviews } = this.props;
+    const { reviews, deleteReview, openModal } = this.props;
     let reviewList = Object.keys(reviews).map(id => {
       return <ReviewListItem key={id} 
         review={reviews[id]} 
-        deleteReview={this.props.deleteReview}/>;
+        deleteReview={deleteReview}
+        openModal={openModal} />;
     });
 
     return (
@@ -32,11 +30,10 @@ export default class ReviewList extends Component {
         <button onClick={() => this.addReview()}>
           Randomizer
         </button>
-        <Link to='/reviews/new'>
+        <Link to='/reviews/new' 
+          onClick={() => openModal('createReview')}>
           Create
         </Link>
-        <ProtectedRoute path='/reviews/new' component={ CreateReview } />
-        <ProtectedRoute path='/reviews/:id/edit' component={ EditReview } />
         <ul>{ reviewList }</ul>
       </div>
     )

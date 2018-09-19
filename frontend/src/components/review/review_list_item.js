@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-export default ({ review, deleteReview }) => {
+export default ({ review, deleteReview, openModal }) => {
   const { _id, rating, text } = review;
   
   return (
@@ -11,7 +11,8 @@ export default ({ review, deleteReview }) => {
         <p>{ text }</p>
       </div>
       <div>
-        <Link to={`/reviews/${_id}/edit`}>
+        <Link to={`/reviews/${_id}/edit`}
+          onClick={() => openModal('editReview')}>
           Edit
         </Link>
         <button onClick={() => deleteReview(_id)}>

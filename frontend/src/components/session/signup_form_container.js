@@ -3,22 +3,26 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import SessionForm from './session_form';
 import { signupUser } from '../../util/session_api';
+import { openModal, closeModal } from '../../actions/modal';
 
 const msp = ({ errors }) => {
   return {
     errors,
-    formType: 'Sign Up',
-    shortcut: (
-      <p>
-        Already have an account? <Link to='/login'>Log In</Link>
-      </p>
-    )
+    formType: 'Sign Up'
   }
 }
 
 const mdp = dispatch => {
   return {
-    submit: user => dispatch(signupUser(user))
+    submit: (user, next) => dispatch(signupUser(user, next)),
+    closeModal: () => dispatch(closeModal()),
+    shortcut: (
+      <p>
+        <b>Already have an account?</b>
+        <span> </span>
+        <Link to='/login' onClick={() => dispatch(openModal('login'))}>Log In</Link>
+      </p>
+    )
   }
 }
 
