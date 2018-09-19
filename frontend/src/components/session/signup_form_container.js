@@ -17,11 +17,10 @@ const mdp = dispatch => {
     submit: (user, next) => dispatch(signupUser(user, next)),
     closeModal: () => dispatch(closeModal()),
     shortcut: (
-      <p>
-        <b>Already have an account?</b>
-        <span> </span>
+      <div>
+        <b>Already have an account? </b>
         <Link to='/login' onClick={() => dispatch(openModal('login'))}>Log In</Link>
-      </p>
+      </div>
     )
   }
 }

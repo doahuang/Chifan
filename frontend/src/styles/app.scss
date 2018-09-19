@@ -18,8 +18,20 @@ body, div, h1, p, a, ul, form, input, textarea, button {
     color: lightskyblue;
   }
   button {
+    background: none;
     border-radius: 10px;
     cursor: pointer;
+    &:hover {
+      color: red;
+    }
+    &:active {
+      background: lightgray;
+    }
+  }
+  input, textarea {
+    &:focus {
+      border: 1px solid red;
+    }
   }
   .errors {
     color: red;
@@ -46,7 +58,7 @@ body, div, h1, p, a, ul, form, input, textarea, button {
 .session-form {
   padding: 20px;
   width: 400px;
-  height: 250px;
+  height: 220px;
   a {
     &:hover {
       color: red;
@@ -61,33 +73,34 @@ body, div, h1, p, a, ul, form, input, textarea, button {
       border: 1px solid;
       padding: 5px;
       margin: 0 0 10px;
-      &:focus {
-        border: 1px solid red;
-      }
     }
   }
   button {
     border: 1px solid;
     margin: 5px 0;
     padding: 5px;
-    &:active {
-      background: lightgray;
-    }
   }
 }
 
 .review {
   padding: 20px 0;
+  h1 {
+    font-size: 40px;
+  }
   button {
+    border: 1px solid;
     padding: 5px 10px;
     margin: 10px 40px;
-    &:active {
-      background: lightgray;
-    }
   }
   a {
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 5px 10px;
     &:hover {
       color: red;
+    }
+    &:active {
+      background: lightgray;
     }
   }
   ul {
@@ -107,15 +120,19 @@ body, div, h1, p, a, ul, form, input, textarea, button {
 .review-form {
   padding: 20px;
   width: 400px;
-  height: 300px;
+  height: 350px;
+  h1 {
+    font-size: 40px;
+    padding: 0 20px;
+  }
   form {
     display: flex;
     flex-flow: column;
-    padding: 0 20px;
+    padding: 20px;
     input {
       border: 1px solid;
       padding: 5px;
-      margin: 10px 0;
+      margin: 20px 0;
     }
     textarea {
       border: 1px solid black;
@@ -124,11 +141,9 @@ body, div, h1, p, a, ul, form, input, textarea, button {
       resize: none;
     }
     button {
+      border: 1px solid;
       padding: 5px 10px;
       margin: 20px 0;
-      &:active {
-        background: lightgray;
-      }
     }
   }
 }

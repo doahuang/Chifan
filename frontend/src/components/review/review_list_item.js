@@ -13,7 +13,7 @@ export default ({ review, openModal, deleteReview }) => {
       <div>
         <Link to={`/reviews/${_id}/edit`}
           onClick={() => openModal('editReview')}>
-          Edit
+          Update
         </Link>
         <button onClick={() => deleteReview(_id)}>
           Delete

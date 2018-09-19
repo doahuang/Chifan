@@ -20,7 +20,8 @@ const Visitor = openModal => {
     <ul>
       <li>
         <Link to='/login' onClick={() => openModal('login')}>Log In</Link>
-        <span> or </span>
+      </li>
+      <li>
         <Link to='/signup' onClick={() => openModal('signup')}>Sign Up</Link>
       </li>
     </ul>

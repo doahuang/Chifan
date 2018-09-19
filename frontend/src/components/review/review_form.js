@@ -43,7 +43,7 @@ export default class ReviewForm extends Component {
 
     return (
       <div className='review-form'>
-        <h1>Review</h1>
+        <h1>{ this.props.formType } Review</h1>
         <form onSubmit={this.submit}>
           <input type='number' placeholder='Rating'
             value={ rating }

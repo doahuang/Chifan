@@ -15,8 +15,15 @@ body, div, h1, p, a, ul, form, input, textarea, button {
     font-size: 60px;
     color: lightskyblue; }
   .app button {
+    background: none;
     border-radius: 10px;
     cursor: pointer; }
+    .app button:hover {
+      color: red; }
+    .app button:active {
+      background: lightgray; }
+  .app input:focus, .app textarea:focus {
+    border: 1px solid red; }
   .app .errors {
     color: red; }
 
@@ -33,7 +40,7 @@ body, div, h1, p, a, ul, form, input, textarea, button {
 .session-form {
   padding: 20px;
   width: 400px;
-  height: 250px; }
+  height: 220px; }
   .session-form a:hover {
     color: red; }
   .session-form form {
@@ -45,24 +52,27 @@ body, div, h1, p, a, ul, form, input, textarea, button {
       border: 1px solid;
       padding: 5px;
       margin: 0 0 10px; }
-      .session-form form input:focus {
-        border: 1px solid red; }
   .session-form button {
     border: 1px solid;
     margin: 5px 0;
     padding: 5px; }
-    .session-form button:active {
-      background: lightgray; }
 
 .review {
   padding: 20px 0; }
+  .review h1 {
+    font-size: 40px; }
   .review button {
+    border: 1px solid;
     padding: 5px 10px;
     margin: 10px 40px; }
-    .review button:active {
+  .review a {
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 5px 10px; }
+    .review a:hover {
+      color: red; }
+    .review a:active {
       background: lightgray; }
-  .review a:hover {
-    color: red; }
   .review ul {
     list-style: none; }
     .review ul li {
@@ -76,25 +86,27 @@ body, div, h1, p, a, ul, form, input, textarea, button {
 .review-form {
   padding: 20px;
   width: 400px;
-  height: 300px; }
+  height: 350px; }
+  .review-form h1 {
+    font-size: 40px;
+    padding: 0 20px; }
   .review-form form {
     display: flex;
     flex-flow: column;
-    padding: 0 20px; }
+    padding: 20px; }
     .review-form form input {
       border: 1px solid;
       padding: 5px;
-      margin: 10px 0; }
+      margin: 20px 0; }
     .review-form form textarea {
       border: 1px solid black;
       padding: 5px;
       height: 80px;
       resize: none; }
     .review-form form button {
+      border: 1px solid;
       padding: 5px 10px;
       margin: 20px 0; }
-      .review-form form button:active {
-        background: lightgray; }
 
 .modal-bg {
   position: fixed;
