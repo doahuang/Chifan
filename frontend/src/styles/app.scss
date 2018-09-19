@@ -11,7 +11,7 @@ body, div, h1, p, a, ul, form, input, textarea, button {
 
 .app {
   position: relative;
-  margin: 0 auto;
+  margin: 0 auto 50px;
   width: 80%;
   h1 {
     font-size: 60px;
@@ -80,6 +80,11 @@ body, div, h1, p, a, ul, form, input, textarea, button {
       background: lightgray;
     }
   }
+  a {
+    &:hover {
+      color: red;
+    }
+  }
   ul {
     list-style: none;
     li {
@@ -87,13 +92,8 @@ body, div, h1, p, a, ul, form, input, textarea, button {
       justify-content: space-between;
       margin: 0 20px;
       padding: 20px;
-      a {
-        &:hover {
-          color: red;
-        }
-      }
       button {
-        margin: 0 10px;
+        margin: 0 0 0 40px;
       }
     }
   }

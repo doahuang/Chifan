@@ -15,7 +15,7 @@ const msp = ({ reviews }) => {
 const mdp = dispatch => {
   return {
     fetchReviews: () => dispatch(fetchReviews()),
-    addReview: review => dispatch(addReview(review)),
+    addReview: (review, history) => dispatch(addReview(review, history)),
     deleteReview: id => dispatch(deleteReview(id))
   }
 }

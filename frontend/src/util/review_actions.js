@@ -38,9 +38,12 @@ export const fetchReview = id => dispatch => {
     .catch(err => dispatch(receiveError(err)))
 }
 
-export const addReview = review => dispatch => {
+export const addReview = (review, history) => dispatch => {
   reviewAPI.addReview(review)
-    .then(res => dispatch(receiveReview(res.data)))
+    .then(res => {
+      dispatch(receiveReview(res.data))
+      history.push('/reviews')
+    })
     .catch(err => dispatch(receiveError(err)));
 }
 

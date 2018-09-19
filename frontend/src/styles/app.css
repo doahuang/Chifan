@@ -9,7 +9,7 @@ body, div, h1, p, a, ul, form, input, textarea, button {
 
 .app {
   position: relative;
-  margin: 0 auto;
+  margin: 0 auto 50px;
   width: 80%; }
   .app h1 {
     font-size: 60px;
@@ -57,6 +57,8 @@ body, div, h1, p, a, ul, form, input, textarea, button {
     margin: 10px 40px; }
     .review button:active {
       background: lightgray; }
+  .review a:hover {
+    color: red; }
   .review ul {
     list-style: none; }
     .review ul li {
@@ -64,10 +66,8 @@ body, div, h1, p, a, ul, form, input, textarea, button {
       justify-content: space-between;
       margin: 0 20px;
       padding: 20px; }
-      .review ul li a:hover {
-        color: red; }
       .review ul li button {
-        margin: 0 10px; }
+        margin: 0 0 0 40px; }
 
 .review-form {
   padding: 20px;
