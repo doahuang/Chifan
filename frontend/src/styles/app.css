@@ -1,4 +1,4 @@
-body, div, h1, p, a, ul, form, input, button {
+body, div, h1, p, a, ul, form, input, textarea, button {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -14,6 +14,11 @@ body, div, h1, p, a, ul, form, input, button {
   .app h1 {
     font-size: 60px;
     color: lightskyblue; }
+  .app button {
+    border-radius: 10px;
+    cursor: pointer; }
+  .app .errors {
+    color: red; }
 
 .greeting {
   padding: 20px; }
@@ -40,17 +45,48 @@ body, div, h1, p, a, ul, form, input, button {
       padding: 5px;
       margin: 0 0 10px; }
   .session-form button {
-    width: 100%;
-    padding: 5px;
     margin: 5px 0;
-    border-radius: 10px; }
+    padding: 5px; }
     .session-form button:active {
       background: lightgray; }
-  .session-form .errors {
-    color: red; }
 
-.review ul {
+.review {
+  padding: 20px 0; }
+  .review button {
+    padding: 5px 10px;
+    margin: 10px 40px; }
+    .review button:active {
+      background: lightgray; }
+  .review ul {
+    list-style: none; }
+    .review ul li {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 20px;
+      padding: 20px; }
+      .review ul li a:hover {
+        color: red; }
+      .review ul li button {
+        margin: 0 10px; }
+
+.review-form {
   padding: 20px;
-  list-style: none; }
-  .review ul li {
-    margin: 0 20px 20px; }
+  width: 400px;
+  height: 300px;
+  border: 1px solid; }
+  .review-form form {
+    display: flex;
+    flex-flow: column;
+    padding: 0 20px; }
+    .review-form form input {
+      padding: 5px;
+      margin: 10px 0; }
+    .review-form form textarea {
+      padding: 5px;
+      height: 80px;
+      resize: none; }
+    .review-form form button {
+      padding: 5px 10px;
+      margin: 20px 0; }
+      .review-form form button:active {
+        background: lightgray; }

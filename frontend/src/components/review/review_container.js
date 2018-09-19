@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
 import ReviewList from './review_list';
 import { 
-  fetchReviews
+  fetchReviews,
+  addReview,
+  deleteReview
 } from '../../util/review_actions';
 
 const msp = ({ reviews }) => {
@@ -12,7 +14,9 @@ const msp = ({ reviews }) => {
 
 const mdp = dispatch => {
   return {
-    fetchReviews: () => dispatch(fetchReviews())
+    fetchReviews: () => dispatch(fetchReviews()),
+    addReview: review => dispatch(addReview(review)),
+    deleteReview: id => dispatch(deleteReview(id))
   }
 }
 

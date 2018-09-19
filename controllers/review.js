@@ -13,21 +13,32 @@ export const addReview = async (req, res) => {
     rating, 
     text
   });
-
+  
   review.save()
     .then(() => res.json(review))
-    .catch(err => res.status(400).json({ msg: 'Failed to write review' }));
+    .catch(err => res.status(400).json({ msg: 'Failed to add review' }));
 }
 
 export const getReview = async (req, res) => {
   await Review.findById(req.params.id)
-    .then(review => res.json(review))
+    .then(review => {
+      if (!review) {
+        return res.status(400).json({ msg: 'Failed to fetch review' });
+      }
+      res.json(review);
+    })
     .catch(err => res.status(400).json({ msg: 'Failed to fetch review' }));
 }
 
 export const updateReview = async (req, res) => {
   await Review.findByIdAndUpdate(req.params.id, req.body)
-    .then(() => getReview(req, res))
+    .then(async () => {
+      let review = await Review.findById(req.params.id);
+      if (!review) {
+        return res.status(400).json({ msg: 'Failed to update review' });
+      }
+      res.json(review);
+    })
     .catch(err => res.status(400).json({ msg: 'Failed to update review' }));
 }
 

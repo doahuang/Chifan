@@ -28,7 +28,7 @@ const receiveError = err => ({
 })
 
 export const fetchReviews = () => dispatch => {
-  reviewAPI.getReviews()
+  return reviewAPI.getReviews()
     .then(res => dispatch(receiveReviews(res.data)));
 }
 
@@ -44,9 +44,12 @@ export const addReview = review => dispatch => {
     .catch(err => dispatch(receiveError(err)));
 }
 
-export const updateReview = review => dispatch => {
+export const updateReview = (review, history) => dispatch => {
   reviewAPI.updateReview(review)
-    .then(res => dispatch(receiveReview(res.data)))
+    .then(res => {
+      dispatch(receiveReview(res.data))
+      history.push('/reviews');
+    })
     .catch(err => dispatch(receiveError(err)));
 }
 
