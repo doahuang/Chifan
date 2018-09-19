@@ -7,7 +7,7 @@ export default ({ review, openModal, deleteReview }) => {
   return (
     <li>
       <div>
-        <p>Rating: { rating }</p>
+        <b>Rating: { rating }</b>
         <p>{ text }</p>
       </div>
       <div>

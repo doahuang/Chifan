@@ -4,7 +4,7 @@ import Root from './components/root';
 import configStore from './components/store';
 
 import jwtDecode from 'jwt-decode';
-import { setCurrentUser, logoutUser } from './util/session_api';
+import { setCurrentUser, logoutUser, setAuthToken } from './util/session_api';
 
 document.addEventListener('DOMContentLoaded', () => render());
 
@@ -13,6 +13,8 @@ const render = () => {
   window.s = store;
 
   if (localStorage.jwtToken) {
+    setAuthToken(localStorage.jwtToken);
+    
     const decoded = jwtDecode(localStorage.jwtToken);
     store.dispatch(setCurrentUser(decoded));
 

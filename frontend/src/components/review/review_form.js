@@ -52,6 +52,7 @@ export default class ReviewForm extends Component {
             required></input>
           <textarea placeholder='Text'
             value={ text }
+            maxLength={250}
             onChange={this.update('text')}></textarea>
           <button>{ this.props.formType }</button>
           <p className='errors'>{ this.props.errors.msg }</p>

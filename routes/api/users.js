@@ -1,6 +1,7 @@
 import express from 'express';
 import passport from 'passport';
 import { 
+  currentUser,
   allUsers, 
   signup,
   login,
@@ -8,20 +9,12 @@ import {
 
 const router = express.Router();
 
-router.get('/', allUsers);
 router.post('/signup', signup);
 router.post('/login', login);
 
 const jwtAuth = passport.authenticate('jwt', { session: false });
-const currentUser = (req, res) => {
-  const { id, name, email, date } = req.user;
-  res.json({
-    id,
-    name,
-    email, 
-    date
-  });
-};
+
+router.get('/', jwtAuth, allUsers);
 router.get('/current', jwtAuth, currentUser);
 
 export default router;

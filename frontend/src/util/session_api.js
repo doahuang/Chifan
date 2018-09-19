@@ -7,13 +7,13 @@ import {
   LOGOUT_CURRENT_USER
 } from './action_types';
 
-// export const setAuthToken = token => {
-  // if (token) {
-  //   axios.defaults.headers.common['Authorization'] = token;
-  // } else {
-  //   delete axios.defaults.headers.common['Authorization'];
-  // }
-// };
+export const setAuthToken = token => {
+  if (token) {
+    axios.defaults.headers.common['Authorization'] = 'bearer ' + token;
+  } else {
+    delete axios.defaults.headers.common['Authorization'];
+  }
+};
 
 export const signupUser = (userData, next) => dispatch => {
   axios
@@ -21,6 +21,8 @@ export const signupUser = (userData, next) => dispatch => {
     .then(res => {
       const { token } = res.data;
       localStorage.setItem('jwtToken', token);
+
+      setAuthToken(token);
     
       const decoded = jwtDecode(token);
       dispatch(setCurrentUser(decoded));
@@ -39,6 +41,8 @@ export const loginUser = (userData, next) => dispatch => {
       const { token } = res.data;
       localStorage.setItem('jwtToken', token);
 
+      setAuthToken(token);
+
       const decoded = jwtDecode(token);
       dispatch(setCurrentUser(decoded));
       next();
@@ -51,6 +55,8 @@ export const loginUser = (userData, next) => dispatch => {
 
 export const logoutUser = () => dispatch => {
   localStorage.removeItem('jwtToken');
+
+  setAuthToken(false);
 
   dispatch({ type: LOGOUT_CURRENT_USER });
 };

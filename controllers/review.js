@@ -1,7 +1,7 @@
 import Review from '../models/review';
 
-export const allReviews = async (req, res) => {
-  await Review.find({})
+export const myReviews = async (req, res) => {
+  await Review.find({ user: req.user })
     .then(reviews => res.json(reviews));
 }
 
@@ -10,6 +10,7 @@ export const addReview = async (req, res) => {
   if (!rating) return res.status(400).json({ msg: 'Rating is required' });
 
   let review = await new Review({
+    user: req.user,
     rating, 
     text
   });
@@ -31,7 +32,7 @@ export const getReview = async (req, res) => {
 }
 
 export const updateReview = async (req, res) => {
-  await Review.findByIdAndUpdate(req.params.id, req.body)
+  await Review.findOneAndUpdate({ _id: req.params.id, user: req.user }, req.body)
     .then(async () => {
       let review = await Review.findById(req.params.id);
       if (!review) {
@@ -43,7 +44,7 @@ export const updateReview = async (req, res) => {
 }
 
 export const deleteReview = async (req, res) => {
-  await Review.findByIdAndRemove(req.params.id)
+  await Review.findOneAndRemove({ _id: req.params.id, user: req.user })
     .then(review => res.json(review.id))
     .catch(err => res.status(400).json({ msg: 'Failed to delete review' }));
 }

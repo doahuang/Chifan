@@ -40,21 +40,21 @@ body, div, h1, p, a, ul, form, input, textarea, button {
 .session-form {
   padding: 20px;
   width: 400px;
-  height: 220px; }
+  height: 280px; }
   .session-form a:hover {
     color: red; }
   .session-form form {
     display: flex;
     flex-flow: column;
-    height: 180px;
-    margin: 20px 0 0; }
+    height: 200px;
+    margin: 20px 0; }
     .session-form form input {
       border: 1px solid;
       padding: 5px;
-      margin: 0 0 10px; }
+      margin: 10px 0; }
   .session-form button {
     border: 1px solid;
-    margin: 5px 0;
+    margin: 10px 0;
     padding: 5px; }
 
 .review {
@@ -80,6 +80,8 @@ body, div, h1, p, a, ul, form, input, textarea, button {
       justify-content: space-between;
       margin: 0 20px;
       padding: 20px; }
+      .review ul li p {
+        word-break: break-all; }
       .review ul li button {
         margin: 0 0 0 40px; }
 
@@ -88,12 +90,12 @@ body, div, h1, p, a, ul, form, input, textarea, button {
   width: 400px;
   height: 350px; }
   .review-form h1 {
-    font-size: 40px;
-    padding: 0 20px; }
+    font-size: 40px; }
   .review-form form {
     display: flex;
     flex-flow: column;
-    padding: 20px; }
+    height: 280px;
+    margin: 20px 0; }
     .review-form form input {
       border: 1px solid;
       padding: 5px;

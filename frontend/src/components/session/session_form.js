@@ -21,15 +21,13 @@ export default class SessionForm extends Component {
     return e => this.setState({ [field]: e.currentTarget.value })
   }
 
-  submitForm(e) {
+  submitForm(e, user = this.state) {
     e.preventDefault();
-    
-    const { submit, closeModal } = this.props;
-    submit(this.state, closeModal);
+    this.props.submit(user, this.props.closeModal);
   }
 
   render() {
-    const { errors, formType, shortcut, submit, closeModal } = this.props;
+    const { errors, formType, shortcut } = this.props;
 
     const Name = formType => {
       if (formType === 'Log In') return null;
@@ -37,6 +35,7 @@ export default class SessionForm extends Component {
       return (
         <input placeholder='Name' 
           onChange={this.update('name')} 
+          maxLength={20}
           required></input>
       )
     }
@@ -46,10 +45,9 @@ export default class SessionForm extends Component {
       let user = { email: 'demo@demo', password: '123123' };
       
       return (
-        <button onClick={e => {
-          e.preventDefault();
-          submit(user, closeModal);
-        }}>Demo</button>
+        <button onClick={e => this.submitForm(e, user)}>
+          <b>Demo</b>
+        </button>
       )
     }
 
@@ -60,9 +58,11 @@ export default class SessionForm extends Component {
           { Name(formType) }
           <input type='email' placeholder='Email'
             onChange={this.update('email')} 
+            maxLength={20}
             required></input>
           <input type='password' placeholder='Password'
             onChange={this.update('password')} 
+            maxLength={10}
             required></input>
           <button>{ formType }</button>
           { Demo(formType) }

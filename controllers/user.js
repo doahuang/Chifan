@@ -4,18 +4,17 @@ import jwt from 'jsonwebtoken';
 import keys from '../config/keys';
 import User from '../models/user';
 
+export const currentUser = (req, res) => {
+  return res.json(req.user);
+}
+
 export const allUsers = async (req, res) => {
   const users = await User.find({});
 
-  res.json(users.map(el => {
-    const { id, name, email, date } = el;
-    return {
-      id,
-      name, 
-      email, 
-      date
-    };
-  }));
+  res.json(users.map(user => ({
+    id: user.id,
+    name: user.name
+  })));
 };
 
 export const login = async (req, res) => {
@@ -40,12 +39,11 @@ export const signup = async (req, res) => {
   if (user) {
     return res.status(400).json({ msg: 'User existed' });
   }
-
-  const { name, email, password } = req.body;
+  
   user = await new User({
-    name,
-    email,
-    password
+    name: req.body.name,
+    email: req.body.email,
+    password: req.body.password
   });
 
   bcrypt.hash(user.password, 10, (err, hash) => {
@@ -54,7 +52,7 @@ export const signup = async (req, res) => {
     user.password = hash;
     user.save()
       .then(() => signToken(user, keys, res))
-      .catch(err => res.json(err));
+      .catch(err => res.status(400).json({ msg: 'Failed to create user' }));
   });
 };
 
@@ -64,7 +62,10 @@ const signToken = (user, keys, res) => {
     name: user.name
   };
 
-  jwt.sign(payload, keys.secret, { expiresIn: 3600 * 24 }, (err, token) => {
-    res.json({ token });
-  });
+  jwt.sign(
+    payload, 
+    keys.secret, 
+    { expiresIn: 3600 * 24 }, 
+    (err, token) => res.json({ token })
+  );
 };
