@@ -2,7 +2,7 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 
 import {
-  GET_ERRORS,
+  GET_SESSION_ERRORS,
   RECEIVE_CURRENT_USER,
   LOGOUT_CURRENT_USER
 } from '../actions/action_types';
@@ -29,7 +29,7 @@ export const signupUser = (userData, next) => dispatch => {
       next();
     })
     .catch(err => dispatch({
-      type: GET_ERRORS,
+      type: GET_SESSION_ERRORS,
       payload: err.response.data
     }));
 };
@@ -48,7 +48,7 @@ export const loginUser = (userData, next) => dispatch => {
       next();
     })
     .catch(err => dispatch({
-      type: GET_ERRORS,
+      type: GET_SESSION_ERRORS,
       payload: err.response.data
     }));
 };

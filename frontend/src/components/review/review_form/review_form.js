@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Errors from '../../error/error';
+import UiError from '../../error/ui_error';
 
 export default class ReviewForm extends Component {
   constructor(props) {
@@ -10,10 +10,6 @@ export default class ReviewForm extends Component {
       rating: props.review.rating,
       text: props.review.text
     };
-  }
-
-  componentWillUnmount() {
-    // clear errors
   }
 
   submit(e) {
@@ -30,6 +26,10 @@ export default class ReviewForm extends Component {
       return this.props.closeModal();
 
     this.props.submit(review, this.props.closeModal);
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors();
   }
 
   componentDidMount() {
@@ -54,7 +54,7 @@ export default class ReviewForm extends Component {
             maxLength={250}
           />
           <button>{ formType }</button>
-          <Errors />
+          <UiError />
         </form>
       </div>
     )

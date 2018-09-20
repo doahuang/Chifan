@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import SessionForm from './session_form';
 import { signupUser } from '../../util/session_api';
 import { openModal, closeModal } from '../../actions/modal';
-import { clearErrors } from '../../actions/session_actions';
+import { clearErrors } from '../../actions/session_error';
 import ShortCut from '../shortcut/shortcut';
 
 const msp = () => {

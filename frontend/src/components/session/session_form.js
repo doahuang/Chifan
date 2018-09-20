@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Errors from '../error/error';
+import SessionError from '../error/session_error';
 
 export default class SessionForm extends Component {
   componentWillUnmount() {
@@ -53,7 +53,7 @@ export default class SessionForm extends Component {
           </button>
         }
         </form>
-        <Errors />
+        <SessionError />
       </div>
     )
   }

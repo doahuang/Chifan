@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const Errors = ({ errors }) => (
+const SessionError = ({ errors }) => (
   <p className='errors'>
     { errors.msg }
   </p>
 );
 
 const msp = ({ errors }) => ({
-  errors
+  errors: errors.session
 });
 
-export default connect(msp)(Errors);
+export default connect(msp)(SessionError);

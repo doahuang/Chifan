@@ -1,20 +1,17 @@
-import { 
-  GET_SESSION_ERRORS,
-  CLEAR_SESSION_ERRORS,
-  RECEIVE_CURRENT_USER
+import {
+  GET_UI_ERRORS,
+  CLEAR_UI_ERRORS
 } from '../actions/action_types';
 
 export default (state = [], action) => {
   Object.freeze(state);
 
   switch (action.type) {
-    case GET_SESSION_ERRORS:
+    case GET_UI_ERRORS:
       return action.payload;
-    case CLEAR_SESSION_ERRORS:
-      return [];
-    case RECEIVE_CURRENT_USER:
+    case CLEAR_UI_ERRORS:
       return [];
     default:
       return state;
   }
-};
+}

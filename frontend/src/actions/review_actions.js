@@ -6,9 +6,7 @@ import {
   REMOVE_REVIEW
 } from './action_types';
 
-import {
-  receiveError
-} from './session_actions';
+import { receiveError } from './ui_error';
 
 const receiveReviews = reviews => ({
   type: RECEIVE_REVIEWS,

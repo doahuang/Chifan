@@ -1,13 +1,13 @@
 import {
-  GET_ERRORS,
-  CLEAR_ERRORS
+  GET_SESSION_ERRORS,
+  CLEAR_SESSION_ERRORS
 } from './action_types';
 
 export const clearErrors = () => ({
-  type: CLEAR_ERRORS
+  type: CLEAR_SESSION_ERRORS
 });
 
 export const receiveError = err => ({
-  type: GET_ERRORS,
+  type: GET_SESSION_ERRORS,
   payload: err.response.data
 });

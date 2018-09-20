@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
-import { updateReview } from '../../../actions/review_actions';
-import ReviewForm from './review_form';
-import { closeModal } from '../../../actions/modal';
 import { withRouter } from 'react-router-dom';
+import ReviewForm from './review_form';
+import { updateReview } from '../../../actions/review_actions';
+import { closeModal } from '../../../actions/modal';
+import { clearErrors } from '../../../actions/ui_error';
 
 const _nullReview = {
   rating: '',
@@ -21,7 +22,8 @@ const msp = ({ reviews }, ownProps) => {
 const mdp = dispatch => {
   return {
     submit: (review, next) => dispatch(updateReview(review, next)),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    clearErrors: () => dispatch(clearErrors())
   };
 }
 
