@@ -47,7 +47,7 @@ export default class ReviewForm extends Component {
           <input type='number' placeholder='Rating'
             ref={node => this.ratingNode = node}
             min={1} max={5}
-            // required
+            required
           />
           <textarea placeholder='Text'
             ref={node => this.textNode = node}

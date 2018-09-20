@@ -1,5 +1,7 @@
+$green: rgb(0, 132, 137);
+
 .review-form {
-  padding: 20px;
+  padding: 40px;
   width: 400px;
   height: 350px;
   h1 {
@@ -10,21 +12,37 @@
     flex-flow: column;
     height: 280px;
     margin: 20px 0;
+    p {
+      font-size: 20px;
+    }
     input {
-      border: 1px solid;
-      padding: 5px;
       margin: 20px 0;
+      border: 1px solid lightgray;
+      border-radius: 5px;
+      padding: 5px;
+      &:focus {
+        border: 1px solid $green;
+      }
     }
     textarea {
-      border: 1px solid black;
+      border: 1px solid lightgray;
+      border-radius: 5px;
       padding: 5px;
       height: 80px;
       resize: none;
+      &:focus {
+        border: 1px solid $green;
+      }
     }
     button {
-      border: 1px solid;
-      padding: 5px 10px;
       margin: 20px 0;
+      color: white;
+      border-radius: 5px;
+      background: $red;
+      padding: 10px;
+      &:active {
+        background: lightgray;
+      }
     }
   }
 }

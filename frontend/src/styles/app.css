@@ -1,4 +1,4 @@
-body, nav, div, h1, h2, p, a, ul, form, input, textarea, button {
+body, div, h1, h2, p, a, ul, form, input, textarea, button {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -9,7 +9,10 @@ body, nav, div, h1, h2, p, a, ul, form, input, textarea, button {
   border: none; }
 
 .errors {
-  color: red; }
+  color: #FF5A5F; }
+
+button {
+  cursor: pointer; }
 
 .modal-bg {
   position: fixed;
@@ -67,6 +70,8 @@ nav {
   padding: 40px;
   width: 400px;
   height: 280px; }
+  .session-form p {
+    font-size: 20px; }
   .session-form a:hover {
     color: #008489;
     text-decoration: underline; }
@@ -83,7 +88,6 @@ nav {
       .session-form form input:focus {
         border: 1px solid #008489; }
   .session-form button {
-    cursor: pointer;
     color: white;
     border-radius: 5px;
     background: #FF5A5F;
@@ -102,7 +106,6 @@ nav {
       .review .header h1:hover {
         color: darkgray; }
   .review button {
-    cursor: pointer;
     padding: 10px;
     border-radius: 5px;
     background: #FF5A5F;
@@ -118,7 +121,7 @@ nav {
       word-break: break-all; }
 
 .review-form {
-  padding: 20px;
+  padding: 40px;
   width: 400px;
   height: 350px; }
   .review-form h1 {
@@ -128,16 +131,28 @@ nav {
     flex-flow: column;
     height: 280px;
     margin: 20px 0; }
+    .review-form form p {
+      font-size: 20px; }
     .review-form form input {
-      border: 1px solid;
-      padding: 5px;
-      margin: 20px 0; }
+      margin: 20px 0;
+      border: 1px solid lightgray;
+      border-radius: 5px;
+      padding: 5px; }
+      .review-form form input:focus {
+        border: 1px solid #008489; }
     .review-form form textarea {
-      border: 1px solid black;
+      border: 1px solid lightgray;
+      border-radius: 5px;
       padding: 5px;
       height: 80px;
       resize: none; }
+      .review-form form textarea:focus {
+        border: 1px solid #008489; }
     .review-form form button {
-      border: 1px solid;
-      padding: 5px 10px;
-      margin: 20px 0; }
+      margin: 20px 0;
+      color: white;
+      border-radius: 5px;
+      background: #FF5A5F;
+      padding: 10px; }
+      .review-form form button:active {
+        background: lightgray; }

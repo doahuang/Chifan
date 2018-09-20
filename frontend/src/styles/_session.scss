@@ -5,6 +5,9 @@ $red: #FF5A5F;
   padding: 40px;
   width: 400px;
   height: 280px;
+  p {
+    font-size: 20px;
+  }
   a {
     &:hover {
       color: $green;
@@ -27,7 +30,6 @@ $red: #FF5A5F;
     }
   }
   button {
-    cursor: pointer;
     color: white;
     border-radius: 5px;
     background: $red;
