@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const User = (user, logout) => {
   return (
     <ul>
-      <li>Welcome, <b>{ user.name }</b></li>
+      <h2>Hi, { user.name }</h2>
       <li>
         <Link to='/reviews'>Reviews</Link>
       </li>

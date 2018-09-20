@@ -15,25 +15,35 @@ export default class ReviewList extends Component {
     this.props.addReview(review)
   }
 
+  create() {
+    this.props.history.push('/reviews/new');
+    this.props.openModal('createReview');
+  }
+
   render() {
-    const { reviews, deleteReview, openModal } = this.props;
+    const { reviews, deleteReview, openModal, history } = this.props;
     let reviewList = Object.keys(reviews).map(id => {
-      return <ReviewListItem key={id} 
-        review={reviews[id]} 
-        deleteReview={deleteReview}
-        openModal={openModal} />;
+      return (
+        <ReviewListItem key={id} 
+          review={reviews[id]} 
+          deleteReview={deleteReview}
+          openModal={openModal}
+          history={history}
+        />
+      );
     });
 
     return (
       <div className='review'>
-        <h1>Reviews</h1>
-        <button onClick={() => this.addReview()}>
-          Randomizer
-        </button>
-        <Link to='/reviews/new' 
-          onClick={() => openModal('createReview')}>
-          Create
-        </Link>
+        <div className='header'>
+          <h1><Link to='/reviews'>My Reviews</Link></h1>
+          <button onClick={() => this.addReview()}>
+            Randomizer
+          </button>
+          <button onClick={() => this.create()}>
+            Create
+          </button>
+        </div>
         <ul>{ reviewList }</ul>
       </div>
     )

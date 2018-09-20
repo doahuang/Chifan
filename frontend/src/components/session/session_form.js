@@ -42,16 +42,16 @@ export default class SessionForm extends Component {
           />
           <input type='password' placeholder='Password'
             ref={node => this.passwordNode = node}
-            maxLength={10}
+            maxLength={20}
             required 
           />
           <button>{ formType }</button>
-          {
-            formType === 'Sign Up' ? null :
-            <button onClick={e => this.submitForm(e, true)}>
-              <b>Demo</b>
-            </button>
-          }
+        {
+          formType === 'Sign Up' ? null :
+          <button onClick={e => this.submitForm(e, true)}>
+            Demo
+          </button>
+        }
         </form>
         <Errors />
       </div>

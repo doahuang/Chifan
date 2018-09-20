@@ -1,89 +1,121 @@
-body, div, h1, p, a, ul, form, input, textarea, button {
+body, nav, div, h1, h2, p, a, ul, form, input, textarea, button {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
   font-size: inherit;
   color: inherit;
   text-decoration: none;
-  outline: none; }
+  outline: none;
+  border: none; }
 
-.app {
-  position: relative;
-  margin: 0 auto 50px;
-  width: 80%; }
-  .app h1 {
+.errors {
+  color: red; }
+
+.modal-bg {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 2; }
+
+.modal-child {
+  background: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+
+nav {
+  padding: 10px 0;
+  display: flex;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.9); }
+  nav h1 {
     font-size: 60px;
-    color: lightskyblue; }
-  .app button {
-    background: none;
-    border-radius: 10px;
-    cursor: pointer; }
-    .app button:hover {
-      color: red; }
-    .app button:active {
-      background: lightgray; }
-  .app input:focus, .app textarea:focus {
-    border: 1px solid red; }
-  .app .errors {
-    color: red; }
-
-.greeting {
-  padding: 20px; }
-  .greeting ul {
-    display: flex; }
-    .greeting ul li {
-      list-style: none;
-      margin: 0 20px; }
-  .greeting a:hover {
-    color: red; }
+    line-height: 70px;
+    color: lightskyblue;
+    margin-left: 20px; }
+  nav .greeting {
+    display: grid;
+    align-items: center;
+    margin-right: 20px; }
+    nav .greeting h2 {
+      color: lightskyblue;
+      line-height: 65px;
+      margin-right: 20px; }
+    nav .greeting ul {
+      display: flex;
+      font-size: 20px; }
+      nav .greeting ul li {
+        list-style: none;
+        border-bottom: 2px solid transparent; }
+        nav .greeting ul li:hover {
+          border-bottom: 2px solid darkgray; }
+        nav .greeting ul li a {
+          display: inline-block;
+          padding: 20px; }
+          nav .greeting ul li a:hover {
+            color: darkgray; }
 
 .session-form {
-  padding: 20px;
+  padding: 40px;
   width: 400px;
   height: 280px; }
   .session-form a:hover {
-    color: red; }
+    color: #008489;
+    text-decoration: underline; }
   .session-form form {
     display: flex;
     flex-flow: column;
-    height: 200px;
-    margin: 20px 0; }
+    margin: 20px 0 10px;
+    height: 220px; }
     .session-form form input {
-      border: 1px solid;
+      border: 1px solid lightgray;
+      border-radius: 5px;
       padding: 5px;
       margin: 10px 0; }
+      .session-form form input:focus {
+        border: 1px solid #008489; }
   .session-form button {
-    border: 1px solid;
+    cursor: pointer;
+    color: white;
+    border-radius: 5px;
+    background: #FF5A5F;
     margin: 10px 0;
-    padding: 5px; }
+    padding: 10px; }
+    .session-form button:active {
+      background: lightgray; }
 
 .review {
-  padding: 20px 0; }
-  .review h1 {
-    font-size: 40px; }
+  margin-top: 100px;
+  padding: 20px; }
+  .review .header {
+    display: flex; }
+    .review .header h1 {
+      font-size: 40px; }
+      .review .header h1:hover {
+        color: darkgray; }
   .review button {
-    border: 1px solid;
-    padding: 5px 10px;
-    margin: 10px 40px; }
-  .review a {
-    border: 1px solid;
-    border-radius: 10px;
-    padding: 5px 10px; }
-    .review a:hover {
-      color: red; }
-    .review a:active {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    background: #FF5A5F;
+    color: white;
+    margin-left: 40px; }
+    .review button:active {
       background: lightgray; }
-  .review ul {
-    list-style: none; }
-    .review ul li {
-      display: flex;
-      justify-content: space-between;
-      margin: 0 20px;
-      padding: 20px; }
-      .review ul li p {
-        word-break: break-all; }
-      .review ul li button {
-        margin: 0 0 0 40px; }
+  .review ul li {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px; }
+    .review ul li p {
+      word-break: break-all; }
 
 .review-form {
   padding: 20px;
@@ -109,22 +141,3 @@ body, div, h1, p, a, ul, form, input, textarea, button {
       border: 1px solid;
       padding: 5px 10px;
       margin: 20px 0; }
-
-.modal-bg {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(255, 255, 255, 0.7);
-  z-index: 1; }
-
-.modal-child {
-  background: white;
-  border: 1px solid;
-  border-radius: 5px;
-  padding: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); }

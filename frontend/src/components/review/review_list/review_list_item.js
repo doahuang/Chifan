@@ -1,9 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 
-export default ({ review, openModal, deleteReview }) => {
+export default ({ review, openModal, deleteReview, history }) => {
   const { _id, rating, text } = review;
-  
+  const update = () => {
+    history.push(`/reviews/${_id}/edit`);
+    openModal('editReview');
+  };
+
   return (
     <li>
       <div>
@@ -11,10 +14,9 @@ export default ({ review, openModal, deleteReview }) => {
         <p>{ text }</p>
       </div>
       <div>
-        <Link to={`/reviews/${_id}/edit`}
-          onClick={() => openModal('editReview')}>
+        <button onClick={update}>
           Update
-        </Link>
+        </button>
         <button onClick={() => deleteReview(_id)}>
           Delete
         </button>

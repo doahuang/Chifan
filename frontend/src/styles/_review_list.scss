@@ -1,0 +1,39 @@
+$green: rgb(0, 132, 137);
+$red: #FF5A5F;
+
+.review {
+  margin-top: 100px;
+  padding: 20px;
+  .header {
+    display: flex;
+    h1 {
+      font-size: 40px;
+      &:hover {
+        color: darkgray;
+      }
+    }
+  }
+
+  button {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    background: $red;
+    color: white;
+    margin-left: 40px;
+    &:active {
+      background: lightgray;
+    }
+  }
+
+  ul {
+    li {
+      display: flex;
+      justify-content: space-between;
+      margin: 50px;
+      p {
+        word-break: break-all;
+      }
+    }
+  }
+}

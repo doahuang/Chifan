@@ -1,0 +1,31 @@
+.review-form {
+  padding: 20px;
+  width: 400px;
+  height: 350px;
+  h1 {
+    font-size: 40px;
+  }
+  form {
+    display: flex;
+    flex-flow: column;
+    height: 280px;
+    margin: 20px 0;
+    input {
+      border: 1px solid;
+      padding: 5px;
+      margin: 20px 0;
+    }
+    textarea {
+      border: 1px solid black;
+      padding: 5px;
+      height: 80px;
+      resize: none;
+    }
+    button {
+      border: 1px solid;
+      padding: 5px 10px;
+      margin: 20px 0;
+    }
+  }
+}
+

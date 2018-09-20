@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 export default ({ msg, formType, url, openModal }) => {
   return (
-    <b>{ msg }{' '}
+    <p>{ msg }{' '}
       <Link to={'/' + url}
         onClick={openModal}>
         { formType }
         </Link>
-    </b>
+    </p>
   )
 }

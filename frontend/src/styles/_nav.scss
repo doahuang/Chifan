@@ -1,0 +1,46 @@
+nav {
+  padding: 10px 0;
+  display: flex;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.9);
+  
+  h1 {
+    font-size: 60px;
+    line-height: 70px;
+    color: lightskyblue;
+    margin-left: 20px;
+  }
+
+  .greeting {
+    display: grid;
+    align-items: center;
+    margin-right: 20px;
+    h2 {
+      color: lightskyblue;
+      line-height: 65px;
+      margin-right: 20px;
+    }
+    ul {
+      display: flex;
+      font-size: 20px;
+      li {
+        list-style: none;
+        border-bottom: 2px solid transparent;
+        &:hover {
+          border-bottom: 2px solid darkgray;
+        }
+        a {
+          display: inline-block;
+          padding: 20px;
+          &:hover {
+            color: darkgray;
+          }
+        }
+      }
+    }
+  }
+}

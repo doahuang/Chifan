@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => render());
 
 const render = () => {
   let store = configStore();
-  window.s = store.getState();
+  window.s = store;
 
   if (localStorage.jwtToken) {
     setAuthToken(localStorage.jwtToken);
