@@ -175,3 +175,14 @@ nav {
   .profile ul li {
     list-style: none;
     margin: 50px; }
+
+.profile-form {
+  display: inline-block; }
+  .profile-form form input {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 5px; }
+    .profile-form form input:focus {
+      border: 1px solid #008489; }
+  .profile-form button {
+    margin: 0 0 0 10px; }

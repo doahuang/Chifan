@@ -1,0 +1,16 @@
+.profile-form {
+  display: inline-block;
+  form {
+    input {
+      border: 1px solid lightgray;
+      border-radius: 5px;
+      padding: 5px;
+      &:focus {
+        border: 1px solid $green;
+      }
+    }
+  }
+  button {
+    margin: 0 0 0 10px;
+  }
+}
