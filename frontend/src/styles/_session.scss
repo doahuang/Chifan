@@ -1,13 +1,8 @@
-$green: rgb(0, 132, 137);
-$red: #FF5A5F;
-
 .session-form {
   padding: 40px;
   width: 400px;
-  height: 280px;
-  p {
-    font-size: 20px;
-  }
+  height: 320px;
+  font-size: 20px;
   a {
     &:hover {
       color: $green;
@@ -18,7 +13,7 @@ $red: #FF5A5F;
     display: flex;
     flex-flow: column;
     margin: 20px 0 10px;
-    height: 220px;
+    height: 250px;
     input {
       border: 1px solid lightgray;
       border-radius: 5px;

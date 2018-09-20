@@ -8,7 +8,7 @@ export default (state = [], action) => {
 
   switch (action.type) {
     case GET_UI_ERRORS:
-      return action.payload;
+      return action.err;
     case CLEAR_UI_ERRORS:
       return [];
     default:

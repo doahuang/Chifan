@@ -9,10 +9,10 @@ export default ({ review, openModal, deleteReview, history }) => {
 
   return (
     <li>
-      <div>
+      <article>
         <b>Rating: { rating }</b>
         <p>{ text }</p>
-      </div>
+      </article>
       <div>
         <button onClick={update}>
           Update

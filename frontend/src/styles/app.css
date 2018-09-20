@@ -1,4 +1,4 @@
-body, div, h1, h2, p, a, ul, form, input, textarea, button {
+body, div, h1, h2, p, a, ul, li, form, input, textarea, button {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -13,6 +13,10 @@ body, div, h1, h2, p, a, ul, form, input, textarea, button {
 
 button {
   cursor: pointer; }
+
+.body {
+  margin-top: 100px;
+  padding: 20px; }
 
 .modal-bg {
   position: fixed;
@@ -48,10 +52,6 @@ nav {
     display: grid;
     align-items: center;
     margin-right: 20px; }
-    nav .greeting h2 {
-      color: lightskyblue;
-      line-height: 65px;
-      margin-right: 20px; }
     nav .greeting ul {
       display: flex;
       font-size: 20px; }
@@ -69,9 +69,8 @@ nav {
 .session-form {
   padding: 40px;
   width: 400px;
-  height: 280px; }
-  .session-form p {
-    font-size: 20px; }
+  height: 320px;
+  font-size: 20px; }
   .session-form a:hover {
     color: #008489;
     text-decoration: underline; }
@@ -79,7 +78,7 @@ nav {
     display: flex;
     flex-flow: column;
     margin: 20px 0 10px;
-    height: 220px; }
+    height: 250px; }
     .session-form form input {
       border: 1px solid lightgray;
       border-radius: 5px;
@@ -97,8 +96,7 @@ nav {
       background: lightgray; }
 
 .review {
-  margin-top: 100px;
-  padding: 20px; }
+  font-size: 20px; }
   .review .header {
     display: flex; }
     .review .header h1 {
@@ -119,20 +117,22 @@ nav {
     margin: 50px; }
     .review ul li p {
       word-break: break-all; }
+    .review ul li div {
+      display: flex;
+      align-items: center; }
 
 .review-form {
   padding: 40px;
   width: 400px;
-  height: 350px; }
+  height: 350px;
+  font-size: 20px; }
   .review-form h1 {
     font-size: 40px; }
   .review-form form {
     display: flex;
     flex-flow: column;
-    height: 280px;
+    height: 300px;
     margin: 20px 0; }
-    .review-form form p {
-      font-size: 20px; }
     .review-form form input {
       margin: 20px 0;
       border: 1px solid lightgray;
@@ -156,3 +156,22 @@ nav {
       padding: 10px; }
       .review-form form button:active {
         background: lightgray; }
+
+.profile {
+  font-size: 20px; }
+  .profile h1 {
+    display: inline-block;
+    font-size: 40px; }
+    .profile h1:hover {
+      color: darkgray; }
+  .profile button {
+    padding: 10px;
+    border-radius: 5px;
+    background: #FF5A5F;
+    color: white;
+    margin: 0 10px; }
+    .profile button:active {
+      background: lightgray; }
+  .profile ul li {
+    list-style: none;
+    margin: 50px; }

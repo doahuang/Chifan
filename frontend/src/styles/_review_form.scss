@@ -1,20 +1,16 @@
-$green: rgb(0, 132, 137);
-
 .review-form {
   padding: 40px;
   width: 400px;
   height: 350px;
+  font-size: 20px;
   h1 {
     font-size: 40px;
   }
   form {
     display: flex;
     flex-flow: column;
-    height: 280px;
+    height: 300px;
     margin: 20px 0;
-    p {
-      font-size: 20px;
-    }
     input {
       margin: 20px 0;
       border: 1px solid lightgray;

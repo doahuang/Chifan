@@ -1,8 +1,5 @@
-$red: #FF5A5F;
-
 .review {
-  margin-top: 100px;
-  padding: 20px;
+  font-size: 20px;
   .header {
     display: flex;
     h1 {
@@ -31,6 +28,10 @@ $red: #FF5A5F;
       margin: 50px;
       p {
         word-break: break-all;
+      }
+      div {
+        display: flex;
+        align-items: center;
       }
     }
   }

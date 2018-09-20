@@ -9,8 +9,7 @@ export default (state = null, action) => {
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
       return {
-        id: action.payload.id,
-        name: action.payload.name
+        id: action.user.id
       };
     case LOGOUT_CURRENT_USER:
       return null;

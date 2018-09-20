@@ -9,5 +9,5 @@ export const clearErrors = () => ({
 
 export const receiveError = err => ({
   type: GET_UI_ERRORS,
-  payload: err.response.data
+  err: err.response.data
 });

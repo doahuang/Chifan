@@ -30,7 +30,7 @@ export const signupUser = (userData, next) => dispatch => {
     })
     .catch(err => dispatch({
       type: GET_SESSION_ERRORS,
-      payload: err.response.data
+      err: err.response.data
     }));
 };
 
@@ -49,7 +49,7 @@ export const loginUser = (userData, next) => dispatch => {
     })
     .catch(err => dispatch({
       type: GET_SESSION_ERRORS,
-      payload: err.response.data
+      err: err.response.data
     }));
 };
 
@@ -63,5 +63,5 @@ export const logoutUser = () => dispatch => {
 
 export const setCurrentUser = decoded => ({
   type: RECEIVE_CURRENT_USER,
-  payload: decoded
+  user: decoded
 });

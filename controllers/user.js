@@ -59,7 +59,10 @@ export const signup = async (req, res) => {
 const signToken = (user, keys, res) => {
   const payload = { 
     id: user.id,
-    name: user.name
+    name: user.name,
+    email: user.email,
+    password: user.password,
+    date: user.date
   };
 
   jwt.sign(

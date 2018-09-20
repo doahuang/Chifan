@@ -1,0 +1,28 @@
+.profile {
+  font-size: 20px;
+  h1 {
+    display: inline-block;
+    font-size: 40px;
+    &:hover {
+      color: darkgray;
+    }
+  }
+
+  button {
+    padding: 10px;
+    border-radius: 5px;
+    background: $red;
+    color: white;
+    margin: 0 10px;
+    &:active {
+      background: lightgray;
+    }
+  }
+
+  ul {
+    li {
+      list-style: none;
+      margin: 50px;
+    }
+  }
+}
