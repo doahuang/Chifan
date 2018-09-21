@@ -1,38 +1,54 @@
 import React, { Component } from 'react'
 
+import { updateUser } from '../../actions/user_actions';
+
 export default class ProfileForm extends Component {
   state = {
-    value: this.props.value,
     open: false
   };
 
-  update(e) {
-    this.setState({ value: e.currentTarget.value })
+  submit(e) {
+    e.preventDefault();
+
+    if (!this.state.open)
+      return this.setState({ open: true });
+    
+    let value = this.fieldNode.value;
+    
+    if (!value || this.state.value === value)
+      return this.setState({ open: false });
+
+    const user = {
+      id: this.props.id,
+      [this.props.field]: value
+    };
+      
+    updateUser(user)
+      .then(() => this.setState({ 
+        value,
+        open: false 
+      }));
   }
 
-  toggle() {
-    this.setState({ open: !this.state.open });
+  componentWillReceiveProps(next) {
+    if (this.state.value !== next.value) 
+      this.setState({ value: next.value });
   }
 
   render() {
     const { open, value } = this.state;
-    const { field, limit } = this.props;
 
     return (
       <div className='profile-form'>
-        <form onSubmit={e => e.preventDefault()}>
+        <form onSubmit={e => this.submit(e)}>
           {
-            !open ? value :
-            <input placeholder={field}
-              value={value}
-              onChange={e => this.update(e)}
-              maxLength={limit}
-              required
-            />
+            open ?
+            <input placeholder={value}
+              ref={node => this.fieldNode = node}
+              maxLength={this.props.max}
+            /> : value
           }
-          <button onClick={() => this.toggle()}>
-            { open ? 'Update' : 'Change' }
-          </button>
+          <button>Update</button>
         </form>
       </div>
     )

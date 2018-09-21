@@ -4,8 +4,44 @@ import jwt from 'jsonwebtoken';
 import keys from '../config/keys';
 import User from '../models/user';
 
-export const currentUser = (req, res) => {
-  return res.json(req.user);
+const signToken = (user, keys, res) => {
+  const payload = {
+    id: user.id,
+    name: user.name,
+    email: user.email,
+    password: user.password,
+    date: user.date
+  };
+
+  jwt.sign(
+    payload,
+    keys.secret,
+    { expiresIn: 3600 * 24 },
+    (err, token) => res.json({ token })
+  );
+};
+
+export const getUser = (req, res) => {
+  User.findById(req.params.id)
+    .then(user => {
+      if (!user) 
+        return res.status(400).json({ msg: 'Failed to fetch user'});
+      
+      res.json(user);
+    })
+    .catch(err => res.status(400).json({ msg: 'Failed to fetch user' }));
+}
+
+export const updateUser = (req, res) => {
+  User.findOneAndUpdate({ _id: req.params.id}, req.body)
+    .then(async () => {
+      const user = await User.findById(req.params.id);
+      if (!user) 
+        return res.status(400).json({ msg: 'Failed to update user' });
+      
+      res.json(user);
+    })
+    .catch(err => res.status(400).json({ msg: 'Failed to update user' }));
 }
 
 export const allUsers = async (req, res) => {
@@ -54,21 +90,4 @@ export const signup = async (req, res) => {
       .then(() => signToken(user, keys, res))
       .catch(err => res.status(400).json({ msg: 'Failed to create user' }));
   });
-};
-
-const signToken = (user, keys, res) => {
-  const payload = { 
-    id: user.id,
-    name: user.name,
-    email: user.email,
-    password: user.password,
-    date: user.date
-  };
-
-  jwt.sign(
-    payload, 
-    keys.secret, 
-    { expiresIn: 3600 * 24 }, 
-    (err, token) => res.json({ token })
-  );
 };

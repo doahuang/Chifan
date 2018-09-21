@@ -1,12 +1,9 @@
 import { connect } from 'react-redux'
 
 import Profile from './profile';
-import { openModal } from '../../actions/modal';
 
-const mdp = dispatch => {
-  return {
-    openModal: modal => dispatch(openModal(modal))
-  }
-}
+const msp = ({ session }) => ({
+  id: session.id
+});
 
-export default connect(null, mdp)(Profile);
+export default connect(msp)(Profile);

@@ -1,31 +1,39 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-import jwtDecode from 'jwt-decode';
+
 import ProfileForm from './profile_form';
+import { getUser } from '../../actions/user_actions';
 
-export default () => {
-  const currentUser = jwtDecode(localStorage.jwtToken);
-  const { name, email, date } = currentUser;
+export default class Profile extends Component {
+  state = {
 
-  return (
-    <div className='profile'>
-      <h1><Link to='/profile'>My Profile</Link></h1>
-      <ul>
-        <li>
-          <b>Name: </b>
-          <ProfileForm field='Name' value={name} limit={20} />
-        </li>
-        <li>
-          <b>Email: </b>{email}
-        </li>
-        <li>
-          <b>Password: </b>
-          <ProfileForm field='Password' />
-        </li>
-        <li>
-          <b>Member since: </b>{ new Date(date).toDateString() }
-        </li>
-      </ul>
-    </div>
-  )
+  }
+
+  componentDidMount() {
+    getUser(this.props.id)
+      .then(user => this.setState(user))
+  }
+
+  render() {
+    const { _id, name, email, date } = this.state;
+
+    return (
+      <div className='profile'>
+        <h1><Link to='/profile'>My Profile</Link></h1>
+        <ul>
+          <li>
+            <b>Name: </b>
+            <ProfileForm id={_id} field='name' 
+              value={name} max={20} />
+          </li>
+          <li>
+            <b>Email: </b>{email}
+          </li>
+          <li>
+            <b>Member since: </b>{ new Date(date).toDateString() }
+          </li>
+        </ul>
+      </div>
+    )
+  }
 }
