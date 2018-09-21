@@ -4,6 +4,7 @@ import { ProtectedRoute } from '../../util/routes';
 
 import ReviewList from '../review/review_list/review_list_container';
 import Profile from '../profile/profile_container';
+import Landing from '../landing/landing';
 
 export default () => {
   return (
@@ -11,7 +12,7 @@ export default () => {
       <Switch>
         <ProtectedRoute path='/profile' component={Profile} />
         <ProtectedRoute path='/reviews' component={ReviewList} />
-        <Route path='/' render={() => 'This is landing page'} />
+        <Route path='/' render={Landing} />
       </Switch>
     </div>
   );

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 
 import ProfileForm from './profile_form';
-import { getUser } from '../../actions/user_actions';
+import { getUser } from '../../actions/user_actions'
 
 export default class Profile extends Component {
   state = {
@@ -10,12 +10,11 @@ export default class Profile extends Component {
   }
 
   componentDidMount() {
-    getUser(this.props.id)
-      .then(user => this.setState(user))
+    getUser(this.props.id).then(user => this.setState(user))
   }
 
   render() {
-    const { id, name, email, date } = this.state;
+    let { id, name, email, date } = this.state;
     const demo = 'demo@chifan';
 
     return (
@@ -32,7 +31,7 @@ export default class Profile extends Component {
             {
               email === demo ? demo :
               <ProfileForm id={id} field='email'
-                value={email} max={20} />
+                value={email} type='email' max={20} />
             }
           </li>
           <li>

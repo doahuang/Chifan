@@ -4,8 +4,20 @@ import { updateUser } from '../../actions/user_actions';
 
 export default class ProfileForm extends Component {
   state = {
-    open: false
+    done: false,
+    open: false,
+    value: this.props.value
   };
+
+  componentWillReceiveProps(next) {
+    let { done, value } = this.state;
+    if (value === next.value || done) return;
+
+    this.setState({
+      done: true,
+      value: next.value
+    }); 
+  }
 
   submit(e) {
     e.preventDefault();
@@ -24,29 +36,25 @@ export default class ProfileForm extends Component {
     };
       
     updateUser(user)
-      .then(() => this.setState({ 
-        value,
-        open: false 
-      }));
-  }
-
-  componentWillReceiveProps(next) {
-    if (this.state.value !== next.value) 
-      this.setState({ value: next.value });
+    .then(() => this.setState({ 
+      value,
+      open: false 
+    }));
   }
 
   render() {
-    const { open, value } = this.state;
+    let { open, value } = this.state;
 
     return (
       <div className='profile-form'>
         <form onSubmit={e => this.submit(e)}>
           {
-            open ?
+            !open ? value :
             <input placeholder={value}
+              type={this.props.type}
               ref={node => this.fieldNode = node}
               maxLength={this.props.max}
-            /> : value
+            />
           }
           <button>Update</button>
         </form>

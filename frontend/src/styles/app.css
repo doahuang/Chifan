@@ -184,5 +184,5 @@ nav {
     padding: 5px; }
     .profile-form form input:focus {
       border: 1px solid #008489; }
-  .profile-form button {
+  .profile-form form button {
     margin: 0 0 0 10px; }
