@@ -5,10 +5,10 @@ export default class ReviewForm extends Component {
   constructor(props) {
     super(props);
 
+    let { _id, rating, text } = props.review;
+    
     this.state = {
-      id: props.review._id,
-      rating: props.review.rating,
-      text: props.review.text
+      id: _id, rating, text
     };
   }
 

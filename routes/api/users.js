@@ -1,11 +1,11 @@
 import express from 'express';
-// import passport from 'passport';
-import { 
+import passport from 'passport';
+
+import { signup, login } from '../../controllers/session';
+import {
+  allUsers,
   getUser,
-  updateUser,
-  allUsers, 
-  signup,
-  login,
+  updateUser
 } from '../../controllers/user';
 
 const router = express.Router();
@@ -15,7 +15,7 @@ router.get('/:id', getUser);
 router.post('/signup', signup);
 router.post('/login', login);
 
-// const jwtAuth = passport.authenticate('jwt', { session: false });
-router.patch('/:id', updateUser);
+const jwtAuth = passport.authenticate('jwt', { session: false });
+router.patch('/:id', jwtAuth, updateUser);
 
 export default router;

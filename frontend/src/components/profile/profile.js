@@ -15,7 +15,7 @@ export default class Profile extends Component {
   }
 
   render() {
-    const { _id, name, email, date } = this.state;
+    const { id, name, email, date } = this.state;
 
     return (
       <div className='profile'>
@@ -23,7 +23,7 @@ export default class Profile extends Component {
         <ul>
           <li>
             <b>Name: </b>
-            <ProfileForm id={_id} field='name' 
+            <ProfileForm id={id} field='name' 
               value={name} max={20} />
           </li>
           <li>
