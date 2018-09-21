@@ -16,6 +16,7 @@ export default class Profile extends Component {
 
   render() {
     const { id, name, email, date } = this.state;
+    const demo = 'demo@chifan';
 
     return (
       <div className='profile'>
@@ -27,7 +28,12 @@ export default class Profile extends Component {
               value={name} max={20} />
           </li>
           <li>
-            <b>Email: </b>{email}
+            <b>Email: </b>
+            {
+              email === demo ? demo :
+              <ProfileForm id={id} field='email'
+                value={email} max={20} />
+            }
           </li>
           <li>
             <b>Member since: </b>{ new Date(date).toDateString() }

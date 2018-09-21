@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import SessionError from '../error/session_error';
 
 export default class SessionForm extends Component {
+  state = {
+    email: 'demo@chifan',
+    password: '123123'
+  }
+
   componentWillUnmount() {
     this.props.clearErrors();
   }
@@ -15,7 +20,7 @@ export default class SessionForm extends Component {
       email: this.emailNode.value,
       password: this.passwordNode.value
     };
-    if (demo) user = { email: 'demo@demo', password: '123123' };
+    if (demo) user = this.state;
 
     this.props.submit(user, this.props.closeModal);
   }

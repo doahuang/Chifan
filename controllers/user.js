@@ -1,12 +1,16 @@
 import User from '../models/user';
 import validator from '../middleware/validate_user';
 
+const cleanup = user => {
+  const { id, name, email, date } = user;
+  return {
+    id, name, email, date
+  };
+}
+
 export const allUsers = (req, res) => {
   User.find({}).then(users => {
-    users = users.map(user => ({
-      id: user.id,
-      name: user.name
-    }));
+    users = users.map(user => cleanup(user))
     res.json(users);
   });
 };
@@ -15,11 +19,7 @@ export const getUser = (req, res) => {
   User.findById(req.params.id)
     .then(user => {
       if (!user) next();
-
-      const { id, name, email, date } = user;
-      return res.json({
-        id, name, email, date
-      });
+      res.json(cleanup(user))
     })
     .catch(err => res.status(400).json({ msg: 'Failed to fetch user' }));
 }
