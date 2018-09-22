@@ -1,48 +1,47 @@
 import React, { Component } from 'react'
 
-import { updateUser } from '../../actions/user_actions';
+import { updateUser } from '../../actions/user_actions'
 
 export default class ProfileForm extends Component {
   state = {
-    done: false,
-    open: false,
-    value: this.props.value
-  };
+
+  }
+
+  action = updateUser;
 
   componentWillReceiveProps(next) {
     let { done, value } = this.state;
     if (value === next.value || done) return;
 
-    this.setState({
-      done: true,
-      value: next.value
-    }); 
+    this.setState({ done: true, value: next.value });
+  }
+
+  open() {
+    this.setState({ open: true });
+  }
+
+  close() {
+    this.setState({ open: false })
   }
 
   submit(e) {
     e.preventDefault();
 
-    if (!this.state.open)
-      return this.setState({ open: true });
-    
-    let value = this.fieldNode.value;
-    
-    if (!value || this.state.value === value)
-      return this.setState({ open: false });
+    if (!this.state.open) return this.open();
 
-    const user = {
-      id: this.props.id,
-      [this.props.field]: value
-    };
-      
-    updateUser(user)
-    .then(() => this.setState({ 
-      value,
-      open: false 
-    }));
+    let value = this.fieldNode.value;
+    if (!value || value === this.state.value) return this.close();
+
+    const { id, field } = this.props;
+    const user = { id, [field]: value };
+    
+    this.action(user)
+      .then(() => this.setState({ value, open: false }))
+      .catch(this.close());
   }
 
   render() {
+    const { type, maxLength } = this.props;
     let { open, value } = this.state;
 
     return (
@@ -50,10 +49,11 @@ export default class ProfileForm extends Component {
         <form onSubmit={e => this.submit(e)}>
           {
             !open ? value :
-            <input placeholder={value}
-              type={this.props.type}
+            <input 
+              placeholder={value}
+              type={type}
               ref={node => this.fieldNode = node}
-              maxLength={this.props.max}
+              maxLength={maxLength}
             />
           }
           <button>Update</button>

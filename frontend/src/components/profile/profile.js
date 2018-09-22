@@ -23,15 +23,19 @@ export default class Profile extends Component {
         <ul>
           <li>
             <b>Name: </b>
-            <ProfileForm id={id} field='name' 
-              value={name} max={20} />
+            <ProfileForm 
+              id={id} field='name' 
+              value={name} maxLength={20} 
+            />
           </li>
           <li>
             <b>Email: </b>
             {
               email === demo ? demo :
-              <ProfileForm id={id} field='email'
-                value={email} type='email' max={20} />
+              <ProfileForm 
+                id={id} field='email' type='email'
+                value={email} maxLength={20}
+              />
             }
           </li>
           <li>

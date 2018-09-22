@@ -66,6 +66,9 @@ nav {
           nav .greeting ul li a:hover {
             color: darkgray; }
 
+.landing h1 {
+  font-size: 40px; }
+
 .session-form {
   padding: 40px;
   width: 400px;

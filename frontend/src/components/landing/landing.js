@@ -2,9 +2,9 @@ import React from 'react'
 
 export default () => {
   return (
-    <div>
-      <h1 style={{ fontSize: '40px' }}>
-        Eat Anywhere
+    <div className='landing'>
+      <h1>
+        Find what you like to eat
       </h1>
     </div>
   )

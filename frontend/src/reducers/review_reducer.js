@@ -1,7 +1,8 @@
 import {
   RECEIVE_REVIEWS,
   RECEIVE_REVIEW,
-  REMOVE_REVIEW
+  REMOVE_REVIEW,
+  LOGOUT_CURRENT_USER
 } from '../actions/action_types';
 
 export default (state = {}, action) => {
@@ -22,6 +23,8 @@ export default (state = {}, action) => {
       newState = Object.assign({}, state);
       delete newState[action.id];
       return newState;
+    case LOGOUT_CURRENT_USER:
+      return {};
     default:
       return state;
   }
