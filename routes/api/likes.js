@@ -1,4 +1,5 @@
 import express from 'express';
+import passport from 'passport';
 
 import {
   myLikes,
@@ -9,7 +10,10 @@ import {
 const router = express.Router();
 
 router.get('/', myLikes);
-router.post('/', addLike);
-router.delete('/', deleteLike);
+
+const jwtAuth = passport.authenticate('jwt', { session: false });
+
+router.post('/', jwtAuth, addLike);
+router.delete('/', jwtAuth, deleteLike);
 
 export default router;
