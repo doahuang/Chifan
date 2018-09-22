@@ -11,10 +11,8 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-import users from './routes/api/users';
-import reviews from './routes/api/reviews';
-app.use('/api/users', users);
-app.use('/api/reviews', reviews);
+import apiRoutes from './routes/api/index';
+apiRoutes(app);
 
 import './config/passport';
 
