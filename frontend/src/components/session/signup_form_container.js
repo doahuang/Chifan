@@ -22,7 +22,6 @@ const mdp = dispatch => {
       <ShortCut
         msg='Already have an account?'
         formType='Log In'
-        url='login'
         openModal={() => dispatch(openModal('login'))}
       />
   }

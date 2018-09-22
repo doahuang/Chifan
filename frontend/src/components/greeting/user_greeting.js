@@ -5,6 +5,9 @@ export default ({ logout }) => {
   return (
     <ul>
       <li>
+        <Link to='/shops'>Shops</Link>
+      </li>
+      <li>
         <Link to='/likes'>Likes</Link>
       </li>
       <li>
@@ -14,7 +17,7 @@ export default ({ logout }) => {
         <Link to='/profile'>Profile</Link>
       </li>
       <li>
-        <Link to='/' onClick={() => logout()}>
+        <Link to='#' onClick={() => logout()}>
           Log Out
         </Link>
       </li>

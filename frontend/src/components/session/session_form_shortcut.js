@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default ({ msg, formType, url, openModal }) => {
+export default ({ msg, formType, openModal }) => {
   return (
-    <p>{ msg }{' '}
-      <Link to={'/' + url}
-        onClick={openModal}>
+    <p>
+      <span>{ msg } </span>
+      <Link to='#' onClick={openModal}>
         { formType }
-        </Link>
+      </Link>
     </p>
   )
 }

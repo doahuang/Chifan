@@ -5,13 +5,16 @@ import { ProtectedRoute } from '../../util/routes';
 import ReviewList from '../review/review_list/review_list_container';
 import Profile from '../profile/profile_container';
 import Landing from '../landing/landing';
+import ShopList from '../shop/shop_list_container';
 
 export default () => {
   return (
     <div className='body'>
       <Switch>
-        <ProtectedRoute path='/profile' component={Profile} />
+        <Route path='/shops' component={ShopList} />
+        <ProtectedRoute path='/likes' component={() => <h1>Like List</h1>} />
         <ProtectedRoute path='/reviews' component={ReviewList} />
+        <ProtectedRoute path='/profile' component={Profile} />
         <Route path='/' render={Landing} />
       </Switch>
     </div>
