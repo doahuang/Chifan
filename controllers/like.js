@@ -28,9 +28,7 @@ export const addLike = async (req, res) => {
 }
 
 export const deleteLike = (req, res) => {
-  let { shopId } = req.body;
-  
-  Like.findOneAndRemove({ shop: shopId, user: req.user })
+  Like.findOneAndRemove({ _id: req.param.id, user: req.user })
     .then(like => res.json(like.id))
     .catch(err => res.status(400).json({ msg: 'Failed to unlike' }));
 }

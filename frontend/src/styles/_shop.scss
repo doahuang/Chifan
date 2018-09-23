@@ -7,4 +7,20 @@
       color: darkgray;
     }
   }
+
+  ul {
+    li {
+      list-style: none;
+      display: flex;
+      margin: 50px;
+      img {
+        height: 200px;
+        width: 200px;
+        margin-right: 20px;
+      }
+      section {
+        width: 100%;
+      }
+    }
+  }
 }

@@ -20,7 +20,7 @@ export default class ShopList extends Component {
 
     return (
       <div className='shop'>
-        <Link to='/shops'><h1>Shops</h1></Link>
+        <h1><Link to='/shops'>Shops</Link></h1>
         <ul>{ shopList }</ul>
       </div>
     )

@@ -14,6 +14,6 @@ router.get('/', myLikes);
 const jwtAuth = passport.authenticate('jwt', { session: false });
 
 router.post('/', jwtAuth, addLike);
-router.delete('/', jwtAuth, deleteLike);
+router.delete('/:id', jwtAuth, deleteLike);
 
 export default router;
