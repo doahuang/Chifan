@@ -15,9 +15,12 @@ const receiveShop = shop => ({
   shop
 })
 
-export const allShops = () => dispatch => {
-  return axios.get('/api/shops')
-    .then(res => dispatch(receiveShops(res.data)))
+export const allShops = liked => dispatch => {
+  return axios.get(
+    '/api/shops', 
+    { params: { liked } }
+  )
+  .then(res => dispatch(receiveShops(res.data)))
 }
 
 export const getShop = id => dispatch => {

@@ -4,8 +4,21 @@ import { Link } from 'react-router-dom';
 import ShopListItem from './shop_list_item'
 
 export default class ShopList extends Component {
+  state = {
+    liked: this.props.liked
+  }
+
   componentDidMount() {
-    this.props.allShops();
+    this.props.allShops(this.state.liked);
+  }
+
+  componentWillReceiveProps(next) {
+    let { liked } = this.state;
+    
+    if (liked !== next.liked) {
+      this.setState({ liked: !liked })
+      this.props.allShops(next.liked)
+    }
   }
 
   render() {

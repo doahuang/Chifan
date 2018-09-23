@@ -13,6 +13,7 @@ router.get('/', myLikes);
 
 const jwtAuth = passport.authenticate('jwt', { session: false });
 
+// router.get('/', jwtAuth, myLikes);
 router.post('/', jwtAuth, addLike);
 router.delete('/:id', jwtAuth, deleteLike);
 

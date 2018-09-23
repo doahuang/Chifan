@@ -8,8 +8,8 @@ export default ({ logout }) => {
         <Link to='/shops'>Shops</Link>
       </li>
       <li>
-        <Link to='?likes=true' >
-          Likes
+        <Link to='/shops?liked=true' >
+          Liked
         </Link>
       </li>
       <li>

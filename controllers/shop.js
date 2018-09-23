@@ -1,6 +1,9 @@
 import Shop from '../models/shop';
 
-export const allShops = (req, res) => {
+export const allShops = async (req, res) => {
+  let { liked } = req.query;
+  console.log(liked)
+
   Shop.find({})
     .then(shops => res.json(shops));
 }

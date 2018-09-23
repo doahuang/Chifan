@@ -12,7 +12,6 @@ export default () => {
     <div className='body'>
       <Switch>
         <Route path='/shops' component={ShopList} />
-        <ProtectedRoute path='/likes' component={() => <h1>Like List</h1>} />
         <ProtectedRoute path='/reviews' component={ReviewList} />
         <ProtectedRoute path='/profile' component={Profile} />
         <Route path='/' render={Landing} />

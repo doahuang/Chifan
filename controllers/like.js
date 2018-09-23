@@ -2,6 +2,7 @@ import Like from '../models/like';
 import Shop from '../models/shop';
 
 export const myLikes = (req, res) => {
+  // Like.find({ user: req.user })
   Like.find({})
     .then(likes => res.json(likes));
 }
