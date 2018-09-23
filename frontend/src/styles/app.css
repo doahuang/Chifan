@@ -203,7 +203,7 @@ nav {
     margin: 50px; }
     .shop ul li img {
       height: 200px;
-      width: 200px;
-      margin-right: 20px; }
+      width: 200px; }
     .shop ul li section {
-      width: 30%; }
+      width: 30%;
+      margin: 0 20px; }

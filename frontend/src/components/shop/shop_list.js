@@ -5,29 +5,35 @@ import ShopListItem from './shop_list_item'
 
 export default class ShopList extends Component {
   state = {
-    liked: this.props.liked
+    liked: this.props.liked,
+    user: this.props.user
   }
 
   componentDidMount() {
-    this.props.allShops(this.state.liked);
+    let { user, liked } = this.state;
+    this.props.allShops({ user, liked });
   }
 
   componentWillReceiveProps(next) {
-    let { liked } = this.state;
-    
-    if (liked !== next.liked) {
-      this.setState({ liked: !liked })
-      this.props.allShops(next.liked)
+    let { user, liked } = this.state;
+
+    // if guest log in or user log out, set user
+    const guestLogin = !user && next.user !== user;
+    const userLogout = user && next.user !== user;
+    if (guestLogin || userLogout) 
+      this.setState({ user: next.user })
+
+    // if user is logged in and liked changes, set like
+    if (user && next.liked !== liked) {
+      this.setState({ liked: next.liked })
+      this.props.allShops({ user, liked: !liked });
     }
   }
 
   render() {
     const shopList = this.props.shops.map(shop => {
       return (
-        <ShopListItem 
-          key={shop._id} 
-          shop={shop} 
-        />
+        <ShopListItem key={shop._id} shop={shop} />
       );
     })
 

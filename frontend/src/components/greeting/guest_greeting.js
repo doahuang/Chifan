@@ -11,13 +11,13 @@ export default ({ openModal }) => {
         <Link to='/help'>Help</Link>
       </li>
       <li>
-        <Link to='#' onClick={() => openModal('login')}>
-          Log In
+        <Link to='#' onClick={() => openModal('signup')}>
+          Sign Up
         </Link>
       </li>
       <li>
-        <Link to='#' onClick={() => openModal('signup')}>
-          Sign Up
+        <Link to='#' onClick={() => openModal('login')}>
+          Log In
         </Link>
       </li>
     </ul>

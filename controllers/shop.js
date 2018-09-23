@@ -1,11 +1,19 @@
 import Shop from '../models/shop';
+import Like from '../models/like';
 
-export const allShops = async (req, res) => {
-  let { liked } = req.query;
-  console.log(liked)
+export const allShops = (req, res) => {
+  let { liked, user } = req.query;
 
-  Shop.find({})
-    .then(shops => res.json(shops));
+  if (!user || !liked || liked === 'false')
+    return Shop.find({}).then(shops => res.json(shops));
+
+  Like.find({ user }, { shop: 1 })
+    .then(likes => {
+      let shops = likes.map(like => like.shop);
+
+      Shop.find({ _id: { $in: shops } })
+        .then(shops => res.json(shops));
+    });
 }
 
 export const getShop = (req, res) => {

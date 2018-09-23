@@ -1,10 +1,8 @@
 import Like from '../models/like';
 import Shop from '../models/shop';
 
-export const myLikes = (req, res) => {
-  // Like.find({ user: req.user })
-  Like.find({})
-    .then(likes => res.json(likes));
+export const allLikes = (req, res) => {
+  Like.find({}).then(likes => res.json(likes));
 }
 
 export const addLike = async (req, res) => {
@@ -29,7 +27,7 @@ export const addLike = async (req, res) => {
 }
 
 export const deleteLike = (req, res) => {
-  Like.findOneAndRemove({ _id: req.param.id, user: req.user })
+  Like.findOneAndRemove({ _id: req.params.id, user: req.user })
     .then(like => res.json(like.id))
     .catch(err => res.status(400).json({ msg: 'Failed to unlike' }));
 }
