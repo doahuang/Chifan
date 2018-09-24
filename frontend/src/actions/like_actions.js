@@ -28,12 +28,11 @@ export const myLikes = () => dispatch => {
 }
 
 export const addLike = shopId => dispatch => {
-  let shop = { shopId };
-  return axios.post('/api/likes', shop)
+  return axios.post('/api/likes', { shopId })
     .then(res => dispatch(receiveLike(res.data)))
     .catch(err => dispatch(receiveError(err)))
 }
-  
+
 export const deleteLike = shopId => dispatch => {
   return axios.delete(`/api/likes/${shopId}`)
     .then(res => dispatch(removeLike(res.data)))

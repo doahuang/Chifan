@@ -7,13 +7,14 @@ import {
 
 export default (state = {}, action) => {
   Object.freeze(state);
-
+  
   let newState = {};
+  
   switch (action.type) {
     case RECEIVE_LIKES:
-      action.likes.forEach(like => {
+      for (let like in action.likes) {
         newState[like._id] = like;
-      });
+      }
       return newState;
     case RECEIVE_LIKE:
       return Object.assign({}, state, {

@@ -2,11 +2,7 @@ import { connect } from 'react-redux';
 
 import ShopList from './shop_list';
 import { allShops } from '../../actions/shop_actions';
-import { 
-  myLikes, 
-  addLike, 
-  deleteLike 
-} from '../../actions/like_actions';
+import { myLikes } from '../../actions/like_actions';
 
 const msp = ({ session, entities }, ownProps) => {
   const user = session ? session.id : null;
@@ -24,9 +20,7 @@ const msp = ({ session, entities }, ownProps) => {
 const mdp = dispatch => {
   return {
     allShops: liked => dispatch(allShops(liked)),
-    myLikes: () => dispatch(myLikes()),
-    addLike: shopId => dispatch(addLike(shopId)),
-    deleteLike: shopId => dispatch(deleteLike(shopId))
+    myLikes: () => dispatch(myLikes())
   }
 }
 

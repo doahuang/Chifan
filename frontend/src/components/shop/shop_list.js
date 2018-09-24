@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 
-import ShopListItem from './shop_list_item'
+import ShopListItem from './shop_list_item_container'
 
 export default class ShopList extends Component {
   state = {
@@ -32,18 +32,14 @@ export default class ShopList extends Component {
   }
 
   render() {
-    const { addLike, deleteLike } = this.props;
-
     const shopList = this.props.shops.map(shop => {
       return (
         <ShopListItem 
           key={shop._id} 
-          shop={shop} 
-          like={addLike}
-          unlike={deleteLike}
+          shop={shop}
         />
-      );
-    })
+      )
+    });
 
     return (
       <div className='shop'>

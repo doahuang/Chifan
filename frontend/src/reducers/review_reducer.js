@@ -9,11 +9,12 @@ export default (state = {}, action) => {
   Object.freeze(state);
 
   let newState = {};
+
   switch (action.type) {
     case RECEIVE_REVIEWS:
-      action.reviews.forEach(review => {
+      for (let review in action.reviews) {
         newState[review._id] = review;
-      });
+      }
       return newState;
     case RECEIVE_REVIEW: 
       return Object.assign({}, state, {
