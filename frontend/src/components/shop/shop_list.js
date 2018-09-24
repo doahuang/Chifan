@@ -12,7 +12,8 @@ export default class ShopList extends Component {
   componentDidMount() {
     let { user, liked } = this.state;
     this.props.allShops({ user, liked });
-    this.props.myLikes();
+
+    if (user && liked) this.props.myLikes();
   }
 
   componentWillReceiveProps(next) {

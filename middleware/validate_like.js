@@ -1,6 +1,7 @@
+import Like from '../models/like';
 import Shop from '../models/shop';
 
-export default (req, res) => {
+export default async (req, res) => {
   let { shopId } = req.body;
 
   let shop = await Shop.findById(shopId);

@@ -7,7 +7,7 @@ export const myLikes = (req, res) => {
 }
 
 export const addLike = async (req, res) => {
-  let errs = validator(req, res);
+  let errs = await validator(req, res);
   if (errs) return errs;
 
   let like = new Like({

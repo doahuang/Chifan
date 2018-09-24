@@ -12,9 +12,9 @@ export default (state = {}, action) => {
   
   switch (action.type) {
     case RECEIVE_LIKES:
-      for (let like in action.likes) {
+      action.likes.forEach(like => {
         newState[like._id] = like;
-      }
+      });
       return newState;
     case RECEIVE_LIKE:
       return Object.assign({}, state, {
