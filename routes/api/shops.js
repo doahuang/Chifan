@@ -5,7 +5,7 @@ import {
   allShops,
   getShop,
   addShop,
-  deleteShop
+  // deleteShop
 } from '../../controllers/shop';
 
 const router = express.Router();
@@ -13,7 +13,7 @@ const router = express.Router();
 router.get('/', allShops);
 router.get('/:id', getShop);
 router.post('/', addShop);
-router.delete('/:id', deleteShop);
+// router.delete('/:id', deleteShop);
 
 // const jwtAuth = passport.authenticate('jwt', { session: false });
 

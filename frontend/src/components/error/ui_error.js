@@ -7,8 +7,8 @@ const UiError = ({ errors }) => (
   </p>
 );
 
-const msp = ({ errors }) => ({
-  errors: errors.ui
+const msp = ({ errors: { ui } }) => ({
+  errors: ui
 });
 
 export default connect(msp)(UiError);

@@ -1,8 +1,9 @@
 import Like from '../models/like';
 import Shop from '../models/shop';
 
-export const allLikes = (req, res) => {
-  Like.find({}).then(likes => res.json(likes));
+export const myLikes = (req, res) => {
+  Like.find({ user: req.user })
+    .then(likes => res.json(likes));
 }
 
 export const addLike = async (req, res) => {

@@ -12,6 +12,7 @@ export default class ShopList extends Component {
   componentDidMount() {
     let { user, liked } = this.state;
     this.props.allShops({ user, liked });
+    this.props.myLikes();
   }
 
   componentWillReceiveProps(next) {
@@ -31,9 +32,16 @@ export default class ShopList extends Component {
   }
 
   render() {
+    const { addLike, deleteLike } = this.props;
+
     const shopList = this.props.shops.map(shop => {
       return (
-        <ShopListItem key={shop._id} shop={shop} />
+        <ShopListItem 
+          key={shop._id} 
+          shop={shop} 
+          like={addLike}
+          unlike={deleteLike}
+        />
       );
     })
 

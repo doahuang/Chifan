@@ -16,3 +16,7 @@ export const REMOVE_REVIEW = 'REMOVE_REVIEW';
 
 export const RECEIVE_SHOPS = 'RECEIVE_SHOPS';
 export const RECEIVE_SHOP = 'RECEIVE_SHOP';
+
+export const RECEIVE_LIKES = 'RECEIVE_LIKES';
+export const RECEIVE_LIKE = 'RECEIVE_LIKE';
+export const REMOVE_LIKE = 'REMOVE_LIKE';
