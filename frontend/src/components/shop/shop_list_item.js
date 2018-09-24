@@ -1,6 +1,12 @@
 import React from 'react';
 
+import { 
+  addLike,
+  deleteLike
+} from '../../actions/like_actions';
+
 export default ({ shop }) => {
+  const shopId = shop._id;
   let hours = shop.hours.split('\\n');
   hours = hours.map((el, i) => <p key={i}>{el}</p>);
 
@@ -18,6 +24,14 @@ export default ({ shop }) => {
       <section>
         {hours}
       </section>
+      <div>
+        <button onClick={() => addLike(shopId)}>
+          Like
+        </button>
+        <button onClick={() => deleteLike(shopId)}>
+          Unlike
+        </button>
+      </div>
     </li>
   )
 }

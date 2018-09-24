@@ -12,14 +12,29 @@
     li {
       list-style: none;
       display: flex;
+      align-items: center;
       margin: 50px;
       img {
         height: 200px;
         width: 200px;
+        margin: 0 20px 0 0;
       }
       section {
         width: 30%;
-        margin: 0 20px;
+        margin: 0 20px 0 0;
+      }
+      div {
+        display: grid;
+      }
+      button {
+        margin: 10px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        background: $red;
+        color: white;
+        &:active {
+          background: lightgray;
+        }
       }
     }
   }

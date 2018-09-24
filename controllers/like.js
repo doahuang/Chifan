@@ -10,9 +10,9 @@ export const addLike = async (req, res) => {
 
   let shop = await Shop.findById(shopId);
   if (!shop)
-    return res.status(400).json({ msg: 'Failed to like' });
+    return res.status(400).json({ msg: 'Failed to fetch the shop' });
 
-  let like = await Like.findOne({ shop: shopId });
+  let like = await Like.findOne({ shop: shopId, user: req.user });
   if (like) 
     return res.status(400).json({ msg: 'Already liked'});
 
@@ -27,7 +27,7 @@ export const addLike = async (req, res) => {
 }
 
 export const deleteLike = (req, res) => {
-  Like.findOneAndRemove({ _id: req.params.id, user: req.user })
+  Like.findOneAndRemove({ shop: req.params.id, user: req.user })
     .then(like => res.json(like.id))
     .catch(err => res.status(400).json({ msg: 'Failed to unlike' }));
 }

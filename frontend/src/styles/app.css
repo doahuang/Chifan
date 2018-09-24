@@ -218,10 +218,22 @@ nav {
   .shop ul li {
     list-style: none;
     display: flex;
+    align-items: center;
     margin: 50px; }
     .shop ul li img {
       height: 200px;
-      width: 200px; }
+      width: 200px;
+      margin: 0 20px 0 0; }
     .shop ul li section {
       width: 30%;
-      margin: 0 20px; }
+      margin: 0 20px 0 0; }
+    .shop ul li div {
+      display: grid; }
+    .shop ul li button {
+      margin: 10px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      background: #FF5A5F;
+      color: white; }
+      .shop ul li button:active {
+        background: lightgray; }
