@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default ({ logout }) => {
+export default ({ openModal, logout }) => {
   return (
     <ul>
       <li>
@@ -14,6 +14,11 @@ export default ({ logout }) => {
       </li>
       <li>
         <Link to='/reviews'>Reviews</Link>
+      </li>
+      <li>
+        <a onClick={() => openModal('help')}>
+          Help
+        </a>
       </li>
       <li>
         <Link to='/profile'>Profile</Link>

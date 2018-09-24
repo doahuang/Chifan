@@ -11,7 +11,7 @@ body, div, h1, h2, p, a, ul, li, form, input, textarea, button {
 .errors {
   color: #FF5A5F; }
 
-button {
+button, a {
   cursor: pointer; }
 
 .body {
@@ -24,7 +24,7 @@ button {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.6);
   z-index: 2; }
 
 .modal-child {
@@ -97,6 +97,24 @@ nav {
     padding: 10px; }
     .session-form button:active {
       background: lightgray; }
+
+.help {
+  padding: 40px;
+  width: 400px;
+  font-size: 30px; }
+  .help ul li {
+    list-style: none;
+    margin: 30px;
+    padding: 0 50px;
+    display: flex;
+    align-items: center; }
+    .help ul li:hover {
+      color: #008489;
+      background: #cceeeb; }
+    .help ul li img {
+      width: 50px;
+      height: 50px;
+      margin: 0 20px; }
 
 .review {
   font-size: 20px; }

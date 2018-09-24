@@ -11,13 +11,14 @@ body, div, h1, h2, p, a, ul, li, form, input, textarea, button {
 }
 
 $red: #FF5A5F;
+$lightblue: rgb(204, 238, 235);
 $green: rgb(0, 132, 137);
 
 .errors {
   color: $red;
 }
 
-button {
+button, a {
   cursor: pointer;
 }
 

@@ -8,7 +8,9 @@ export default ({ openModal }) => {
         <Link to='/shops'>Shops</Link>
       </li>
       <li>
-        <Link to='/help'>Help</Link>
+        <a onClick={() => openModal('help')}>
+          Help
+        </a>
       </li>
       <li>
         <Link to='#' onClick={() => openModal('signup')}>
