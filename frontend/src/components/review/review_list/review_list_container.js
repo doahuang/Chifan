@@ -7,7 +7,7 @@ import {
 } from '../../../actions/review_actions';
 import { openModal } from '../../../actions/modal';
 
-const msp = ({ reviews }) => {
+const msp = ({ entities: { reviews } }) => {
   return {
     reviews
   }

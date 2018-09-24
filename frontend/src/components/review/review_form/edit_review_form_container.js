@@ -10,7 +10,7 @@ const _nullReview = {
   text: ''
 };
 
-const msp = ({ reviews }, ownProps) => {
+const msp = ({ entities: { reviews } }, ownProps) => {
   let id = ownProps.location.pathname.split('/')[2];
 
   return {

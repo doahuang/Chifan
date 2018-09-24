@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ShopList from './shop_list';
 import { allShops } from '../../actions/shop_actions';
 
-const msp = ({ session, shops}, ownProps) => {
+const msp = ({ session, entities: { shops } }, ownProps) => {
   const user = session ? session.id : null;
   const liked = ownProps.location.search.match(/liked/);
 
