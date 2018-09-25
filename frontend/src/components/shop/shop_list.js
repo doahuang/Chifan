@@ -10,34 +10,46 @@ export default class ShopList extends Component {
   }
 
   componentDidMount() {
-    let { user, liked } = this.state;
-    this.props.allShops({ user, liked });
-
-    if (user && liked) this.props.myLikes();
+    let { user } = this.state;
+    if (user) this.props.myLikes();
+    this.props.allShops({ user });
   }
 
   componentWillReceiveProps(next) {
     let { user, liked } = this.state;
-
-    // if guest log in or user log out, set user
     const guestLogin = !user && next.user !== user;
     const userLogout = user && next.user !== user;
+    
+    // if guest log in or user log out, set user
     if (guestLogin || userLogout) 
       this.setState({ user: next.user })
 
     // if user is logged in and liked changes, set like
     if (user && next.liked !== liked) {
       this.setState({ liked: next.liked })
-      this.props.allShops({ user, liked: !liked });
     }
   }
-
+  
   render() {
-    const shopList = this.props.shops.map(shop => {
+    const { shops, likes } = this.props;
+    const { user, liked } = this.state;
+
+    const shopIds = Object.keys(shops);
+    let likedShops = shopIds;
+    if (user && liked) 
+      likedShops = shopIds.filter(id => {
+        return likes[id] ? true : false
+      });
+
+    const shopList = likedShops.map(id => {
+      let shop = shops[id];
+      let liked = likes[id] ? true : false;
+
       return (
         <ShopListItem 
-          key={shop._id} 
+          key={id} 
           shop={shop}
+          liked={liked}
         />
       )
     });

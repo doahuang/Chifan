@@ -13,16 +13,16 @@ export default (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_LIKES:
       action.likes.forEach(like => {
-        newState[like._id] = like;
+        newState[like.shop] = like;
       });
       return newState;
     case RECEIVE_LIKE:
       return Object.assign({}, state, {
-        [action.like._id]: action.like
+        [action.like.shop]: action.like
       });
     case REMOVE_LIKE:
       newState = Object.assign({}, state);
-      delete newState[action.id];
+      delete newState[action.shop];
       return newState;
     case LOGOUT_CURRENT_USER:
       return {};

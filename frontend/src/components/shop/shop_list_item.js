@@ -2,7 +2,12 @@ import React, { Component } from 'react'
 
 export default class ShopListItem extends Component {
   state = {
-    liked: this.props.liked || false
+    liked: this.props.liked
+  }
+
+  componentWillReceiveProps(next) {
+    if (next.liked !== this.state.liked) 
+      return this.setState({ liked: next.liked })
   }
 
   like() {
