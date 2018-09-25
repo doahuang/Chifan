@@ -9,10 +9,10 @@ const msp = ({ session, entities }, ownProps) => {
   const liked = ownProps.location.search.match(/liked/);
 
   return {
-    user: session,
     shops,
     likes,
-    liked: !!liked
+    loggedin: !!session,
+    liked: !!liked,
   }
 }
 

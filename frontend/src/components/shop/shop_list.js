@@ -6,52 +6,51 @@ import ShopListItem from './shop_list_item_container'
 export default class ShopList extends Component {
   state = {
     liked: this.props.liked,
-    user: this.props.user
+    loggedin: this.props.loggedin
   }
 
   componentDidMount() {
     this.props.allShops();
-    if (this.state.user) this.props.myLikes();
+    if (this.state.loggedin) this.props.myLikes();
   }
 
   componentWillReceiveProps(next) {
-    let { user, liked } = this.state;
+    let { loggedin, liked } = this.state;
     
-    if (next.user !== user) {
-      this.setState({ user: next.user })
-
-      if (next.user) this.props.myLikes()
+    if (next.loggedin !== loggedin) {
+      this.setState({ loggedin: next.loggedin })
+      if (next.loggedin) this.props.myLikes()
     }
 
     // only care if logged in and liked changes
-    if (user && next.liked !== liked) 
+    if (loggedin && next.liked !== liked) 
       this.setState({ liked: next.liked })
   }
 
-  fetch() {
+  filterShops(liked) {
     const { shops, likes } = this.props;
-    const { user, liked } = this.state;
-
-    return Object.keys(shops).map(id => {
-      let shop = shops[id];
-      let likedShop = likes[id] ? true : false;
-      
-      // if on liked page and the shop is not liked
-      if (liked && !likedShop) return null;
-
-      return (
-        <ShopListItem
-          key={id}
-          user={user}
-          liked={likedShop}
-          shop={shop}
-        />
-      )
+    
+    return Object.keys(shops).filter(id => {
+      return liked ? likes[id] : true;
     });
   }
   
   render() {
-    const shopList = this.fetch();
+    const { shops, likes } = this.props;
+    const { loggedin, liked } = this.state;
+
+    const shopList = this.filterShops(liked).map(id => {
+      let shop = shops[id];
+      let isLiked = likes[id];
+      return (
+        <ShopListItem 
+          key={id}
+          shop={shop}
+          loggedin={loggedin}
+          liked={isLiked}
+        />
+      )
+    });
 
     return (
       <div className='shop'>

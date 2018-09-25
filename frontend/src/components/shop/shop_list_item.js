@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export default class ShopListItem extends Component {
   state = {
-    liked: this.props.liked
+    liked: this.props.liked || false
   }
 
   componentWillReceiveProps(next) {
@@ -11,9 +11,8 @@ export default class ShopListItem extends Component {
   }
 
   call() {
-    const { shop, like, unlike } = this.props;
-    const shopId = shop._id;
-    return this.state.liked ? unlike(shopId) : like(shopId);
+    const { shop: { _id }, like, unlike } = this.props;
+    return this.state.liked ? unlike(_id) : like(_id);
   }
 
   toggle() {
@@ -25,7 +24,7 @@ export default class ShopListItem extends Component {
   }
 
   render() {
-    const { shop, user } = this.props;
+    const { shop, loggedin } = this.props;
     
     let hours = shop.hours.split('\\n');
     hours = hours.map((el, i) => <p key={i}>{el}</p>);
@@ -45,7 +44,7 @@ export default class ShopListItem extends Component {
           {hours}
         </section>
         {
-          !user ? null :
+          !loggedin ? null :
           <button onClick={() => this.click()}>
             { this.state.liked ? 'Unlike' : 'Like' }
           </button>
