@@ -7,24 +7,25 @@ export default class ShopListItem extends Component {
 
   componentWillReceiveProps(next) {
     if (next.liked !== this.state.liked) 
-      return this.setState({ liked: next.liked })
+      this.setState({ liked: next.liked })
   }
 
-  like() {
-    const { shop: { _id}, like, unlike } = this.props;
-    return this.state.liked ? unlike(_id) : like(_id);
+  call() {
+    const { shop, like, unlike } = this.props;
+    const shopId = shop._id;
+    return this.state.liked ? unlike(shopId) : like(shopId);
   }
 
-  liked() {
-    this.setState({ liked: !this.state.liked });
+  toggle() {
+    this.setState({ liked: !this.state.liked })
   }
 
-  handleLike() {
-    this.like().then(this.liked());
+  click() {
+    this.call().then(this.toggle());
   }
 
   render() {
-    const { shop } = this.props;
+    const { shop, user } = this.props;
     
     let hours = shop.hours.split('\\n');
     hours = hours.map((el, i) => <p key={i}>{el}</p>);
@@ -43,9 +44,12 @@ export default class ShopListItem extends Component {
         <section>
           {hours}
         </section>
-        <button onClick={() => this.handleLike()}>
-          { this.state.liked ? 'Unlike' : 'Like' }
-        </button>
+        {
+          !user ? null :
+          <button onClick={() => this.click()}>
+            { this.state.liked ? 'Unlike' : 'Like' }
+          </button>
+        }
       </li>
     )
   }

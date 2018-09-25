@@ -5,12 +5,11 @@ import { allShops } from '../../actions/shop_actions';
 import { myLikes } from '../../actions/like_actions';
 
 const msp = ({ session, entities }, ownProps) => {
-  const user = session ? session.id : null;
   const { shops, likes } = entities;
   const liked = ownProps.location.search.match(/liked/);
 
   return {
-    user,
+    user: session,
     shops,
     likes,
     liked: !!liked
@@ -19,7 +18,7 @@ const msp = ({ session, entities }, ownProps) => {
 
 const mdp = dispatch => {
   return {
-    allShops: liked => dispatch(allShops(liked)),
+    allShops: () => dispatch(allShops()),
     myLikes: () => dispatch(myLikes())
   }
 }

@@ -22,7 +22,7 @@ export default (state = {}, action) => {
       });
     case REMOVE_LIKE:
       newState = Object.assign({}, state);
-      delete newState[action.shop];
+      delete newState[action.shopId];
       return newState;
     case LOGOUT_CURRENT_USER:
       return {};

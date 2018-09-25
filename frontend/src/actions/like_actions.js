@@ -17,9 +17,9 @@ const receiveLike = like => ({
   like
 });
 
-const removeLike = id => ({
+const removeLike = shopId => ({
   type: REMOVE_LIKE,
-  id
+  shopId
 });
 
 export const myLikes = () => dispatch => {
