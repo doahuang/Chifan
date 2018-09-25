@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
 
 import ShopListItem from './shop_list_item_container'
 
@@ -54,8 +53,13 @@ export default class ShopList extends Component {
 
     return (
       <div className='shop'>
-        <h1><Link to='/shops'>Shops</Link></h1>
+        <h1>Shops</h1>
         <ul>{ shopList }</ul>
+        <div>
+          <span>
+            Google Maps Stick Here
+          </span>
+        </div>
       </div>
     )
   }

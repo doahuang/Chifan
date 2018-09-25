@@ -25,9 +25,6 @@ export default class ShopListItem extends Component {
 
   render() {
     const { shop, loggedin } = this.props;
-    
-    let hours = shop.hours.split('\\n');
-    hours = hours.map((el, i) => <p key={i}>{el}</p>);
 
     return (
       <li>
@@ -39,9 +36,6 @@ export default class ShopListItem extends Component {
           <p>{shop.price} dollar sign</p>
           <p>{shop.phone} </p>
           <p>{shop.address} </p>
-        </section>
-        <section>
-          {hours}
         </section>
         {
           !loggedin ? null :

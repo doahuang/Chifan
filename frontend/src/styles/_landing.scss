@@ -1,5 +1,19 @@
+$url: 'https://caspiannews.com/media/caspian_news/all_original_photos/1528831479_7183783_1528831390_5761793SFF-Foto-2018-001web2.jpg';
+
 .landing {
+  display: flex;
+  flex-flow: column;
+  height: 600px;
+  justify-content: center;
+  text-align: center;
+  font-size: 30px;
+  color: black;
+  background: url($url) 80% center no-repeat;
   h1 {
     font-size: 40px;
+    margin: 20px;
+    text-shadow: 
+      3px 3px white, 3px -3px white,
+      -3px 3px white, -3px -3px white;
   }
 }

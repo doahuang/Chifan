@@ -5,12 +5,13 @@ export default ({ openModal, logout }) => {
   return (
     <ul>
       <li>
-        <Link to='/shops'>Shops</Link>
+        <Link to='/shops'
+          onClick={() => window.scrollTo(0, 0)} >
+          Shops
+        </Link>
       </li>
       <li>
-        <Link to='/shops?liked=true' >
-          Liked
-        </Link>
+        <Link to='/shops?liked=true'>Liked</Link>
       </li>
       <li>
         <Link to='/reviews'>Reviews</Link>

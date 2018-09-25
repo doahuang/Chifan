@@ -1,10 +1,25 @@
 .shop {
   font-size: 20px;
+  display: grid;
+  grid-template-columns: 4fr 3fr;
   h1 {
-    display: inline-block;
+    grid-column: 1 / span 2;
     font-size: 40px;
-    &:hover {
-      color: darkgray;
+  }
+
+  div {
+    margin: 50px 20px 50px 0;
+    span {
+      position: sticky;
+      position: -webkit-sticky;
+      top: 100px;
+      border: 2px solid;
+      border-radius: 5px;
+      display: grid;
+      height: 500px;
+      font-size: 40px;
+      text-align: center;
+      align-items: center;
     }
   }
 
@@ -16,18 +31,11 @@
       margin: 50px;
       img {
         height: 200px;
-        width: 200px;
-        margin: 0 20px 0 0;
       }
       section {
-        width: 30%;
-        margin: 0 20px 0 0;
-      }
-      div {
-        display: grid;
+        margin: 0 20px;
       }
       button {
-        margin: 10px;
         padding: 10px 20px;
         border-radius: 5px;
         background: $red;

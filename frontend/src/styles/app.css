@@ -15,8 +15,7 @@ button, a {
   cursor: pointer; }
 
 .body {
-  margin-top: 100px;
-  padding: 20px; }
+  margin: 100px 0 0; }
 
 .modal-bg {
   position: fixed;
@@ -66,8 +65,19 @@ nav {
           nav .greeting ul li a:hover {
             color: darkgray; }
 
-.landing h1 {
-  font-size: 40px; }
+.landing {
+  display: flex;
+  flex-flow: column;
+  height: 600px;
+  justify-content: center;
+  text-align: center;
+  font-size: 30px;
+  color: black;
+  background: url("https://caspiannews.com/media/caspian_news/all_original_photos/1528831479_7183783_1528831390_5761793SFF-Foto-2018-001web2.jpg") 80% center no-repeat; }
+  .landing h1 {
+    font-size: 40px;
+    margin: 20px;
+    text-shadow: 3px 3px white, 3px -3px white, -3px 3px white, -3px -3px white; }
 
 .session-form {
   padding: 40px;
@@ -209,28 +219,35 @@ nav {
     margin: 0 0 0 10px; }
 
 .shop {
-  font-size: 20px; }
+  font-size: 20px;
+  display: grid;
+  grid-template-columns: 4fr 3fr; }
   .shop h1 {
-    display: inline-block;
+    grid-column: 1 / span 2;
     font-size: 40px; }
-    .shop h1:hover {
-      color: darkgray; }
+  .shop div {
+    margin: 50px 20px 50px 0; }
+    .shop div span {
+      position: sticky;
+      position: -webkit-sticky;
+      top: 100px;
+      border: 2px solid;
+      border-radius: 5px;
+      display: grid;
+      height: 500px;
+      font-size: 40px;
+      text-align: center;
+      align-items: center; }
   .shop ul li {
     list-style: none;
     display: flex;
     align-items: center;
     margin: 50px; }
     .shop ul li img {
-      height: 200px;
-      width: 200px;
-      margin: 0 20px 0 0; }
+      height: 200px; }
     .shop ul li section {
-      width: 30%;
-      margin: 0 20px 0 0; }
-    .shop ul li div {
-      display: grid; }
+      margin: 0 20px; }
     .shop ul li button {
-      margin: 10px;
       padding: 10px 20px;
       border-radius: 5px;
       background: #FF5A5F;
