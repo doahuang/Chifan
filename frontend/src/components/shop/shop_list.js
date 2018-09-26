@@ -5,14 +5,12 @@ import ShopListItem from './shop_list_item_container'
 export default class ShopList extends Component {
   state = {
     liked: this.props.liked,
-    loggedin: this.props.loggedin,
-    query: this.props.query
+    loggedin: this.props.loggedin
   }
 
   componentDidMount() {
-    console.log(this.state.query);
     this.props.allShops();
-    if (this.state.loggedin) this.props.myLikes();
+    if (this.state.loggedin) this.props.getLikes();
   }
 
   componentWillReceiveProps(next) {
@@ -20,7 +18,7 @@ export default class ShopList extends Component {
     
     if (next.loggedin !== loggedin) {
       this.setState({ loggedin: next.loggedin })
-      if (next.loggedin) this.props.myLikes()
+      if (next.loggedin) this.props.getLikes();
     }
 
     // only care if logged in and liked changes

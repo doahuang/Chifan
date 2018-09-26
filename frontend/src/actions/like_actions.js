@@ -22,8 +22,8 @@ const removeLike = shopId => ({
   shopId
 });
 
-export const myLikes = () => dispatch => {
-  return axios.get('/api/likes')
+export const getLikes = params => dispatch => {
+  return axios.get('/api/likes', { params })
     .then(res => dispatch(receiveLikes(res.data)));
 }
 
