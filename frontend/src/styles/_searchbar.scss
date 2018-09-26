@@ -1,0 +1,17 @@
+.searchbar {
+  background: white;
+  border-radius: 5px;
+  input {
+    margin: 0 10px;
+  }
+  button {
+    background: $red;
+    color: white;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 10px 20px;
+    &:active {
+      background: lightgray;
+    }
+  }
+}

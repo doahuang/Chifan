@@ -1,0 +1,14 @@
+footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: white;
+  margin: 0 10px;
+  padding: 5px 0;
+  a {
+    margin: 12px;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

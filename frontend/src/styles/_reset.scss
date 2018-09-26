@@ -1,4 +1,4 @@
-body, div, h1, h2, p, a, ul, li, form, input, textarea, button {
+body, nav, footer, div, h1, h2, p, a, ul, li, form, input, textarea, button {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -8,20 +8,4 @@ body, div, h1, h2, p, a, ul, li, form, input, textarea, button {
   outline: none;
   border: none;
   // border: 1px solid !important;
-}
-
-$red: #FF5A5F;
-$lightblue: rgb(204, 238, 235);
-$green: rgb(0, 132, 137);
-
-.errors {
-  color: $red;
-}
-
-button, a {
-  cursor: pointer;
-}
-
-.body {
-  margin: 100px 0 0;
 }

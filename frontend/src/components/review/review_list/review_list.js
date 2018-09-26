@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
 import ReviewListItem from './review_list_item';
 
 export default class ReviewList extends Component {
@@ -36,7 +35,6 @@ export default class ReviewList extends Component {
     return (
       <div className='review'>
         <div className='header'>
-          <h1><Link to='/reviews'>My Reviews</Link></h1>
           <button onClick={() => this.addReview()}>
             Randomizer
           </button>

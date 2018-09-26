@@ -4,7 +4,7 @@ import { ProtectedRoute } from '../../util/routes';
 
 import ReviewList from '../review/review_list/review_list_container';
 import Profile from '../profile/profile_container';
-import Landing from '../landing/landing';
+import Landing from '../splash/landing';
 import ShopList from '../shop/shop_list_container';
 
 export default () => {

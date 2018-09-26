@@ -5,15 +5,13 @@ export default ({ openModal }) => {
   return (
     <ul>
       <li>
+        <Link to='/'>Home</Link>
+      </li>
+      <li>
         <Link to='/shops'
           onClick={() => window.scrollTo(0, 0)}>
           Shops
         </Link>
-      </li>
-      <li>
-        <a onClick={() => openModal('help')}>
-          Help
-        </a>
       </li>
       <li>
         <Link to='#' onClick={() => openModal('signup')}>

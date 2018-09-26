@@ -1,4 +1,13 @@
-body, div, h1, h2, p, a, ul, li, form, input, textarea, button {
+.app {
+  position: relative; }
+
+.errors {
+  color: #FF5A5F; }
+
+button, a {
+  cursor: pointer; }
+
+body, nav, footer, div, h1, h2, p, a, ul, li, form, input, textarea, button {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
@@ -7,15 +16,6 @@ body, div, h1, h2, p, a, ul, li, form, input, textarea, button {
   text-decoration: none;
   outline: none;
   border: none; }
-
-.errors {
-  color: #FF5A5F; }
-
-button, a {
-  cursor: pointer; }
-
-.body {
-  margin: 100px 0 0; }
 
 .modal-bg {
   position: fixed;
@@ -34,7 +34,6 @@ button, a {
   transform: translate(-50%, -50%); }
 
 nav {
-  padding: 10px 0;
   display: flex;
   position: fixed;
   z-index: 1;
@@ -43,41 +42,68 @@ nav {
   justify-content: space-between;
   background: rgba(255, 255, 255, 0.9); }
   nav h1 {
-    font-size: 60px;
-    line-height: 70px;
-    color: lightskyblue;
-    margin-left: 20px; }
+    font-size: 50px;
+    line-height: 60px;
+    color: #FF5A5F;
+    margin: 0 20px; }
   nav .greeting {
-    display: grid;
-    align-items: center;
-    margin-right: 20px; }
+    margin: 0 20px;
+    font-size: 20px; }
     nav .greeting ul {
-      display: flex;
-      font-size: 20px; }
+      display: flex; }
       nav .greeting ul li {
         list-style: none;
         border-bottom: 2px solid transparent; }
         nav .greeting ul li:hover {
-          border-bottom: 2px solid darkgray; }
+          border-bottom: 2px solid; }
         nav .greeting ul li a {
           display: inline-block;
           padding: 20px; }
-          nav .greeting ul li a:hover {
-            color: darkgray; }
 
 .landing {
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   flex-flow: column;
-  height: 600px;
+  align-items: center;
   justify-content: center;
-  text-align: center;
-  font-size: 30px;
-  color: black;
-  background: url("https://caspiannews.com/media/caspian_news/all_original_photos/1528831479_7183783_1528831390_5761793SFF-Foto-2018-001web2.jpg") 80% center no-repeat; }
+  font-size: 20px;
+  background: url("https://caspiannews.com/media/caspian_news/all_original_photos/1528831479_7183783_1528831390_5761793SFF-Foto-2018-001web2.jpg") 70% center no-repeat;
+  background-color: rgba(0, 0, 0, 0.2);
+  background-blend-mode: color; }
   .landing h1 {
-    font-size: 40px;
-    margin: 20px;
-    text-shadow: 3px 3px white, 3px -3px white, -3px 3px white, -3px -3px white; }
+    font-size: 36px;
+    margin: 40px;
+    text-shadow: 2px 0 white, -2px 0 white, 2px -2px white, 2px 2px white, -2px -2px white, -2px 2px white; }
+
+.searchbar {
+  background: white;
+  border-radius: 5px; }
+  .searchbar input {
+    margin: 0 10px; }
+  .searchbar button {
+    background: #FF5A5F;
+    color: white;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 10px 20px; }
+    .searchbar button:active {
+      background: lightgray; }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: white;
+  margin: 0 10px;
+  padding: 5px 0; }
+  footer a {
+    margin: 12px; }
+    footer a:hover {
+      text-decoration: underline; }
 
 .session-form {
   padding: 40px;
@@ -108,32 +134,12 @@ nav {
     .session-form button:active {
       background: lightgray; }
 
-.help {
-  padding: 40px;
-  width: 400px;
-  font-size: 30px; }
-  .help ul li {
-    list-style: none;
-    margin: 30px;
-    padding: 0 50px;
-    display: flex;
-    align-items: center; }
-    .help ul li:hover {
-      color: #008489;
-      background: #cceeeb; }
-    .help ul li img {
-      width: 50px;
-      height: 50px;
-      margin: 0 20px; }
-
 .review {
+  padding: 90px 0;
   font-size: 20px; }
   .review .header {
-    display: flex; }
-    .review .header h1 {
-      font-size: 40px; }
-      .review .header h1:hover {
-        color: darkgray; }
+    display: flex;
+    padding: 50px 0 0; }
   .review button {
     padding: 10px;
     border-radius: 5px;
@@ -189,12 +195,8 @@ nav {
         background: lightgray; }
 
 .profile {
+  padding: 90px 0;
   font-size: 20px; }
-  .profile h1 {
-    display: inline-block;
-    font-size: 40px; }
-    .profile h1:hover {
-      color: darkgray; }
   .profile button {
     padding: 10px;
     border-radius: 5px;
@@ -219,19 +221,17 @@ nav {
     margin: 0 0 0 10px; }
 
 .shop {
+  padding: 90px 0;
   font-size: 20px;
   display: grid;
   grid-template-columns: 4fr 3fr; }
-  .shop h1 {
-    grid-column: 1 / span 2;
-    font-size: 40px; }
   .shop div {
     margin: 50px 20px 50px 0; }
     .shop div span {
       position: sticky;
       position: -webkit-sticky;
       top: 100px;
-      border: 2px solid;
+      border: 1px solid;
       border-radius: 5px;
       display: grid;
       height: 500px;

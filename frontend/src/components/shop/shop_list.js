@@ -53,11 +53,10 @@ export default class ShopList extends Component {
 
     return (
       <div className='shop'>
-        <h1>Shops</h1>
         <ul>{ shopList }</ul>
         <div>
           <span>
-            Google Maps Stick Here
+            Google Maps
           </span>
         </div>
       </div>

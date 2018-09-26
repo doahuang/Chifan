@@ -1,13 +1,9 @@
 .review {
+  padding: 90px 0;
   font-size: 20px;
   .header {
     display: flex;
-    h1 {
-      font-size: 40px;
-      &:hover {
-        color: darkgray;
-      }
-    }
+    padding: 50px 0 0;
   }
 
   button {

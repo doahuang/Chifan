@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
 
 import ProfileForm from './profile_form';
 import { getUser } from '../../actions/user_actions'
@@ -19,7 +18,6 @@ export default class Profile extends Component {
 
     return (
       <div className='profile'>
-        <h1><Link to='/profile'>My Profile</Link></h1>
         <ul>
           <li>
             <b>Name: </b>

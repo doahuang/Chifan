@@ -4,7 +4,6 @@ import Login from '../session/login_form_container';
 import Signup from '../session/signup_form_container';
 import CreateReview from '../review/review_form/create_review_form_container';
 import EditReview from '../review/review_form/edit_review_form_container';
-import Help from '../help/help';
 
 export default ({ modal, closeModal }) => {
   if (!modal) return null;
@@ -22,9 +21,6 @@ export default ({ modal, closeModal }) => {
       break;
     case 'editReview':
       component = <EditReview />
-      break;
-    case 'help':
-      component = <Help />
       break;
     default:
       return null;

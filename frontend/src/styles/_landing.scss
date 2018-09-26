@@ -1,19 +1,24 @@
-$url: 'https://caspiannews.com/media/caspian_news/all_original_photos/1528831479_7183783_1528831390_5761793SFF-Foto-2018-001web2.jpg';
-
 .landing {
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   flex-flow: column;
-  height: 600px;
+  align-items: center;
   justify-content: center;
-  text-align: center;
-  font-size: 30px;
-  color: black;
-  background: url($url) 80% center no-repeat;
+  font-size: 20px;
+  background: url('https://caspiannews.com/media/caspian_news/all_original_photos/1528831479_7183783_1528831390_5761793SFF-Foto-2018-001web2.jpg') 
+    70% center no-repeat;
+  background-color: rgba(0, 0, 0, 0.2);
+  background-blend-mode: color;
   h1 {
-    font-size: 40px;
-    margin: 20px;
+    font-size: 36px;
+    margin: 40px;
     text-shadow: 
-      3px 3px white, 3px -3px white,
-      -3px 3px white, -3px -3px white;
+      2px 0 white, -2px 0 white,
+      2px -2px white, 2px 2px white,
+      -2px -2px white, -2px 2px white
   }
 }

@@ -8,7 +8,7 @@ export default ({ currentUser, logout, openModal }) => {
     <div className='greeting'>
       { 
         currentUser ? 
-        <User openModal={openModal} logout={logout} /> :
+        <User logout={logout} /> :
         <Guest openModal={openModal} />
       }
     </div>

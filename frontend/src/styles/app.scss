@@ -1,9 +1,25 @@
+$red: #FF5A5F;
+$green: rgb(0, 132, 137);
+
+.app {
+  position: relative;
+}
+
+.errors {
+  color: $red;
+}
+
+button, a {
+  cursor: pointer;
+}
+
 @import 'reset';
 @import 'modal';
 @import 'nav';
 @import 'landing';
+@import 'searchbar';
+@import 'footer';
 @import 'session';
-@import 'help';
 @import 'review_list';
 @import 'review_form';
 @import 'profile';
