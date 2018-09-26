@@ -1,7 +1,7 @@
 .searchbar {
   background: white;
   border-radius: 5px;
-  input {
+  b {
     margin: 0 10px;
   }
   button {
@@ -10,6 +10,7 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     padding: 10px 20px;
+    margin-left: 10px;
     &:active {
       background: lightgray;
     }

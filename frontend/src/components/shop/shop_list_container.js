@@ -4,15 +4,17 @@ import ShopList from './shop_list';
 import { allShops } from '../../actions/shop_actions';
 import { myLikes } from '../../actions/like_actions';
 
-const msp = ({ session, entities }, ownProps) => {
+const msp = ({ session, entities }, { location }) => {
   const { shops, likes } = entities;
-  const liked = ownProps.location.search.match(/liked/);
+  const liked = location.search.match(/liked/);
+  const query = location.search;
 
   return {
     shops,
     likes,
     loggedin: !!session,
     liked: !!liked,
+    query
   }
 }
 

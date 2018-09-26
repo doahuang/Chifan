@@ -82,14 +82,15 @@ nav {
 .searchbar {
   background: white;
   border-radius: 5px; }
-  .searchbar input {
+  .searchbar b {
     margin: 0 10px; }
   .searchbar button {
     background: #FF5A5F;
     color: white;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    padding: 10px 20px; }
+    padding: 10px 20px;
+    margin-left: 10px; }
     .searchbar button:active {
       background: lightgray; }
 
@@ -135,11 +136,11 @@ footer {
       background: lightgray; }
 
 .review {
-  padding: 90px 0;
+  margin: 100px 0 0;
   font-size: 20px; }
   .review .header {
     display: flex;
-    padding: 50px 0 0; }
+    margin: 0 10px; }
   .review button {
     padding: 10px;
     border-radius: 5px;
@@ -195,7 +196,7 @@ footer {
         background: lightgray; }
 
 .profile {
-  padding: 90px 0;
+  margin: 100px 0 0;
   font-size: 20px; }
   .profile button {
     padding: 10px;
@@ -221,10 +222,14 @@ footer {
     margin: 0 0 0 10px; }
 
 .shop {
-  padding: 90px 0;
+  margin: 100px 0 50px;
   font-size: 20px;
   display: grid;
   grid-template-columns: 4fr 3fr; }
+  .shop h1 {
+    grid-column: 1 / span 2;
+    font-size: 24px;
+    margin: 0 50px; }
   .shop div {
     margin: 50px 20px 50px 0; }
     .shop div span {

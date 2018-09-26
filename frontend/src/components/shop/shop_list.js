@@ -5,10 +5,12 @@ import ShopListItem from './shop_list_item_container'
 export default class ShopList extends Component {
   state = {
     liked: this.props.liked,
-    loggedin: this.props.loggedin
+    loggedin: this.props.loggedin,
+    query: this.props.query
   }
 
   componentDidMount() {
+    console.log(this.state.query);
     this.props.allShops();
     if (this.state.loggedin) this.props.myLikes();
   }
@@ -53,6 +55,7 @@ export default class ShopList extends Component {
 
     return (
       <div className='shop'>
+        <h1>Best boba in San Leandro</h1>
         <ul>{ shopList }</ul>
         <div>
           <span>

@@ -5,9 +5,10 @@ export default ({ history }) => {
 
   return (
     <form className='searchbar'>
-      <input placeholder='Boba' />
+      <b>Find</b>
+      <input placeholder='Boba' maxLength={30} />
       <b>Near</b>
-      <input placeholder='San Leandro' />
+      <input placeholder='San Leandro' maxLength={30} />
       <button onClick={click}>Go</button>
     </form>
   );
