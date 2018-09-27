@@ -6,13 +6,15 @@ import { getLikes } from '../../actions/like_actions';
 
 const msp = ({ session, entities }, { location }) => {
   const { shops, likes } = entities;
-  const liked = location.search.match(/liked/);
+  const query = location.search;
+  const liked = query.match(/liked/);
 
   return {
     shops,
     likes,
     loggedin: !!session,
-    liked: !!liked
+    liked: !!liked,
+    query
   }
 }
 

@@ -6,12 +6,11 @@ export default class ShopList extends Component {
   state = {
     liked: this.props.liked,
     loggedin: this.props.loggedin,
-    query: this.props.query || 
-      { term: 'boba', location: 'san leandro' }
+    params: { term: '', location: 'san francisco' }
   }
 
   componentDidMount() {
-    this.props.callYelp(this.state.query);
+    this.call(this.props.query);
     if (this.state.loggedin) this.props.getLikes();
   }
 
@@ -28,6 +27,21 @@ export default class ShopList extends Component {
       this.setState({ liked: next.liked })
   }
 
+  call(query) {
+    if (!query || this.state.liked)
+      return this.props.callYelp(this.state.params);
+
+    const params = {};
+
+    query.slice(1).split('&').forEach(el => {
+      let [k, v] = el.split('=');
+      params[k] = v;
+    });
+
+    this.setState({ params });
+    this.props.callYelp(params);
+  }
+
   filterShops(liked) {
     const { shops, likes } = this.props;
     
@@ -38,7 +52,7 @@ export default class ShopList extends Component {
   
   render() {
     const { shops, likes } = this.props;
-    const { loggedin, liked } = this.state;
+    const { loggedin, liked, params } = this.state;
 
     const shopList = this.filterShops(liked).map(id => {
       let shop = shops[id];
@@ -53,9 +67,13 @@ export default class ShopList extends Component {
       )
     });
 
+    let { term, location } = params;
+    if (location)
+      location = location.split('%20').join(' ');
+
     return (
       <div className='shop'>
-        <h1>Best boba in San Leandro</h1>
+        <h1>Best {term} in {location}</h1>
         <ul>{ shopList }</ul>
         <div>
           <span>

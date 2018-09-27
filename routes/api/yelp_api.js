@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 
   yelpAPI(params)
     .then(done => res.json(done.data))
-    .catch(err => res.json({}));
+    .catch(err => res.status(400).json({ msg: 'No results' }));
 });
 
 export default router;
