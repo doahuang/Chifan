@@ -115,23 +115,21 @@ footer {
     grid-column: 1 / span 2;
     font-size: 24px;
     margin: 0 50px; }
-  .shop div {
-    margin: 50px; }
-    .shop div span {
-      position: sticky;
-      position: -webkit-sticky;
-      top: 100px;
-      border: 1px solid;
+  .shop .filter {
+    grid-column: 1 / span 2;
+    margin: 20px 50px 50px; }
+    .shop .filter .active {
+      background: #FF5A5F; }
+    .shop .filter button {
+      margin: 0 20px 0 0;
+      padding: 10px;
       border-radius: 5px;
-      display: grid;
-      height: 400px;
-      font-size: 40px;
-      text-align: center;
-      align-items: center; }
+      color: white;
+      background: darkgray; }
   .shop ul li {
     display: flex;
     align-items: center;
-    margin: 50px; }
+    margin: 0 50px 30px; }
     .shop ul li a {
       color: #0073bb; }
       .shop ul li a:hover {
@@ -140,6 +138,7 @@ footer {
       height: 250px;
       width: 250px; }
       .shop ul li span img {
+        border-radius: 5px;
         height: 250px;
         width: 250px; }
     .shop ul li section {
@@ -152,6 +151,19 @@ footer {
         color: white; }
         .shop ul li section button:active {
           background: lightgray; }
+  .shop .map {
+    margin: 0 50px 0 0; }
+    .shop .map span {
+      position: sticky;
+      position: -webkit-sticky;
+      top: 100px;
+      border: 1px solid;
+      border-radius: 5px;
+      display: grid;
+      height: 400px;
+      font-size: 40px;
+      text-align: center;
+      align-items: center; }
 
 .session-form {
   padding: 40px;

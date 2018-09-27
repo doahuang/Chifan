@@ -8,18 +8,15 @@ export default ({ logout }) => {
         <Link to='/'>Home</Link>
       </li>
       <li>
-        <Link to='/shops'>Shops</Link>
-      </li>
-      <li>
         <Link to='/reviews'>Reviews</Link>
       </li>
       <li>
         <Link to='/profile'>Profile</Link>
       </li>
       <li>
-        <Link to='#' onClick={() => logout()}>
+        <a onClick={() => logout()}>
           Log Out
-        </Link>
+        </a>
       </li>
     </ul>
   )

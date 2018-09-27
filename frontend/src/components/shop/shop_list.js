@@ -6,8 +6,9 @@ import UiError from '../error/ui_error'
 export default class ShopList extends Component {
   state = {
     user: this.props.user,
-    params: { term: '', location: 'san francisco' },
-    liked: false
+    params: { location: 'san francisco' },
+    liked: false,
+    open: false
   }
 
   componentWillUnmount() {
@@ -31,14 +32,10 @@ export default class ShopList extends Component {
   }
 
   call() {
-    const { shops, search, callYelp } = this.props;
+    const { search, callYelp } = this.props;
     let { params } = this.state;
 
-    // only call yelp api if search or first time fetch
-    if (!search) {
-      if (!Object.keys(shops).length) return callYelp(params);
-      return
-    }
+    if (!search) return callYelp(params);
 
     params = {};
     search.slice(1).split('&').forEach(el => {
@@ -53,21 +50,27 @@ export default class ShopList extends Component {
     callYelp(params);
   }
 
+  toggle(field) {
+    this.setState({ [field]: !this.state[field] });
+  }
+
   filterShops(liked) {
     const { shops, likes } = this.props;
+    const { user } = this.state;
     
     return Object.keys(shops).filter(id => {
-      return liked ? likes[id] : true;
+      return user && liked ? likes[id] : true;
     });
   }
   
   render() {
     const { shops, likes } = this.props;
-    const { user, liked, params: { term, location } } = this.state;
+    const { user, liked, open, params: { term, location } } = this.state;
 
     const shopList = this.filterShops(liked).map(id => {
       let shop = shops[id];
       let isLiked = likes[id];
+      
       return (
         <ShopListItem 
           key={id}
@@ -84,13 +87,29 @@ export default class ShopList extends Component {
     return (
       <div className='shop'>
         <h1>Best {term} in {loc}</h1>
+        <div className='filter'>
+          <button>$</button>
+          <button>$$</button>
+          <button>$$$</button>
+          <button>$$$$</button>
+          <button
+            className={open ? 'active' : ''}
+            onClick={() => this.toggle('open')}>
+            Open Now
+          </button>
+          <button 
+            className={ liked ? 'active' : '' }
+            onClick={() => this.toggle('liked')}>
+            Liked
+          </button>
+        </div>
         <ul>
           { 
             shopList.length ? shopList : 
             <li><UiError /></li>
           }
         </ul>
-        <div>
+        <div className='map'>
           <span>
             Google Maps
           </span>

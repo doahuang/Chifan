@@ -8,19 +8,20 @@
     font-size: 24px;
     margin: 0 50px;
   }
-  div {
-    margin: 50px;
-    span {
-      position: sticky;
-      position: -webkit-sticky;
-      top: 100px;
-      border: 1px solid;
+
+  
+  .filter {
+    grid-column: 1 / span 2;
+    margin: 20px 50px 50px;
+    .active {
+      background: $red;
+    }
+    button {
+      margin: 0 20px 0 0;
+      padding: 10px;
       border-radius: 5px;
-      display: grid;
-      height: 400px;
-      font-size: 40px;
-      text-align: center;
-      align-items: center;
+      color: white;
+      background: darkgray;
     }
   }
 
@@ -28,7 +29,7 @@
     li {
       display: flex;
       align-items: center;
-      margin: 50px;
+      margin: 0 50px 30px;
       a {
         color: $blue;
         &:hover {
@@ -39,6 +40,7 @@
         height: 250px;
         width: 250px;
         img {
+          border-radius: 5px;
           height: 250px;
           width: 250px;
         }
@@ -56,6 +58,22 @@
           }
         }
       }
+    }
+  }
+
+  .map {
+    margin: 0 50px 0 0;
+    span {
+      position: sticky;
+      position: -webkit-sticky;
+      top: 100px;
+      border: 1px solid;
+      border-radius: 5px;
+      display: grid;
+      height: 400px;
+      font-size: 40px;
+      text-align: center;
+      align-items: center;
     }
   }
 }

@@ -8,17 +8,14 @@ export default ({ openModal }) => {
         <Link to='/'>Home</Link>
       </li>
       <li>
-        <Link to='/shops'>Shops</Link>
-      </li>
-      <li>
-        <Link to='#' onClick={() => openModal('signup')}>
+        <a onClick={() => openModal('signup')}>
           Sign Up
-        </Link>
+        </a>
       </li>
       <li>
-        <Link to='#' onClick={() => openModal('login')}>
+        <a onClick={() => openModal('login')}>
           Log In
-        </Link>
+        </a>
       </li>
     </ul>
   )
