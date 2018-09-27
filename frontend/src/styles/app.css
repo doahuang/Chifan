@@ -106,6 +106,48 @@ footer {
     footer a:hover {
       text-decoration: underline; }
 
+.shop {
+  margin: 100px 0 50px;
+  font-size: 20px;
+  display: grid;
+  grid-template-columns: 4fr 3fr; }
+  .shop h1 {
+    grid-column: 1 / span 2;
+    font-size: 24px;
+    margin: 0 50px; }
+  .shop div {
+    margin: 50px 20px 50px 0; }
+    .shop div span {
+      position: sticky;
+      position: -webkit-sticky;
+      top: 100px;
+      border: 1px solid;
+      border-radius: 5px;
+      display: grid;
+      height: 500px;
+      font-size: 40px;
+      text-align: center;
+      align-items: center; }
+  .shop ul li {
+    display: flex;
+    align-items: center;
+    margin: 50px; }
+    .shop ul li img {
+      display: inline-block;
+      height: 250px;
+      width: 300px; }
+    .shop ul li section {
+      margin: 0 40px; }
+      .shop ul li section button {
+        margin: 20px 0;
+        width: 100%;
+        padding: 10px 20px;
+        border-radius: 5px;
+        background: #FF5A5F;
+        color: white; }
+        .shop ul li section button:active {
+          background: lightgray; }
+
 .session-form {
   padding: 40px;
   width: 400px;
@@ -220,42 +262,3 @@ footer {
       border: 1px solid #008489; }
   .profile-form form button {
     margin: 0 0 0 10px; }
-
-.shop {
-  margin: 100px 0 50px;
-  font-size: 20px;
-  display: grid;
-  grid-template-columns: 4fr 3fr; }
-  .shop h1 {
-    grid-column: 1 / span 2;
-    font-size: 24px;
-    margin: 0 50px; }
-  .shop div {
-    margin: 50px 20px 50px 0; }
-    .shop div span {
-      position: sticky;
-      position: -webkit-sticky;
-      top: 100px;
-      border: 1px solid;
-      border-radius: 5px;
-      display: grid;
-      height: 500px;
-      font-size: 40px;
-      text-align: center;
-      align-items: center; }
-  .shop ul li {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    margin: 50px; }
-    .shop ul li img {
-      height: 200px; }
-    .shop ul li section {
-      margin: 0 20px; }
-    .shop ul li button {
-      padding: 10px 20px;
-      border-radius: 5px;
-      background: #FF5A5F;
-      color: white; }
-      .shop ul li button:active {
-        background: lightgray; }

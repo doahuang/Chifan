@@ -11,8 +11,8 @@ export default class ShopListItem extends Component {
   }
 
   call() {
-    const { shop: { _id }, like, unlike } = this.props;
-    return this.state.liked ? unlike(_id) : like(_id);
+    const { shop: { id }, like, unlike } = this.props;
+    return this.state.liked ? unlike(id) : like(id);
   }
 
   toggle() {
@@ -28,21 +28,24 @@ export default class ShopListItem extends Component {
 
     return (
       <li>
-        <img src={shop.photo} alt='' />
+        <img src={shop.image_url} alt='' />
         <section>
-          <b>{shop.name}</b>
+          <a href={shop.url.split('?')[0]} target='_blank'>
+            <b>{shop.name}</b>
+          </a>
           <p>{shop.rating} stars</p>
-          <p>{shop.reviews} reviews </p>
-          <p>{shop.price} dollar sign</p>
-          <p>{shop.phone} </p>
-          <p>{shop.address} </p>
+          <p>{shop.review_count} reviews </p>
+          <p>{shop.price} </p>
+          <p>{shop.display_phone} </p>
+          <p>{shop.location.display_address.join(' ')} </p>
+          
+          {
+            !loggedin ? null :
+            <button onClick={() => this.click()}>
+              { this.state.liked ? 'Unlike' : 'Like' }
+            </button>
+          }
         </section>
-        {
-          !loggedin ? null :
-          <button onClick={() => this.click()}>
-            { this.state.liked ? 'Unlike' : 'Like' }
-          </button>
-        }
       </li>
     )
   }

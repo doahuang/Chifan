@@ -8,10 +8,7 @@ export default ({ openModal }) => {
         <Link to='/'>Home</Link>
       </li>
       <li>
-        <Link to='/shops'
-          onClick={() => window.scrollTo(0, 0)}>
-          Shops
-        </Link>
+        <Link to='/shops'>Shops</Link>
       </li>
       <li>
         <Link to='#' onClick={() => openModal('signup')}>

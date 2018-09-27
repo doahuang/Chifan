@@ -5,11 +5,13 @@ import ShopListItem from './shop_list_item_container'
 export default class ShopList extends Component {
   state = {
     liked: this.props.liked,
-    loggedin: this.props.loggedin
+    loggedin: this.props.loggedin,
+    query: this.props.query || 
+      { term: 'boba', location: 'san leandro' }
   }
 
   componentDidMount() {
-    this.props.allShops();
+    this.props.callYelp(this.state.query);
     if (this.state.loggedin) this.props.getLikes();
   }
 

@@ -8,11 +8,7 @@ const likeSchema = new Schema({
     refs: 'users',
     required: true
   },
-  shop: {
-    type: Schema.Types.ObjectId,
-    refs: 'shops',
-    required: true
-  },
+  shop: { type: String, required: true },
   date: { type: Date, default: Date.now }
 })
 

@@ -11,12 +11,12 @@ export default (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_SHOPS:
       action.shops.forEach(shop => {
-        newState[shop._id] = shop;
+        newState[shop.id] = shop;
       });
       return newState;
     case RECEIVE_SHOP:
       return Object.assign({}, state, {
-        [action.shop._id]: action.shop
+        [action.shop.id]: action.shop
       });
     default:
       return state;

@@ -6,6 +6,9 @@ import configStore from './components/store';
 import jwtDecode from 'jwt-decode';
 import { setCurrentUser, logoutUser, setAuthToken } from './util/session_api';
 
+import yelp from './actions/yelp_actions';
+window.yelp = yelp;
+
 document.addEventListener('DOMContentLoaded', () => render());
 
 const render = () => {

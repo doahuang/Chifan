@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import ShopList from './shop_list';
-import { allShops } from '../../actions/shop_actions';
+import callYelp from '../../actions/yelp_actions';
 import { getLikes } from '../../actions/like_actions';
 
 const msp = ({ session, entities }, { location }) => {
@@ -18,7 +18,7 @@ const msp = ({ session, entities }, { location }) => {
 
 const mdp = dispatch => {
   return {
-    allShops: () => dispatch(allShops()),
+    callYelp: params => dispatch(callYelp(params)),
     getLikes: params => dispatch(getLikes(params))
   }
 }
