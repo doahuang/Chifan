@@ -9,7 +9,7 @@
     margin: 0 50px;
   }
   div {
-    margin: 50px 20px 50px 0;
+    margin: 50px;
     span {
       position: sticky;
       position: -webkit-sticky;
@@ -17,7 +17,7 @@
       border: 1px solid;
       border-radius: 5px;
       display: grid;
-      height: 500px;
+      height: 400px;
       font-size: 40px;
       text-align: center;
       align-items: center;
@@ -29,16 +29,24 @@
       display: flex;
       align-items: center;
       margin: 50px;
-      img {
-        display: block;
+      a {
+        color: $blue;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      span {
         height: 250px;
-        width: 300px;
+        width: 250px;
+        img {
+          height: 250px;
+          width: 250px;
+        }
       }
       section {
-        margin: 0 40px;
+        margin: 0 0 0 50px;
         button {
-          margin: 20px 0;
-          width: 100%;
+          margin: 20px 0 0;
           padding: 10px 20px;
           border-radius: 5px;
           background: $red;

@@ -1,45 +1,56 @@
 import React, { Component } from 'react'
 
 import ShopListItem from './shop_list_item_container'
+import UiError from '../error/ui_error'
 
 export default class ShopList extends Component {
   state = {
-    liked: this.props.liked,
-    loggedin: this.props.loggedin,
-    params: { term: '', location: 'san francisco' }
+    user: this.props.user,
+    params: { term: '', location: 'san francisco' },
+    liked: false
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors();
   }
 
   componentDidMount() {
-    this.call(this.props.query);
-    if (this.state.loggedin) this.props.getLikes();
+    this.call();
+
+    const { user, getLikes } = this.props;
+    if (user) getLikes();
   }
 
   componentWillReceiveProps(next) {
-    let { loggedin, liked } = this.state;
+    const { user } = this.state;
     
-    if (next.loggedin !== loggedin) {
-      this.setState({ loggedin: next.loggedin })
-      if (next.loggedin) this.props.getLikes();
+    if (next.user !== user) {
+      this.setState({ user: next.user })
+      if (next.user) this.props.getLikes();
     }
-
-    // only care if logged in and liked changes
-    if (loggedin && next.liked !== liked) 
-      this.setState({ liked: next.liked })
   }
 
-  call(query) {
-    if (!query || this.state.liked)
-      return this.props.callYelp(this.state.params);
+  call() {
+    const { shops, search, callYelp } = this.props;
+    let { params } = this.state;
 
-    const params = {};
+    // only call yelp api if search or first time fetch
+    if (!search) {
+      if (!Object.keys(shops).length) return callYelp(params);
+      return
+    }
 
-    query.slice(1).split('&').forEach(el => {
+    params = {};
+    search.slice(1).split('&').forEach(el => {
       let [k, v] = el.split('=');
       params[k] = v;
     });
 
+    // need at least a location to call yelp api
+    if (!params.location) return;
+
     this.setState({ params });
-    this.props.callYelp(params);
+    callYelp(params);
   }
 
   filterShops(liked) {
@@ -52,7 +63,7 @@ export default class ShopList extends Component {
   
   render() {
     const { shops, likes } = this.props;
-    const { loggedin, liked, params } = this.state;
+    const { user, liked, params: { term, location } } = this.state;
 
     const shopList = this.filterShops(liked).map(id => {
       let shop = shops[id];
@@ -61,20 +72,24 @@ export default class ShopList extends Component {
         <ShopListItem 
           key={id}
           shop={shop}
-          loggedin={loggedin}
+          user={user}
           liked={isLiked}
         />
       )
     });
 
-    let { term, location } = params;
-    if (location)
-      location = location.split('%20').join(' ');
+    let loc = 'somewhere';
+    if (location) loc = location.replace(/%20/, ' ');
 
     return (
       <div className='shop'>
-        <h1>Best {term} in {location}</h1>
-        <ul>{ shopList }</ul>
+        <h1>Best {term} in {loc}</h1>
+        <ul>
+          { 
+            shopList.length ? shopList : 
+            <li><UiError /></li>
+          }
+        </ul>
         <div>
           <span>
             Google Maps

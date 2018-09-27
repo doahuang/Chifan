@@ -4,38 +4,28 @@ export default ({ history }) => {
   const submit = e => {
     e.preventDefault();
 
-    const params = {
-      term: this.termNode.value,
-      location: this.locNode.value
-    };
+    let term = this.termNode.value;
+    let loc = this.locNode.value || 'san francisco';
 
-    let query = [];
-    Object.keys(params).forEach(key => {
-      let el = `${key}=${params[key]}`;
-      query.push(el);
-    });
-    query = query.join('&');
-
-    if (query) history.push(`/shops?${query}`);
+    const query = `term=${term}&location=${loc}`;
+    history.push(`/shops?${query}`);
   }
 
   return (
     <form className='searchbar'
-      onSubmit={e => submit(e)}
+      onSubmit={e => submit(e)} 
     >
       <b>Find</b>
       <input 
-        placeholder='Boba' 
+        placeholder='boba, ramen, steak...' 
         maxLength={30} 
         ref={node => this.termNode = node}
-        required
       />
       <b>Near</b>
       <input 
-        placeholder='San Leandro' 
+        placeholder='san francisco' 
         maxLength={30} 
         ref={node => this.locNode = node}
-        required
       />
       <button>Go</button>
     </form>

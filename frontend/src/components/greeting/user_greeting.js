@@ -11,9 +11,6 @@ export default ({ logout }) => {
         <Link to='/shops'>Shops</Link>
       </li>
       <li>
-        <Link to='/shops?liked=true'>Liked</Link>
-      </li>
-      <li>
         <Link to='/reviews'>Reviews</Link>
       </li>
       <li>

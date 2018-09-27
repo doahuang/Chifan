@@ -116,7 +116,7 @@ footer {
     font-size: 24px;
     margin: 0 50px; }
   .shop div {
-    margin: 50px 20px 50px 0; }
+    margin: 50px; }
     .shop div span {
       position: sticky;
       position: -webkit-sticky;
@@ -124,7 +124,7 @@ footer {
       border: 1px solid;
       border-radius: 5px;
       display: grid;
-      height: 500px;
+      height: 400px;
       font-size: 40px;
       text-align: center;
       align-items: center; }
@@ -132,15 +132,20 @@ footer {
     display: flex;
     align-items: center;
     margin: 50px; }
-    .shop ul li img {
-      display: block;
+    .shop ul li a {
+      color: #0073bb; }
+      .shop ul li a:hover {
+        text-decoration: underline; }
+    .shop ul li span {
       height: 250px;
-      width: 300px; }
+      width: 250px; }
+      .shop ul li span img {
+        height: 250px;
+        width: 250px; }
     .shop ul li section {
-      margin: 0 40px; }
+      margin: 0 0 0 50px; }
       .shop ul li section button {
-        margin: 20px 0;
-        width: 100%;
+        margin: 20px 0 0;
         padding: 10px 20px;
         border-radius: 5px;
         background: #FF5A5F;

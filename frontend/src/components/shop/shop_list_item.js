@@ -24,11 +24,14 @@ export default class ShopListItem extends Component {
   }
 
   render() {
-    const { shop, loggedin } = this.props;
+    const { shop, user } = this.props;
+    const { liked } = this.state;
 
     return (
       <li>
-        <img src={shop.image_url} alt='' />
+        <span>
+          <img src={shop.image_url} alt='' />
+        </span>
         <section>
           <a href={shop.url.split('?')[0]} target='_blank'>
             <b>{shop.name}</b>
@@ -37,12 +40,11 @@ export default class ShopListItem extends Component {
           <p>{shop.review_count} reviews </p>
           <p>{shop.price} </p>
           <p>{shop.display_phone} </p>
-          <p>{shop.location.display_address.join(' ')} </p>
-          
+          <p>{shop.location.display_address.join(', ')} </p>
           {
-            !loggedin ? null :
+            !user ? null :
             <button onClick={() => this.click()}>
-              { this.state.liked ? 'Unlike' : 'Like' }
+              { liked ? `Unlike` : 'Like' }
             </button>
           }
         </section>
