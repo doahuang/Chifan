@@ -1,5 +1,4 @@
 import Like from '../models/like';
-import validator from '../middleware/validate_like';
 
 export const myLikes = (req, res) => {
   Like.find({ user: req.user })
@@ -7,10 +6,13 @@ export const myLikes = (req, res) => {
 }
 
 export const addLike = async (req, res) => {
-  let errs = await validator(req, res);
-  if (errs) return errs;
+  let { shopId } = req.body;
 
-  let like = new Like({
+  let like = await Like.findOne({ shop: shopId, user: req.user });
+  if (like)
+    return res.status(400).json({ msg: 'Already liked' });
+
+  like = new Like({
     shop: req.body.shopId,
     user: req.user
   });
