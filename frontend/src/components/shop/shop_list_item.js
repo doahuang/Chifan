@@ -5,6 +5,11 @@ export default class ShopListItem extends Component {
     liked: this.props.liked
   }
 
+  componentWillReceiveProps(next) {
+    if (this.state.liked !== next.liked)
+      this.setState({ liked: next.liked })
+  }
+
   call() {
     const { shop: { id }, like, unlike } = this.props;
     return this.state.liked ? unlike(id) : like(id);
@@ -32,7 +37,7 @@ export default class ShopListItem extends Component {
             <b>{shop.name}</b>
           </a>
           <p>{shop.rating} stars</p>
-          <p>{shop.review_count} reviews </p>
+          <p>{shop.review_count} reviews</p>
           <p>{shop.price} </p>
           <p>{shop.display_phone} </p>
           <p>{shop.location.display_address.join(', ')} </p>

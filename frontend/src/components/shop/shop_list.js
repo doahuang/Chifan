@@ -1,44 +1,42 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
 
 import ShopListItem from './shop_list_item_container';
+import UiError from '../error/ui_error';
 
-const msp = ({ entities, session, filters }) => {
-  const { shops, likes } = entities;
-
-  return {
-    shops, 
-    likes,
-    user: session,
-    filters
+export default class ShopList extends Component {
+  componentWillUnmount() {
+    this.props.clearErrors();
   }
-};
 
-const ShopList = ({ shops, likes, user, filters }) => {
-  const { price, liked } = filters;
+  render() {
+    const { shops, likes, user, filters } = this.props;
+    const { price, liked } = filters;
 
-  let shopList = Object.keys(shops)
-    .filter(id => price ? shops[id].price === price : true)
-    .filter(id => {
-      return user && liked ? likes[id] : true;
-    })
-    .map(id => {
-      let shop = shops[id];
-      let isLiked = !!likes[id];
+    const shopList = Object.keys(shops)
+      .filter(id => {
+        return user && liked ? likes[id] : true;
+      })
+      .filter(id => price ? shops[id].price === price : true)
+      .map(id => {
+        let shop = shops[id];
+        let isLiked = !!likes[id];
 
-      return (
-        <ShopListItem
-          key={id}
-          shop={shop}
-          user={user}
-          liked={isLiked}
-        />
-      )
-    });
+        return (
+          <ShopListItem
+            key={id}
+            shop={shop}
+            user={user}
+            liked={isLiked}
+          />
+        )
+      });
 
-  return (
-    <ul>{ shopList }</ul>
-  );
+    return (
+      <ul>
+        {
+          shopList.length ? shopList : <li><UiError /></li>
+        }
+      </ul>
+    );
+  }
 }
-
-export default connect(msp)(ShopList);

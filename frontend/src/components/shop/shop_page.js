@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import ShopFilter from './shop_filter_container';
-import ShopList from './shop_list';
+import ShopList from './shop_list_container';
 import Map from '../map/map';
 
 export default class ShopPage extends Component {
@@ -11,9 +11,8 @@ export default class ShopPage extends Component {
   }
 
   componentDidMount() {
+    if (this.props.user) this.props.getLikes();
     this.call();
-    const { user, getLikes } = this.props;
-    if (user) getLikes();
   }
 
   componentWillReceiveProps(next) {
@@ -43,16 +42,17 @@ export default class ShopPage extends Component {
   }
   
   render() {
-    const { params: { term, location } } = this.state;
-    let loc = 'somewhere';
-    if (location) loc = location.replace(/%20/, ' ');
+    let { params: { term, location } } = this.state;
+    location = location.replace(/%20/, ' ');
 
     return (
       <div className='shop'>
-        <h1>Best {term} in {loc}</h1>
+        <h1>Best {term} in {location}</h1>
         <ShopFilter />
         <ShopList />
-        <Map />
+        <div className='map'>
+          <Map />
+        </div>
       </div>
     )
   }
