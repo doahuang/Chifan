@@ -1,7 +1,17 @@
 import User from '../models/user';
+import bcrypt from 'bcryptjs';
 
 export default async (req, res) => {
-  const { email } = req.body;
+  const { email, password } = req.body;
+
+  if (password) {
+    const hash = await bcrypt.hash(req.body.password, 10);
+    req.body.password = hash;
+  }
+
+  if (password !== undefined && !password)
+    return res.status(400).json({ msg: 'Invalid password' })
+
   if (email !== undefined && !email)
     return res.status(400).json({ msg: 'Invalid email' });
 

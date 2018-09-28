@@ -2,10 +2,10 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 
 import {
-  GET_SESSION_ERRORS,
   RECEIVE_CURRENT_USER,
   LOGOUT_CURRENT_USER
 } from '../actions/action_types';
+import { receiveError } from '../actions/session_error';
 
 export const setAuthToken = token => {
   if (token) {
@@ -16,7 +16,7 @@ export const setAuthToken = token => {
 };
 
 export const signupUser = (userData, next) => dispatch => {
-  axios
+  return axios
     .post('/api/users/signup', userData)
     .then(res => {
       const { token } = res.data;
@@ -26,16 +26,14 @@ export const signupUser = (userData, next) => dispatch => {
     
       const decoded = jwtDecode(token);
       dispatch(setCurrentUser(decoded));
+
       next();
     })
-    .catch(err => dispatch({
-      type: GET_SESSION_ERRORS,
-      err: err.response.data
-    }));
+    .catch(err => dispatch(receiveError(err)));
 };
 
 export const loginUser = (userData, next) => dispatch => {
-  axios
+  return axios
     .post('/api/users/login', userData)
     .then(res => {
       const { token } = res.data;
@@ -45,12 +43,10 @@ export const loginUser = (userData, next) => dispatch => {
 
       const decoded = jwtDecode(token);
       dispatch(setCurrentUser(decoded));
+
       next();
     })
-    .catch(err => dispatch({
-      type: GET_SESSION_ERRORS,
-      err: err.response.data
-    }));
+    .catch(err => dispatch(receiveError(err)));
 };
 
 export const logoutUser = () => dispatch => {

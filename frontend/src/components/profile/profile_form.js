@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
 
-import { updateUser } from '../../actions/user_actions'
-
 export default class ProfileForm extends Component {
   state = {
 
   }
-
-  action = updateUser;
 
   componentWillReceiveProps(next) {
     let { done, value } = this.state;
@@ -24,25 +20,29 @@ export default class ProfileForm extends Component {
     this.setState({ open: false })
   }
 
+  updated(value) {
+    this.setState({ value, open: false })
+  }
+
   submit(e) {
     e.preventDefault();
 
     if (!this.state.open) return this.open();
 
-    let value = this.fieldNode.value;
+    let { value } = this.fieldNode;
     if (!value || value === this.state.value) return this.close();
 
     const { id, field } = this.props;
     const user = { id, [field]: value };
     
-    this.action(user)
-      .then(() => this.setState({ value, open: false }))
-      .catch(this.close());
+    this.props.update(user, () => this.updated(value))
   }
 
   render() {
     const { type, maxLength } = this.props;
     let { open, value } = this.state;
+
+    if (type === 'password') value = '*********'
 
     return (
       <div className='profile-form'>

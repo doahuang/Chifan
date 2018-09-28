@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 
-import ProfileForm from './profile_form';
+import ProfileForm from './profile_form_container';
+import UiError from '../error/ui_error';
+
 import { getUser } from '../../actions/user_actions'
 
 export default class Profile extends Component {
@@ -8,12 +10,17 @@ export default class Profile extends Component {
 
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   componentDidMount() {
-    getUser(this.props.id).then(user => this.setState(user))
+    getUser(this.props.id).then(user => this.setState(user.data))
   }
 
   render() {
-    let { id, name, email, date } = this.state;
+    let { _id, name, email, date, password } = this.state;
+    const id = _id;
     const demo = 'demo@chifan';
 
     return (
@@ -37,7 +44,20 @@ export default class Profile extends Component {
             }
           </li>
           <li>
+            <b>Password: </b>
+            {
+              email === demo ? '*********' :
+              <ProfileForm
+                id={id} field='password' type='password'
+                value={password} maxLength={20}
+              />
+            }
+          </li>
+          <li>
             <b>Member since: </b>{ new Date(date).toDateString() }
+          </li>
+          <li>
+            <UiError />
           </li>
         </ul>
       </div>

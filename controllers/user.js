@@ -18,8 +18,8 @@ export const allUsers = (req, res) => {
 export const getUser = (req, res) => {
   User.findById(req.params.id)
     .then(user => {
-      if (!user) next();
-      res.json(cleanup(user))
+      if (!user || user.id !== req.user.id) next();
+      res.json(user)
     })
     .catch(err => res.status(400).json({ msg: 'Failed to fetch user' }));
 }
@@ -28,7 +28,7 @@ export const updateUser = async (req, res) => {
   let errs = await validator(req, res);
   if (errs) return errs;
 
-  //it's me, and update name or email no conflicts
+  //it's me, and update name or email or password no conflicts
   User.findByIdAndUpdate(req.params.id, req.body)
     .then(user => res.json(user))
     .catch(err => res.status(400).json({ msg: 'Failed to update user' }));

@@ -1,24 +1,16 @@
 import axios from 'axios';
 
-// import { RECEIVE_CURRENT_USER } from './action_types';
-// import { receiveError } from './ui_error';
-
-// const receiveUser = user => ({
-//   type: RECEIVE_CURRENT_USER,
-//   user
-// });
+import { receiveError, clearErrors } from './ui_error';
 
 export const getUser = id => {
-  return axios.get(`/api/users/${id}`)
-    .then(res => res.data);
+  return axios.get(`/api/users/${id}`);
 }
 
-// export const getUser = id => dispatch => {
-//   return axios.get(`/api/users/${id}`)
-//     .then(res => dispatch(receiveUser(res.data)))
-//     .catch(err => dispatch(receiveError(err)))
-// }
-
-export const updateUser = user => {
-  return axios.patch(`/api/users/${user.id}`, user);
+export const updateUser = (user, next) => dispatch => {
+  return axios.patch(`/api/users/${user.id}`, user)
+    .then(res => {
+      dispatch(clearErrors())
+      next();
+    })
+    .catch(err => dispatch(receiveError(err)))
 }

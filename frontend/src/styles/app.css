@@ -195,66 +195,6 @@ footer {
     .session-form button:active {
       background: lightgray; }
 
-.review {
-  margin: 100px 0 0;
-  font-size: 20px; }
-  .review .header {
-    display: flex;
-    margin: 0 10px; }
-  .review button {
-    padding: 10px;
-    border-radius: 5px;
-    background: #FF5A5F;
-    color: white;
-    margin-left: 40px; }
-    .review button:active {
-      background: lightgray; }
-  .review ul li {
-    display: flex;
-    justify-content: space-between;
-    margin: 50px; }
-    .review ul li p {
-      word-break: break-all; }
-    .review ul li div {
-      display: flex;
-      align-items: center; }
-
-.review-form {
-  padding: 40px;
-  width: 400px;
-  height: 350px;
-  font-size: 20px; }
-  .review-form h1 {
-    font-size: 40px; }
-  .review-form form {
-    display: flex;
-    flex-flow: column;
-    height: 300px;
-    margin: 20px 0; }
-    .review-form form input {
-      margin: 20px 0;
-      border: 1px solid lightgray;
-      border-radius: 5px;
-      padding: 5px; }
-      .review-form form input:focus {
-        border: 1px solid #008489; }
-    .review-form form textarea {
-      border: 1px solid lightgray;
-      border-radius: 5px;
-      padding: 5px;
-      height: 80px;
-      resize: none; }
-      .review-form form textarea:focus {
-        border: 1px solid #008489; }
-    .review-form form button {
-      margin: 20px 0;
-      color: white;
-      border-radius: 5px;
-      background: #FF5A5F;
-      padding: 10px; }
-      .review-form form button:active {
-        background: lightgray; }
-
 .profile {
   margin: 100px 0 0;
   font-size: 20px; }

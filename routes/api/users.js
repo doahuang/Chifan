@@ -11,11 +11,11 @@ import {
 const router = express.Router();
 
 router.get('/', allUsers);
-router.get('/:id', getUser);
 router.post('/signup', signup);
 router.post('/login', login);
 
 const jwtAuth = passport.authenticate('jwt', { session: false });
+router.get('/:id', jwtAuth, getUser);
 router.patch('/:id', jwtAuth, updateUser);
 
 export default router;
