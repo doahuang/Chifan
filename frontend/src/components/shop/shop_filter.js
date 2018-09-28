@@ -1,22 +1,41 @@
 import React from 'react';
 
-export default ({ filters, toggle, reset }) => {
-  const { open, liked } = filters;
+export default ({ filters, set, reset }) => {
+  const { price, liked } = filters;
 
   return (
     <div className='filter'>
-      <button>$</button>
-      <button>$$</button>
-      <button>$$$</button>
-      <button>$$$$</button>
       <button
-        className={open ? 'active' : ''}
-        onClick={() => toggle('open')}>
-        Open Now
+        className={price === '$' ? 'active' : '' }
+        onClick={() => {
+          price === '$' ? set({ price: '' }) : set({ price: '$' })
+        }}>
+        $
+      </button>
+      <button
+        className={price === '$$' ? 'active' : ''}
+        onClick={() => {
+          price === '$$' ? set({ price: '' }) : set({ price: '$$' })
+        }}>
+        $$
+      </button>
+      <button
+        className={price === '$$$' ? 'active' : ''}
+        onClick={() => {
+          price === '$$$' ? set({ price: '' }) : set({ price: '$$$' })
+        }}>
+        $$$
+      </button>
+      <button
+        className={price === '$$$$' ? 'active' : ''}
+        onClick={() => {
+          price === '$$$$' ? set({ price: '' }) : set({ price: '$$$$' })
+        }}>
+        $$$$
       </button>
       <button
         className={liked ? 'active' : ''}
-        onClick={() => toggle('liked')}>
+        onClick={() => set({ liked: !liked })}>
         Liked
       </button>
       <button 

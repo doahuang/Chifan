@@ -15,9 +15,10 @@ const msp = ({ entities, session, filters }) => {
 };
 
 const ShopList = ({ shops, likes, user, filters }) => {
-  const { liked } = filters;
+  const { price, liked } = filters;
 
   let shopList = Object.keys(shops)
+    .filter(id => price ? shops[id].price === price : true)
     .filter(id => {
       return user && liked ? likes[id] : true;
     })

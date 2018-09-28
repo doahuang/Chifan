@@ -11,7 +11,7 @@ const msp = ({ filters }) => ({
 });
 
 const mdp = dispatch => ({
-  toggle: filter => dispatch(receiveFilter(filter)),
+  set: filter => dispatch(receiveFilter(filter)),
   reset: () => dispatch(removeFilters())
 });
 

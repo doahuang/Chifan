@@ -11,11 +11,9 @@ export default (state = {}, action) => {
     case RECEIVE_FILTERS:
       return action.filters;
     case RECEIVE_FILTER:
-      const filter = action.filter;
-      const status = state[filter];
       return {
         ...state,
-        [filter]: !status
+        ...action.filter
       };
     case REMOVE_FILTERS:
       return {};
