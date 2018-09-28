@@ -8,7 +8,7 @@ const receiveShops = ({ businesses}) => ({
   shops: businesses
 });
 
-export default params => dispatch => {
+export const callYelp = params => dispatch => {
   return axios.get('/api/yelp', { params })
     .then(res => dispatch(receiveShops(res.data)))
     .catch(err => dispatch(receiveError(err)))

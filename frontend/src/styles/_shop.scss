@@ -22,14 +22,16 @@
       border-radius: 5px;
       color: white;
       background: darkgray;
+      &:active {
+        background: lightgray;
+      }
     }
   }
 
   ul {
     li {
       display: flex;
-      align-items: center;
-      margin: 0 50px 30px;
+      margin: 0 50px 40px;
       a {
         color: $blue;
         &:hover {
@@ -46,7 +48,7 @@
         }
       }
       section {
-        margin: 0 0 0 50px;
+        margin: 10px 0 0 50px;
         button {
           margin: 20px 0 0;
           padding: 10px 20px;

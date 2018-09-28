@@ -20,3 +20,7 @@ export const RECEIVE_SHOP = 'RECEIVE_SHOP';
 export const RECEIVE_LIKES = 'RECEIVE_LIKES';
 export const RECEIVE_LIKE = 'RECEIVE_LIKE';
 export const REMOVE_LIKE = 'REMOVE_LIKE';
+
+export const RECEIVE_FILTERS = 'RECEIVE_FILTERS';
+export const RECEIVE_FILTER = 'RECEIVE_FILTER';
+export const REMOVE_FILTERS = 'REMOVE_FILTERS';
