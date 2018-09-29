@@ -101,10 +101,9 @@ nav {
     position: sticky;
     position: -webkit-sticky;
     top: 100px; }
-
-#map {
-  border-radius: 5px;
-  height: 400px; }
+    .map-container .sticky #map {
+      border-radius: 5px;
+      height: 400px; }
 
 footer {
   position: absolute;
@@ -120,15 +119,11 @@ footer {
 
 .shop {
   margin: 100px 0 50px;
-  font-size: 20px;
-  display: grid;
-  grid-template-columns: 4fr 3fr; }
+  font-size: 20px; }
   .shop h1 {
-    grid-column: 1 / span 2;
     font-size: 24px;
     margin: 0 50px; }
   .shop .filter {
-    grid-column: 1 / span 2;
     margin: 20px 50px 50px; }
     .shop .filter .active {
       background: #FF5A5F; }
@@ -140,29 +135,33 @@ footer {
       background: darkgray; }
       .shop .filter button:active {
         background: lightgray; }
-  .shop ul li {
+
+.shop-list {
+  display: grid;
+  grid-template-columns: 4fr 3fr; }
+  .shop-list ul li {
     display: flex;
     margin: 0 50px 40px; }
-    .shop ul li a {
+    .shop-list ul li a {
       color: #0073bb; }
-      .shop ul li a:hover {
+      .shop-list ul li a:hover {
         text-decoration: underline; }
-    .shop ul li span {
+    .shop-list ul li span {
       height: 250px;
       width: 250px; }
-      .shop ul li span img {
+      .shop-list ul li span img {
         border-radius: 5px;
         height: 250px;
         width: 250px; }
-    .shop ul li section {
+    .shop-list ul li section {
       margin: 10px 0 0 50px; }
-      .shop ul li section button {
+      .shop-list ul li section button {
         margin: 20px 0 0;
         padding: 10px 20px;
         border-radius: 5px;
         background: #FF5A5F;
         color: white; }
-        .shop ul li section button:active {
+        .shop-list ul li section button:active {
           background: lightgray; }
 
 .session-form {

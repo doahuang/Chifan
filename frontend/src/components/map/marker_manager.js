@@ -5,16 +5,22 @@ export default class MarkerManager {
   }
 
   updateMarkers(shops) {
-    Object.values(shops)
-      .filter(shop => !this.markers[shop.id])
-      .forEach((shop, num) => this.createMarkerFrom(shop, num));
-    
-    Object.values(this.markers)
-      .filter(marker => !shops[marker.id])
-      .forEach(marker => this.removeMarker(marker));
+    // remove old markers
+    Object.keys(this.markers)
+      .filter(id => !shops[id])
+      .forEach(id => this.removeMarker(this.markers[id]));
+
+    // create marker for new shops
+    Object.keys(shops)
+      .filter(id => !this.markers[id])
+      .forEach(id => this.createMarkerFrom(shops[id]));
+
+    // reset labels
+    Object.keys(shops)
+      .forEach((id, i) => this.markers[id].setLabel(`${i + 1}`));
   }
 
-  createMarkerFrom(shop, num) {
+  createMarkerFrom(shop) {
     const { latitude, longitude } = shop.coordinates;
     const google = window.google;
 
@@ -23,15 +29,11 @@ export default class MarkerManager {
     const markerOptions = {
       position,
       id: shop.id,
-      title: shop.name,
-      label: `${num + 1}`
+      title: shop.name
     };
 
     let marker = new google.maps.Marker(markerOptions);
     marker.setMap(this.map);
-
-    // click listener
-
 
     this.markers[marker.id] = marker;
   }

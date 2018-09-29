@@ -4,10 +4,9 @@
     position: sticky;
     position: -webkit-sticky;
     top: 100px;
+    #map {
+      border-radius: 5px;
+      height: 400px;
+    }
   }
-}
-
-#map {
-  border-radius: 5px;
-  height: 400px;
 }

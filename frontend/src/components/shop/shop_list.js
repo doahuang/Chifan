@@ -1,38 +1,47 @@
 import React from 'react'
 
 import ShopListItem from './shop_list_item_container';
+import Map from '../map/map_container';
 
-export default ({ shops, likes, user, filters }) => {
+export default ({ shops, likes, filters, user }) => {
   const { price, liked } = filters;
 
-  const shopList = Object.keys(shops)
-    .filter(id => {
-      return liked ? likes[id] : true;
-    })
-    .filter(id => price ? shops[id].price === price : true)
-    .map((id, num) => {
-      let shop = shops[id];
-      let isLiked = !!likes[id];
+  const filter = () => {
+    return Object.keys(shops)
+      .filter(id => liked ? likes[id] : true)
+      .filter(id => price ? shops[id].price === price : true);
+  }
 
-      return (
-        <ShopListItem
-          key={id}
-          num={num + 1}
-          shop={shop}
-          user={user}
-          liked={isLiked}
-        />
-      )
-    });
+  const map = filterShops => {
+    const mapShops = {};
+    filterShops.forEach(id => mapShops[id] = shops[id]);
+    return mapShops;
+  }
+    
+  const filterShops = filter();
+  const shopList = filterShops.map((id, num) => (
+    <ShopListItem
+      key={id}
+      num={num + 1}
+      shop={shops[id]}
+      user={user}
+      liked={!!likes[id]}
+    />
+  ));
 
+  const mapShops = map(filterShops);
+    
   return (
-    <ul>
-      {
-        shopList.length ? shopList : 
-        <li className='errors'>
-          No results found
-        </li>
-      }
-    </ul>
+    <div className='shop-list'>
+      <ul>
+        {
+          shopList.length ? shopList : 
+          <li className='errors'>
+            No results found
+          </li>
+        }
+      </ul>
+      <Map shops={mapShops} />
+    </div>
   );
 }

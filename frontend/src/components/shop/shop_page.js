@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
 import ShopFilter from './shop_filter_container';
 import ShopList from './shop_list_container';
-import Map from '../map/map';
 
 export default class ShopPage extends Component {
   state = {
@@ -42,8 +41,6 @@ export default class ShopPage extends Component {
   }
   
   render() {
-    const { shops, center } = this.props;
-
     let { params: { term, location } } = this.state;
     if (location) location = location.replace(/%20/, ' ');
     if (term) term = term.replace(/%20/, ' ');
@@ -53,10 +50,6 @@ export default class ShopPage extends Component {
         <h1>Best {term} in {location || 'somewhere'}</h1>
         <ShopFilter />
         <ShopList />
-        <Map 
-          shops={shops} 
-          center={center}
-        />
       </div>
     )
   }
