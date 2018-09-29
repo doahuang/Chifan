@@ -30,7 +30,7 @@ export default ({ shops, likes, user, filters }) => {
       {
         shopList.length ? shopList : 
         <li className='errors'>
-          { user ? 'No results yet' : 'Please log in' }
+          No results found
         </li>
       }
     </ul>

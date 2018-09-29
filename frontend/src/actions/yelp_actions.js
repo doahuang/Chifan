@@ -3,9 +3,10 @@ import axios from 'axios';
 import { RECEIVE_SHOPS } from '../actions/action_types';
 import { receiveError } from './ui_error';
 
-const receiveShops = ({ businesses}) => ({
+const receiveShops = ({ businesses, region: { center }}) => ({
   type: RECEIVE_SHOPS,
-  shops: businesses
+  shops: businesses,
+  center
 });
 
 export const callYelp = params => dispatch => {

@@ -34,23 +34,29 @@ export default class ShopPage extends Component {
       params[k] = v;
     });
 
+    this.setState({ params });
     // need at least a location to call yelp api
     if (!params.location) return;
 
-    this.setState({ params });
     callYelp(params);
   }
   
   render() {
+    const { shops, center } = this.props;
+
     let { params: { term, location } } = this.state;
-    location = location.replace(/%20/, ' ');
+    if (location) location = location.replace(/%20/, ' ');
+    if (term) term = term.replace(/%20/, ' ');
 
     return (
       <div className='shop'>
-        <h1>Best {term} in {location}</h1>
+        <h1>Best {term} in {location || 'somewhere'}</h1>
         <ShopFilter />
         <ShopList />
-        <Map />
+        <Map 
+          shops={shops} 
+          center={center}
+        />
       </div>
     )
   }

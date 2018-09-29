@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
-import configStore from './components/store';
+import configStore from './store/store';
 
 import jwtDecode from 'jwt-decode';
 import { setCurrentUser, logoutUser, setAuthToken } from './util/session_api';

@@ -6,7 +6,7 @@ import {
   removeFilters
 } from '../../actions/filter_actions';
 
-const msp = ({ filters }) => ({
+const msp = ({ ui: { filters }}) => ({
   filters
 });
 
