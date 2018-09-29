@@ -50,9 +50,7 @@ export default class ShopPage extends Component {
         <h1>Best {term} in {location}</h1>
         <ShopFilter />
         <ShopList />
-        <div className='map'>
-          <Map />
-        </div>
+        <Map />
       </div>
     )
   }

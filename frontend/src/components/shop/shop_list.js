@@ -10,13 +10,14 @@ export default ({ shops, likes, user, filters }) => {
       return liked ? likes[id] : true;
     })
     .filter(id => price ? shops[id].price === price : true)
-    .map(id => {
+    .map((id, num) => {
       let shop = shops[id];
       let isLiked = !!likes[id];
 
       return (
         <ShopListItem
           key={id}
+          num={num + 1}
           shop={shop}
           user={user}
           liked={isLiked}

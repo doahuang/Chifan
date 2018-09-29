@@ -24,7 +24,7 @@ export default class ShopListItem extends Component {
   }
 
   render() {
-    const { shop, user } = this.props;
+    const { num, shop, user } = this.props;
     const { liked } = this.state;
 
     return (
@@ -34,7 +34,7 @@ export default class ShopListItem extends Component {
         </span>
         <section>
           <a href={shop.url.split('?')[0]} target='_blank'>
-            <b>{shop.name}</b>
+            <b>{num}. {shop.name}</b>
           </a>
           <p>{shop.rating} stars</p>
           <p>{shop.review_count} reviews</p>

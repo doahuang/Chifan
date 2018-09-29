@@ -40,7 +40,8 @@ nav {
   top: 0;
   width: 100%;
   justify-content: space-between;
-  background: rgba(255, 255, 255, 0.9); }
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 1px 5px lightgray; }
   nav h1 {
     font-size: 50px;
     line-height: 60px;
@@ -93,6 +94,17 @@ nav {
     margin-left: 10px; }
     .searchbar button:active {
       background: lightgray; }
+
+.map-container {
+  margin: 0 50px 0 0; }
+  .map-container .sticky {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 100px; }
+
+#map {
+  border-radius: 5px;
+  height: 400px; }
 
 footer {
   position: absolute;
@@ -152,19 +164,6 @@ footer {
         color: white; }
         .shop ul li section button:active {
           background: lightgray; }
-  .shop .map {
-    margin: 0 50px 0 0; }
-    .shop .map span {
-      position: sticky;
-      position: -webkit-sticky;
-      top: 100px;
-      border: 1px solid;
-      border-radius: 5px;
-      display: grid;
-      height: 400px;
-      font-size: 40px;
-      text-align: center;
-      align-items: center; }
 
 .session-form {
   padding: 40px;
