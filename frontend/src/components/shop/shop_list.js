@@ -4,13 +4,12 @@ import ShopListItem from './shop_list_item_container';
 import Map from '../map/map_container';
 
 export default ({ shops, likes, filters, user }) => {
-  const { price, liked, rating, distance } = filters;
+  const { price, rating, liked } = filters;
 
   const filter = () => {
     return Object.keys(shops)
       .filter(id => liked ? likes[id] : true)
       .filter(id => price ? shops[id].price === price : true)
-      .filter(id => distance ? shops[id].distance <= distance : true)
       .filter(id => rating ? Math.floor(shops[id].rating) === rating : true)
   }
 

@@ -126,6 +126,8 @@ footer {
   .shop .filter {
     margin: 20px 50px 50px; }
     .shop .filter .active {
+      background: #008489; }
+    .shop .filter .reset {
       background: #FF5A5F; }
     .shop .filter button {
       margin: 0 20px 0 0;
@@ -135,6 +137,18 @@ footer {
       background: darkgray; }
       .shop .filter button:active {
         background: lightgray; }
+    .shop .filter .price-filter, .shop .filter .rating-filter {
+      margin: 0 20px 0 0; }
+      .shop .filter .price-filter button, .shop .filter .rating-filter button {
+        margin: 0;
+        border-radius: 0;
+        border-right: 1px solid lightgray; }
+      .shop .filter .price-filter button:first-child, .shop .filter .rating-filter button:first-child {
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px; }
+      .shop .filter .price-filter button:last-child, .shop .filter .rating-filter button:last-child {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px; }
 
 .shop-list {
   display: grid;
