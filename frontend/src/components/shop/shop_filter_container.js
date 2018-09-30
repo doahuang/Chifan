@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import ShopFilter from './shop_filter';
 import { 
@@ -6,8 +7,9 @@ import {
   removeFilters
 } from '../../actions/filter_actions';
 
-const msp = ({ ui: { filters }}) => ({
-  filters
+const msp = ({ ui: { filters }}, ownProps) => ({
+  filters,
+  ownProps
 });
 
 const mdp = dispatch => ({
@@ -15,4 +17,4 @@ const mdp = dispatch => ({
   reset: () => dispatch(removeFilters())
 });
 
-export default connect(msp, mdp)(ShopFilter);
+export default withRouter(connect(msp, mdp)(ShopFilter));

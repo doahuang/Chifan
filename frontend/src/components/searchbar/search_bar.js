@@ -5,7 +5,7 @@ export default ({ history }) => {
     e.preventDefault();
 
     let term = this.termNode.value;
-    let loc = this.locNode.value || 'san francisco';
+    let loc = this.locNode.value || 'san%20francisco';
 
     const query = `term=${term}&location=${loc}`;
     history.push(`/shops?${query}`);

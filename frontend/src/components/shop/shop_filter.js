@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({ filters, set, reset }) => {
+export default ({ filters, set, reset, ownProps }) => {
   const isActive = (field, value) => {
     return filters[field] === value ? 'active' : '';
   }
@@ -30,8 +30,14 @@ export default ({ filters, set, reset }) => {
       <span className='rating-filter'>
         { filter('rating', [2, 3, 4, 5]) }
       </span>
-      <button className={isActive('open', true)}
-        onClick={() => toggle('open')}>
+      <button 
+        className={isActive('open', true)}
+        onClick={() => {
+          const { history, location: { search }} = ownProps;
+          toggle('open')
+          !filters.open ? history.push(`/shops${search}&open_now=true`) : 
+          history.push(`/shops${search.replace(/&open_now=true/g, '')}`)
+        }}>
         Open Now
       </button>
       <button className={isActive('liked', true)}

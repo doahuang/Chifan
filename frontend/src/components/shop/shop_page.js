@@ -6,23 +6,30 @@ import ShopList from './shop_list_container';
 export default class ShopPage extends Component {
   state = {
     user: this.props.user,
+    search: this.props.search,
     params: { location: 'san francisco' }
   }
 
   componentDidMount() {
     if (this.props.user) this.props.getLikes();
-    this.call();
+    this.call(this.state.search);
   }
 
   componentWillReceiveProps(next) {
-    if (next.user !== this.state.user) {
+    const { user, search } = this.state;
+
+    if (next.user !== user) {
       this.setState({ user: next.user })
       if (next.user) this.props.getLikes();
     }
+
+    if (next.search !== search)
+      this.setState({ search: next.search })
+      this.call(next.search);
   }
 
-  call() {
-    const { search, callYelp } = this.props;
+  call(search) {
+    const { callYelp } = this.props;
     let { params } = this.state;
 
     if (!search) return callYelp(params);
@@ -41,9 +48,10 @@ export default class ShopPage extends Component {
   }
   
   render() {
-    let { params: { term, location } } = this.state;
-    if (location) location = location.replace(/%20/, ' ');
-    if (term) term = term.replace(/%20/, ' ');
+    let { params: { term, location }} = this.state;
+
+    if (location) location = location.replace(/%20/g, ' ');
+    if (term) term = term.replace(/%20/g, ' ');
 
     return (
       <div className='shop'>
