@@ -137,16 +137,16 @@ footer {
       background: darkgray; }
       .shop .filter button:active {
         background: lightgray; }
-    .shop .filter .price-filter, .shop .filter .rating-filter {
+    .shop .filter span {
       margin: 0 20px 0 0; }
-      .shop .filter .price-filter button, .shop .filter .rating-filter button {
+      .shop .filter span button {
         margin: 0;
         border-radius: 0;
         border-right: 1px solid lightgray; }
-      .shop .filter .price-filter button:first-child, .shop .filter .rating-filter button:first-child {
+      .shop .filter span button:first-child {
         border-top-left-radius: 5px;
         border-bottom-left-radius: 5px; }
-      .shop .filter .price-filter button:last-child, .shop .filter .rating-filter button:last-child {
+      .shop .filter span button:last-child {
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px; }
 

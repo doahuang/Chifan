@@ -1,14 +1,18 @@
 import React from 'react'
 
+import { parseParams } from '../../util/parse';
+
 export default ({ history }) => {
   const submit = e => {
     e.preventDefault();
 
-    let term = this.termNode.value;
-    let loc = this.locNode.value || 'san%20francisco';
+    const params = {
+      term: this.termNode.value,
+      location: this.locNode.value || 'san francisco'
+    }
 
-    const query = `term=${term}&location=${loc}`;
-    history.push(`/shops?${query}`);
+    const url = parseParams(params)
+    history.push(`/shops${url}`);
   }
 
   return (
