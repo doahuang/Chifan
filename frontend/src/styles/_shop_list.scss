@@ -42,8 +42,13 @@
     display: block;
     text-align: center;
     font-weight: bold;
+
+    span {
+      display: inline-block;
+      width: 100px;
+    }
     a {
-      margin: 0 30px;
+      margin: 0 10px;
     }
   }
 }

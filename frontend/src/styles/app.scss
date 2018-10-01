@@ -1,6 +1,11 @@
 $red: #FF5A5F;
 $green: rgb(0, 132, 137);
 $blue: #0073bb;
+$grey: #f5f5f5;
+
+body {
+  background: $grey;
+}
 
 .app {
   position: relative;

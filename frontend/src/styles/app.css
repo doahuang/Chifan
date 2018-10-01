@@ -1,3 +1,6 @@
+body {
+  background: #f5f5f5; }
+
 .app {
   position: relative; }
 
@@ -40,12 +43,11 @@ nav {
   top: 0;
   width: 100%;
   justify-content: space-between;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 1px 5px lightgray; }
+  background: rgba(255, 90, 95, 0.9);
+  color: white; }
   nav h1 {
     font-size: 50px;
     line-height: 60px;
-    color: #FF5A5F;
     margin: 0 20px; }
   nav .greeting {
     margin: 0 20px;
@@ -96,7 +98,7 @@ nav {
       background: lightgray; }
 
 .map-container {
-  margin: 0 50px 0 0; }
+  margin: 0 50px 50px 0; }
   .map-container .sticky {
     position: sticky;
     position: -webkit-sticky;
@@ -181,8 +183,11 @@ footer {
   display: block;
   text-align: center;
   font-weight: bold; }
+  .shop-list .page-nav span {
+    display: inline-block;
+    width: 100px; }
   .shop-list .page-nav a {
-    margin: 0 30px; }
+    margin: 0 10px; }
 
 .session-form {
   padding: 40px;

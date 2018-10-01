@@ -22,6 +22,10 @@ export default class PageControl extends Component {
       this.setState({ current: current + page });
   }
 
+  jump(page) {
+    this.setState({ current: page })
+  }
+
   render() {
     const { current, total } = this.state;
     const { lists, count } = this.props;
@@ -38,6 +42,8 @@ export default class PageControl extends Component {
           total={total}
           prev={() => this.flip(-1)}
           next={() => this.flip(1)}
+          first={() => this.jump(1)}
+          last={() => this.jump(total)}
         />
       </div>
     )
