@@ -8,7 +8,8 @@ export default ({ history }) => {
 
     const params = {
       term: this.termNode.value,
-      location: this.locNode.value || 'san francisco'
+      location: this.locNode.value || 'san francisco',
+      limit: 50
     }
 
     const url = parseParams(params)

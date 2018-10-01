@@ -28,24 +28,23 @@ export default class ShopPage extends Component {
     }
 
     const { open } = next.filters;
-    if (open !== params.open_now) {
-      const newParams = { ...params, open_now: open }
-      this.update(newParams)
+    if (params.open_now !== open) {
+      const newParams = { ...params, open_now: !!open };
+      this.update(newParams);
     }
   }
 
   update(params) {
     this.setState({ params })
+
+    if (!params.location) return;
+
     this.props.callYelp(params);
   }
 
   parse(url) {
     const params = parseUrl(url);
-    this.setState({ params });
-
-    if (!params.location) return;
-    
-    this.props.callYelp(params);
+    this.update(params)
   }
   
   render() {
