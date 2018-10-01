@@ -26,11 +26,12 @@ export default class ShopListItem extends Component {
   render() {
     const { num, shop, user } = this.props;
     const { liked } = this.state;
+    const defaultImg = 'https://s3-media1.fl.yelpcdn.com/assets/srv0/yelp_styleguide/4f30aa60678e/assets/img/default_avatars/business_large_square.png';
 
     return (
       <li>
         <span>
-          <img src={shop.image_url} alt='' />
+          <img src={shop.image_url || defaultImg} alt='' />
         </span>
         <section>
           <a href={shop.url.split('?')[0]} target='_blank'>

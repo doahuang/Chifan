@@ -1,72 +1,48 @@
 import React, { Component } from 'react'
 
 import ShopListItem from './shop_list_item_container';
-import PageControl from './shop_page_control';
-import Map from '../map/map_container';
+import PageControl from '../page/page_control';
 
 export default class ShopList extends Component {
-  state = {
-    page: 0
-  }
 
-  gotoPage(i, max) {
-    const { page } = this.state;
-    if (page + i < 0 || page + i > max - 1) return;
-    this.setState({ page: page + i })
-  }
+  filter(shops) {
+    const { likes, filters: { price, rating, liked }} = this.props;
 
-  filter() {
-    const { shops, likes, filters: { price, rating, liked }} = this.props;
-
-    return Object.keys(shops)
-      .filter(id => liked ? likes[id] : true)
-      .filter(id => price ? shops[id].price === price : true)
-      .filter(id => rating ? Math.floor(shops[id].rating) === rating : true)
-  }
-
-  map(shops) {
-    const mapShops = {};
-    shops.forEach(id => mapShops[id] = this.props.shops[id]);
-    return mapShops;
+    return Object.values(shops)
+      .filter(shop => liked ? likes[shop.id] : true)
+      .filter(shop => price ? shop.price === price : true)
+      .filter(shop => rating ? Math.floor(shop.rating) === rating : true)
   }
 
   render() {
     const { shops, likes, user } = this.props;
-    let { page } = this.state;
 
-    const filterShops = this.filter();
-    const sliceShops = filterShops.slice(page * 10, page * 10 + 10)
+    const shopsFiltered = this.filter(shops);
 
-    const shopList = sliceShops.map((id, num) => (
-      <ShopListItem
-        key={id}
-        num={num + 1}
-        shop={shops[id]}
-        user={user}
-        liked={!!likes[id]}
-      />
-    ));
+    const count = 5;
+    const total = Math.ceil(shopsFiltered.length / count) || 1;
 
-    const mapShops = this.map(sliceShops);
+    const lists = shopsFiltered.map((shop, num) => {
+      const liked = !!likes[shop.id]
+      shop.label = `${num + 1}`
 
-    const max = Math.ceil(filterShops.length / 10) || 1;
-    page = page > max ? 1 : page;
+      return (
+        <ShopListItem
+          key={num}
+          num={num + 1}
+          shop={shop}
+          user={user}
+          liked={liked}
+        />
+      )
+    });
 
     return (
       <div className='shop-list'>
-        <ul>
-          {
-            shopList.length ? shopList :
-              <li className='errors'>
-                No results found
-          </li>
-          }
-        </ul>
-        <Map shops={mapShops} />
-        <PageControl
-          page={page} 
-          max={max}
-          gotoPage={(i, max) => this.gotoPage(i, max)}
+        <PageControl 
+          total={total} 
+          lists={lists}
+          count={count}
         />
       </div>
     )

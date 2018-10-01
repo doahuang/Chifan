@@ -16,8 +16,8 @@ export default class MarkerManager {
       .forEach(id => this.createMarkerFrom(shops[id]));
 
     // reset labels
-    Object.keys(shops)
-      .forEach((id, i) => this.markers[id].setLabel(`${i + 1}`));
+    // Object.keys(shops)
+    //   .forEach((id, i) => this.markers[id].setLabel(`${i + 1}`));
   }
 
   createMarkerFrom(shop) {
@@ -29,7 +29,8 @@ export default class MarkerManager {
     const markerOptions = {
       position,
       id: shop.id,
-      title: shop.name
+      title: shop.name,
+      label: shop.label
     };
 
     let marker = new google.maps.Marker(markerOptions);

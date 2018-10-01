@@ -4,16 +4,19 @@ import MarkerManager from './marker_manager';
 export default class Map extends Component {  
   componentDidMount() {
     const { center: {latitude, longitude}, zoom } = this.props;
+    const google = window.google;
     
     const mapOptions = {
       center: {
         lat: latitude || 37.7758,
         lng: longitude || -122.435
       },
-      zoom: zoom || 11
+      zoom: zoom || 11,
+      mapTypeControlOptions: {
+        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU
+      }
     };
     
-    const google = window.google;
     this.map = new google.maps.Map(this.refs.mapNode, mapOptions);
 
     this.MarkerManager = new MarkerManager(this.map);
@@ -27,7 +30,7 @@ export default class Map extends Component {
     const lng = center.longitude;
 
     if (latitude !== lat || longitude !== lng)
-      this.map.panTo({ lat, lng })
+      this.map.setCenter({ lat, lng })
 
     this.MarkerManager.updateMarkers(shops);
   }

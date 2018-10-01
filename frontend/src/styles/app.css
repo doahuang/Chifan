@@ -151,39 +151,38 @@ footer {
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px; }
 
-.shop-list {
+.shop-list a {
+  color: #0073bb; }
+  .shop-list a:hover {
+    text-decoration: underline; }
+
+.shop-list .page-list {
   display: grid;
   grid-template-columns: 5fr 3fr; }
-  .shop-list a {
-    color: #0073bb; }
-    .shop-list a:hover {
-      text-decoration: underline; }
-  .shop-list ul li {
+  .shop-list .page-list ul li {
     display: flex;
     margin: 0 50px 40px; }
-    .shop-list ul li span {
+    .shop-list .page-list ul li span img {
+      border-radius: 5px;
       height: 250px;
       width: 250px; }
-      .shop-list ul li span img {
-        border-radius: 5px;
-        height: 250px;
-        width: 250px; }
-    .shop-list ul li section {
+    .shop-list .page-list ul li section {
       margin: 10px 0 0 50px; }
-      .shop-list ul li section button {
+      .shop-list .page-list ul li section button {
         margin: 20px 0 0;
         padding: 10px 20px;
         border-radius: 5px;
         background: #FF5A5F;
         color: white; }
-        .shop-list ul li section button:active {
+        .shop-list .page-list ul li section button:active {
           background: lightgray; }
-  .shop-list .page-control {
-    grid-column: 1 / span 2;
-    text-align: center;
-    font-weight: bold; }
-    .shop-list .page-control a {
-      margin: 0 50px; }
+
+.shop-list .page-nav {
+  display: block;
+  text-align: center;
+  font-weight: bold; }
+  .shop-list .page-nav a {
+    margin: 0 30px; }
 
 .session-form {
   padding: 40px;

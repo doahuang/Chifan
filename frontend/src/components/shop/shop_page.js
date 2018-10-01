@@ -43,7 +43,8 @@ export default class ShopPage extends Component {
   }
 
   parse(url) {
-    const params = parseUrl(url);
+    const limit = 50;
+    const params = parseUrl(`${url}&limit=${limit}`);
     this.update(params)
   }
   
