@@ -29,7 +29,7 @@ export default class ProfileForm extends Component {
 
     if (!this.state.open) return this.open();
 
-    let { value } = this.fieldNode;
+    let { value } = this.refs.fieldNode;
     if (!value || value === this.state.value) return this.close();
 
     const { id, field } = this.props;
@@ -52,7 +52,7 @@ export default class ProfileForm extends Component {
             <input 
               placeholder={value}
               type={type}
-              ref={node => this.fieldNode = node}
+              ref='fieldNode'
               maxLength={maxLength}
             />
           }

@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { ProtectedRoute } from '../util/routes';
 
-import '../styles/app.css';
+import '../styles/app.scss';
 
 import Modal from './modal/modal_container';
 import Nav from './nav/nav';

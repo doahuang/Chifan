@@ -14,12 +14,13 @@ export default class SessionForm extends Component {
   submitForm(e, demo) {
     e.preventDefault();
 
-    let name = this.nameNode ? this.nameNode.value : '';
+    const { nameNode, emailNode, passwordNode } = this.refs;
     let user = {
-      name,
-      email: this.emailNode.value,
-      password: this.passwordNode.value
+      name: nameNode ? nameNode.value : '',
+      email: emailNode.value,
+      password: passwordNode.value
     };
+    
     if (demo) user = this.state;
 
     this.props.submit(user, this.props.closeModal);
@@ -35,18 +36,18 @@ export default class SessionForm extends Component {
           {
             formType === 'Log In' ? null :
             <input placeholder='Name'
-              ref={node => this.nameNode = node}
+              ref='nameNode'
               maxLength={20}
               required
             />
           }
           <input type='email' placeholder='Email'
-            ref={node => this.emailNode = node}
+            ref='emailNode'
             maxLength={20}
             required 
           />
           <input type='password' placeholder='Password'
-            ref={node => this.passwordNode = node}
+            ref='passwordNode'
             maxLength={20}
             required 
           />

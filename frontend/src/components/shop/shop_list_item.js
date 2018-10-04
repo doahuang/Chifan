@@ -27,6 +27,10 @@ export default class ShopListItem extends Component {
     const { num, shop, user } = this.props;
     const { liked } = this.state;
     const defaultImg = 'https://s3-media1.fl.yelpcdn.com/assets/srv0/yelp_styleguide/4f30aa60678e/assets/img/default_avatars/business_large_square.png';
+    const options = {
+      target: '_blank',
+      rel: 'noopener noreferrer'
+    }
 
     return (
       <li>
@@ -34,7 +38,7 @@ export default class ShopListItem extends Component {
           <img src={shop.image_url || defaultImg} alt='' />
         </span>
         <section>
-          <a href={shop.url.split('?')[0]} target='_blank'>
+          <a href={shop.url.split('?')[0]} {...options}>
             <b>{num}. {shop.name}</b>
           </a>
           <p>{shop.rating} stars</p>

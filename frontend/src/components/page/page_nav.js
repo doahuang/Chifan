@@ -7,13 +7,13 @@ export default ({ current, total, prev, next, first, last }) => {
         First
       </a>
       <a onClick={prev}>
-        Prev
+        ❮ Prev
       </a>
       <span>
         {current} / {total}
       </span>
       <a onClick={next}>
-        Next
+        Next ❯
       </a>
       <a onClick={last}>
         Last
