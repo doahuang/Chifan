@@ -16,8 +16,11 @@ export default class MarkerManager {
       .forEach(id => this.createMarkerFrom(shops[id]));
 
     // reset labels
-    // Object.keys(shops)
-    //   .forEach((id, i) => this.markers[id].setLabel(`${i + 1}`));
+    Object.keys(shops)
+      .forEach(id => {
+        let label = shops[id].label
+        this.markers[id].setLabel(`${label}`)
+      });
   }
 
   createMarkerFrom(shop) {

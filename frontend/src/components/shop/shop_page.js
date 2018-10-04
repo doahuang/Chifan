@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import ShopFilter from './shop_filter_container';
+import ShopFilter from '../filter/filter_container';
 import ShopList from './shop_list_container';
 
 import { parseUrl } from '../../util/parse';

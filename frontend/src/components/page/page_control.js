@@ -42,8 +42,7 @@ export default class PageControl extends Component {
           total={total}
           prev={() => this.flip(-1)}
           next={() => this.flip(1)}
-          first={() => this.jump(1)}
-          last={() => this.jump(total)}
+          jump={page => this.jump(page)}
         />
       </div>
     )

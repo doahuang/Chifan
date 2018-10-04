@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import NavLink from '../nav/nav_link'
+
 export default ({ logout }) => {
   return (
     <ul>
@@ -11,9 +13,9 @@ export default ({ logout }) => {
         <Link to='/profile'>Profile</Link>
       </li>
       <li>
-        <a onClick={() => logout()}>
+        <NavLink actions={() => logout()}>
           Log Out
-        </a>
+        </NavLink>
       </li>
     </ul>
   )

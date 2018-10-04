@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import ShopFilter from './shop_filter';
+import Filter from './filter';
 import { receiveFilter, removeFilters } from '../../actions/filter_actions';
 
 const mdp = dispatch => ({
@@ -8,4 +8,4 @@ const mdp = dispatch => ({
   reset: () => dispatch(removeFilters())
 });
 
-export default connect(null, mdp)(ShopFilter);
+export default connect(null, mdp)(Filter);

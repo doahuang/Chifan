@@ -1,23 +1,38 @@
 import React from 'react'
 
-export default ({ current, total, prev, next, first, last }) => {
+import NavLink from '../nav/nav_link'
+
+export default ({ current, total, prev, next, jump }) => {
+  const pageList = total => {
+    const pages = [];
+    for (let i = 0; i < total; i++) {
+      pages.push(i + 1)
+    }
+
+    return pages.map(page => (
+      current === page ? 
+      <span key={page}>
+        {page}
+      </span> :
+      <NavLink 
+        key={page}
+        actions={() => jump(page)}>
+        { page }
+      </NavLink>
+    ));
+  }
+
   return (
-    <span className='page-nav'>
-      <a onClick={first}>
-        First
-      </a>
-      <a onClick={prev}>
+    <div className='page-nav'>
+      <NavLink actions={prev}>
         ❮ Prev
-      </a>
+      </NavLink>
       <span>
-        {current} / {total}
+        { pageList(total) }
       </span>
-      <a onClick={next}>
+      <NavLink actions={next}>
         Next ❯
-      </a>
-      <a onClick={last}>
-        Last
-      </a>
-    </span>
+      </NavLink>
+    </div>
   )
 }
