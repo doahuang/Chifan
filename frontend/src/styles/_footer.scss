@@ -11,4 +11,10 @@ footer {
       text-decoration: underline;
     }
   }
+
+  @media screen and (max-width: 400px) {
+    a:last-child {
+      display: none;
+    }
+  }
 }

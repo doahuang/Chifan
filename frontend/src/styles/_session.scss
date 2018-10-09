@@ -34,4 +34,9 @@
       background: lightgray;
     }
   }
+
+  @media screen and (max-width: 480px) {
+    width: 90vw;
+    height: 100%;
+  }
 }

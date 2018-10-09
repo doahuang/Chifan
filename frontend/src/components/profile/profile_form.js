@@ -48,7 +48,7 @@ export default class ProfileForm extends Component {
       <div className='profile-form'>
         <form onSubmit={e => this.submit(e)}>
           {
-            !open ? value :
+            !open ? <span>{ value } </span> :
             <input 
               placeholder={value}
               type={type}

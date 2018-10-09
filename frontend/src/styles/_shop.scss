@@ -14,6 +14,7 @@
     }
     .reset {
       background: $red;
+      margin: 0;
     }
     button {
       margin: 0 20px 0 0;
@@ -25,7 +26,7 @@
         background: lightgray;
       }
     }
-    span {
+    .group {
       margin: 0 20px 0 0;
       button {
         margin: 0;
@@ -40,6 +41,17 @@
       button:last-child {
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    .filter {
+      display: grid;
+      grid-row-gap: 10px;
+
+      button {
+        margin: 0 20px 10px 0;
       }
     }
   }

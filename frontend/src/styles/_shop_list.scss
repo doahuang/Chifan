@@ -47,4 +47,37 @@
       margin: 0 10px;
     }
   }
+
+  @media screen and (max-width: 900px) {
+    .page-list {
+      grid-template-columns: 1fr 1fr;
+      ul {
+        li {
+          display: grid;
+          section {
+            margin: 20px 0 0;
+          }
+        }
+      }
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .page-list {
+      grid-template-columns: none;
+      ul {
+        li {
+          margin: 0 0 40px;
+          text-align: center;
+        }
+      }
+    }
+
+    .page-nav {
+      display: grid;
+      a {
+        display: inline-block;
+      }
+    }
+  }
 }

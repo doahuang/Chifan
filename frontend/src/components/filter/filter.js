@@ -39,22 +39,24 @@ export default ({ filters, set, reset }) => {
 
   return (
     <div className='filter'>
-      <span>
+      <span className='group'>
         <button disabled>Price</button>
         { changeGroup('price', ['$', '$$', '$$$', '$$$$']) }
       </span>
-      <span>
+      <span className='group'>
         <button disabled>Rating</button>
         { changeGroup('rating', [3, 4, 5]) }
       </span>
-      { toggleButton('open', 'Open Now') }
-      { toggleButton('liked', 'Liked') }
-      <button 
-        className='reset' 
-        onClick={() => reset()}
-      >
-        Reset
-      </button>
+      <span>
+        { toggleButton('open', 'Open Now') }
+        { toggleButton('liked', 'Liked') }
+        <button 
+          className='reset' 
+          onClick={() => reset()}
+        >
+          Reset
+        </button>
+      </span>
     </div>
   )
 }

@@ -32,4 +32,16 @@ nav {
       }
     }
   }
+
+  @media screen and (max-width: 480px) {
+    h1 {
+      margin: 0 0 0 10px;
+    }
+    .greeting {
+      margin: 0 10px 0 0;
+      li:first-child {
+        display: none;
+      }
+    }
+  }
 }

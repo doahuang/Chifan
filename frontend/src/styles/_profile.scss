@@ -1,21 +1,21 @@
 .profile {
   margin: 100px 0 0;
   font-size: 20px;
-  button {
-    padding: 10px;
-    border-radius: 5px;
-    background: $red;
-    color: white;
-    margin: 0 10px;
-    &:active {
-      background: lightgray;
-    }
-  }
-
   ul {
     li {
       list-style: none;
       margin: 50px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    ul {
+      li {
+        display: grid;
+        input {
+          margin: 10px 10px 10px 0;
+        }
+      }
     }
   }
 }
