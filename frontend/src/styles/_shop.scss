@@ -8,28 +8,27 @@
 
   
   .filter {
-    margin: 20px 50px 50px;
+    display: flex;
+    flex-flow: wrap;
+    margin: 20px 0 20px 50px;
     .active {
       background: $green;
     }
     .reset {
       background: $red;
-      margin: 0;
     }
     button {
-      margin: 0 20px 0 0;
       padding: 10px;
-      border-radius: 5px;
       color: white;
       background: darkgray;
       &:active {
         background: lightgray;
       }
     }
-    .group {
+    span {
       margin: 0 20px 0 0;
       button {
-        margin: 0;
+        margin: 0 0 10px;
         border-radius: 0;
         border-right: 1px solid lightgray;
       }
@@ -43,16 +42,25 @@
         border-bottom-right-radius: 5px;
       }
     }
-  }
-
-  @media screen and (max-width: 900px) {
-    .filter {
-      display: grid;
-      grid-row-gap: 10px;
-
+    span:last-child {
       button {
         margin: 0 20px 10px 0;
+        border-radius: 5px;
       }
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .filter {
+      span {
+        margin: 0;
+      }
+    }
+  }
+
+  @media screen and (max-width: 350px) {
+    .filter {
+      margin: 20px;
     }
   }
 }

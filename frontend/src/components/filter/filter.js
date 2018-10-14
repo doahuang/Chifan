@@ -39,11 +39,11 @@ export default ({ filters, set, reset }) => {
 
   return (
     <div className='filter'>
-      <span className='group'>
+      <span>
         <button disabled>Price</button>
         { changeGroup('price', ['$', '$$', '$$$', '$$$$']) }
       </span>
-      <span className='group'>
+      <span>
         <button disabled>Rating</button>
         { changeGroup('rating', [3, 4, 5]) }
       </span>

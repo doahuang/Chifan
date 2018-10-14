@@ -12,6 +12,10 @@ export default class ShopPage extends Component {
     params: {}
   }
 
+  componentWillUnmount() {
+    this.props.resetFilters();
+  }
+
   componentDidMount() {
     const { user, url, getLikes } = this.props;
 
