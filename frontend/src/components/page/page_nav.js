@@ -25,13 +25,13 @@ export default ({ current, total, prev, next, jump }) => {
   return (
     <div className='page-nav'>
       <NavLink actions={prev}>
-        ❮ Prev
+        { current === 1 ? null : '❮ Prev' }
       </NavLink>
       <span>
         { pageList(total) }
       </span>
       <NavLink actions={next}>
-        Next ❯
+        { current === total ? null : 'Next ❯' }
       </NavLink>
     </div>
   )
